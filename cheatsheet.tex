@@ -1,0 +1,195 @@
+\documentclass{article}
+\title{Differential Equations Cheatsheet (JMC Year 1, 2017/2018)}
+\date{}
+\author{Fawaz Shah}
+
+% Packages for adding hyperlinks to table of contents
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+%package that allows aligned equations
+\usepackage{amsmath}
+
+\begin{document}
+\large
+\maketitle
+\tableofcontents
+\newpage
+\part{Differential Equations}
+  
+\section{Definitions}
+
+\paragraph{Order (of derivative)}
+An $ n^{th} $ derivative has order $ n $.
+
+\paragraph{Order (of ODE)}
+The order of the highest derivative present in an ODE.
+
+\paragraph{Degree (of ODE)}
+The highest power to which a term is raised in an ODE (excluding fractional powers).
+
+\paragraph*{Linear}
+An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
+    
+\section{1st order linear ODEs}
+Every 1st order linear ODE can be expressed as:
+\begin{equation}
+\frac{dy}{dx} + p(x)y = q(x)
+\end{equation}
+These can ALL be solved by the \emph{integrating factor} method:
+\begin{enumerate}
+\item Multiply both sides by $ exp(\int_{}^{} p(x) dx) $
+\item Use the reverse product rule to express the LHS as a single derivative (of a function of y).
+\item Integrate both sides and rearrange.
+\end{enumerate}
+  
+\section{1st order non-linear ODEs}
+
+\subsection{Separable ODEs}
+Separable equations can be written in the form:
+\begin{equation}
+\frac{dy}{dx} = f(x)g(y)
+\end{equation}
+These can be rearranged and integrated on both sides, with respect to the different variables.
+
+\subsection{Homogenous ODEs}
+Homogenous equations can be written in the form:
+\begin{equation}
+\frac{dy}{dx} = f(\frac{y}{x})
+\end{equation}
+To solve, set $ v = \frac{y}{x} $, so that $y = xv $. Note that v is still a single-variable function of x, since y is a function of x.
+Now we can differentiate both sides to get:
+\begin{equation}
+\frac{dy}{dx} = v + x\frac{dv}{dx}
+\end{equation}
+We now have simultaneous equations for $ \frac{dy}{dx} $. Equate and solve for $ \frac{dv}{dx} $, and then solve this 1st order linear ODE in $ \frac{dv}{dx} $ to find v (and then y).
+
+\subsection{Bernoulli type ODEs}
+A Bernoulli type ODE is of the form:
+\begin{equation}
+\frac{dy}{dx} + p(x)y = q(x)y^n
+\end{equation}
+To solve:
+\begin{enumerate}
+\item Multiply both sides by $ (1-n)y^{-n} $
+\item Let $ z = y^{1-n} $ and substitute into equation, including rewriting one of the terms as $ \frac{dz}{dx} $
+\item The resulting equation is 1st order linear in z, so solve for z (and then y).
+\end{enumerate}
+
+\section{2nd order ODEs}
+
+\subsection{Special case - y missing}
+If we can write the $ 2^{nd} $ derivative as:
+\begin{equation}
+\frac{d^{2}y}{dx^{2}} = f(x, \frac{dy}{dx})
+\end{equation}
+(i.e. y is missing), then we can make a substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
+\begin{equation}
+\frac{dP}{dx} = f(x, P)
+\end{equation}
+This is 1st order w.r.t P and can be solved by appropriate 1st order methods.
+
+\subsection{Special case - x missing}
+If we can write the $ 2^{nd} $ derivative as:
+\begin{equation}
+\frac{d^{2}y}{dx^{2}} = f(y, \frac{dy}{dx})
+\end{equation}
+(i.e. x is missing), then we can make the same substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
+\begin{equation}
+\frac{dP}{dx} = f(y, P)
+\end{equation}
+DIFFERENT TO LAST TIME: we must rewrite $ \frac{dP}{dx} $ as a derivative with respect to y. Luckily, we can see that:
+\begin{equation}
+\frac{dP}{dx} = \frac{dP}{dy}\frac{dy}{dx} = P\frac{dP}{dy}
+\end{equation}
+Therefore:
+\begin{equation}
+P\frac{dP}{dy} = f(y, P)
+\end{equation}
+This is 1st order w.r.t P and can be solved by appropriate 1st order methods.
+
+\subsection{General case - finding the CF}
+The general solution (GS) of a 2nd order ODE can be expressed as the sum of two other functions, called the 'complementary function' (CF) and a 'particular integral' (PI).
+\begin{equation}
+y_{GS} = y_{CF} + y_{PI}
+\end{equation} 
+A 2nd order ODE will usually be presented to us in the form:
+\begin{equation} \label{secondordergeneralform}
+a\frac{d^{2}y}{dx^{2}} + b\frac{dy}{dx} + c = f(x)
+\end{equation}
+It can be shown that the CF can be calculated from the LHS of the above equation. We write down the \emph{auxiliary equation}, which is simply the equation:
+\begin{equation}
+a\lambda^{2} + b\lambda + c = 0
+\end{equation}
+using a, b, c from above. Solving this gives us two values, $ \lambda_{1} $ and $ \lambda_{2} $.
+
+\subsubsection{$ \lambda_{1} \neq \lambda_{2} $}
+We can express the CF as:
+\begin{equation}
+y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}e^{\lambda_{2}x}
+\end{equation}
+where $ A_{1} $ and $ A_{2} $ are arbitrary constants.
+
+\subsubsection{$ \lambda_{1} = \lambda_{2} $}
+Same as above, but we stick an $ x $ in front of one of the clashing parts of the solution.
+\begin{equation}
+y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}xe^{\lambda_{2}x}
+\end{equation}
+
+\subsubsection{$ \lambda_{1} $ and $ \lambda_{2} $ are complex-valued}
+If the auxiliary equation has complex roots, $ \lambda_{1} $ and $ \lambda_{2} $ will be complex conjugates. It is also important to note $ A_{1} $ and $ A_{2} $ are now complex-valued. The CF can be expressed as:
+\begin{equation}
+\begin{split}
+y_{CF} & = A_{1}e^{(a + bi)x} + A_{2}e^{(a - bi)x} \\
+       & = e^{a}(A_{1}e^{i(bx)} + A_{2}e^{- i(bx)}) \\
+       & = e^{a}(C_{1}cos(bx) + C_{2}sin(bx))
+\end{split}
+\end{equation}
+where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that $ A_{1} $ and $ A_{2} $ would have been complex, however $ C_{1} $ and $ C_{2} $ are necessarily real.
+
+\subsection{General case - finding the PI}
+The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{secondordergeneralform}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $.
+
+\subsubsection{$ f(x) $ is a polynomial}
+Try setting $ y_{PI} $ as a general polynomial of the same degree. e.g. if $ f(x) $ is a quadratic, try setting $ y_{PI} = ax^{2} + bx + c $ and substituting into the ODE. We will solve for a, b, c, and this will give us $ y_{PI} $.
+
+\subsubsection{$ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ NOT in CF}
+Choose $ y_{PI} = Ae^{bx} $ for some real number A.
+
+\subsubsection{$ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ IS in CF}
+We now have a clash between the PI and the CF. Choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. At the end remove any clashing terms (i.e. terms with a component of $ e^{(something)x} $ which is already present in the CF.
+
+\subsubsection{$ f(x) = A(x)e^{bx} $ where $ A(x) $ is a polynomial}
+Choose $ y_{PI} = C(x)e^{bx} $ for some polynomial $ C(x) $.
+
+\subsubsection{$ f(x) $ is trigonometric (e.g. sin, cos, sinh etc.)}
+Look for a pattern in $ f(x) $. A good tip for an $ f(x) $ with only sines/cosines is to use $ y_{PI} = A\cos(x) + B\sin(x) $ and solve for A and B. A similar story for sinh and cosh.
+CAUTION: sinh, cosh and tanh are actually exponential functions in disguise, so make sure they do not clash with any $ e^{\lambda x} $ terms in the CF.
+
+\subsubsection{Special cases}
+If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we can rewrite it as the real/imaginary part of a complex function (in this case $ e^{(1+i)x} $ would be appropriate, since it expands to $ e^{x}(\cos(x) + i\sin(x)) $.
+  
+\newpage
+\part{Systems of differential equations}
+
+\section{Definitions}
+
+\paragraph{Order (of system)}
+The order of the highest derivative present in the system.
+
+\paragraph{Degree (of system)}
+The highest power to which a term is raised in an ODE (excluding fractional powers).
+
+\paragraph*{Linear}
+An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
+
+\paragraph{Homogenous}
+
+\paragraph{Equilibrium point}
+
+\end{document}
