@@ -136,7 +136,9 @@ If we can write the $ 2^{nd} $ derivative as:
 \begin{equation}
 \frac{dP}{dx} = f(y, P)
 \end{equation}
-DIFFERENT TO LAST TIME: if we want a 1st order equation, we must rewrite $ \frac{dP}{dx} $ as a derivative with respect to y, since the RHS contains y terms. Luckily, we can see that:
+However, this is not yet a 1st order equation since the derivative is w.r.t. x, but we only have y terms on the RHS.
+\\\\
+DIFFERENT TO LAST TIME: we must rewrite $ \frac{dP}{dx} $ as a derivative with respect to y. Luckily, we can see that:
 \begin{equation}
 \frac{dP}{dx} = \frac{dP}{dy}\frac{dy}{dx} = P\frac{dP}{dy}
 \end{equation}
@@ -197,7 +199,9 @@ Try setting $ y_{PI} $ as a general polynomial of the same degree. e.g. if $ f(x
 Choose $ y_{PI} = Ae^{bx} $ for some real number A.
 
 \subsubsection{$ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ IS in CF}
-We now have a clash between the PI and the CF. We can try $ y_{PI} = Axe^{bx} $, i.e. sticking an x in the PI to avoid the clash. If this doesn't work, we can choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. At the end remove any clashing terms (i.e. terms with a component of $ e^{\lambda x} $ which is already present in the CF.
+We now have a clash between the PI and the CF. We can try $ y_{PI} = Axe^{bx} $, i.e. sticking an x in the PI to avoid the clash. If this doesn't work, we can choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. Remember to use the CHAIN RULE to differentiate A this time.
+\\\\
+At the end remove any clashing terms, i.e. terms of the form $ Be^{\lambda x} $ where $ e^{\lambda x} $ is already present in the CF. Other terms with more $ x $'s included are allowed, e.g. $ xe^{\lambda x} $ would not count as a clashing term.
 
 \subsubsection{$ f(x) = A(x)e^{bx} $ where $ A(x) $ is a polynomial}
 Choose $ y_{PI} = C(x)e^{bx} $ for some polynomial $ C(x) $.
