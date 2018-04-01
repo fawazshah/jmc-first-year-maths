@@ -34,7 +34,7 @@ The order of the highest derivative present in an ODE.
 The highest power to which a term is raised in an ODE (excluding fractional powers).
 
 \paragraph*{Linear}
-An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
+An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y, x $ or other derivative terms multiplied by each other.
     
 \section{1st order linear ODEs}
 Every 1st order linear ODE can be expressed as:
@@ -84,11 +84,11 @@ To solve:
 \section{2nd order ODEs}
 
 \subsection{Special case - y missing}
-If we can write the $ 2^{nd} $ derivative as:
+If we can write the $ 2^{nd} $ derivative in the form:
 \begin{equation}
 \frac{d^{2}y}{dx^{2}} = f(x, \frac{dy}{dx})
 \end{equation}
-(i.e. y is missing), then we can make a substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
+(i.e. no $ y $ terms present), then we can make a substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
 \begin{equation}
 \frac{dP}{dx} = f(x, P)
 \end{equation}
@@ -103,7 +103,7 @@ If we can write the $ 2^{nd} $ derivative as:
 \begin{equation}
 \frac{dP}{dx} = f(y, P)
 \end{equation}
-DIFFERENT TO LAST TIME: we must rewrite $ \frac{dP}{dx} $ as a derivative with respect to y. Luckily, we can see that:
+DIFFERENT TO LAST TIME: if we want a 1st order equation, we must rewrite $ \frac{dP}{dx} $ as a derivative with respect to y, since the RHS contains y terms. Luckily, we can see that:
 \begin{equation}
 \frac{dP}{dx} = \frac{dP}{dy}\frac{dy}{dx} = P\frac{dP}{dy}
 \end{equation}
@@ -179,17 +179,57 @@ If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we 
 
 \section{Definitions}
 
+\paragraph{System of diff. equations}
+A set of simultaneous equations of derivatives, where derivatives of $ y, x $ etc. are given w.r.t. a parameter $ t $
+
 \paragraph{Order (of system)}
 The order of the highest derivative present in the system.
 
 \paragraph{Degree (of system)}
 The highest power to which a term is raised in an ODE (excluding fractional powers).
 
-\paragraph*{Linear}
-An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
+\paragraph{Linear}
+A system which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
 
 \paragraph{Homogenous}
+A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
 
 \paragraph{Equilibrium point}
+A point at which all the derivatives in the sytem equate to 0.
+
+\section{Solving systems of diff. equations}
+A 1st order system of equations can be written as:
+\begin{equation}
+\begin{split}
+\frac{dx}{dt} & = F(x, y) \\
+\frac{dy}{dt} & = G(x, y)
+\end{split}
+\end{equation}
+To solve these, we want to \emph{decouple} the equations. This means $ \frac{dx}{dt} $ should be expressed as a function of $ x $ alone, and similarly for $ \frac{dy}{dt} $
+This is best explained, with an example, so let us choose a coupled system:
+\begin{equation}
+\begin{split}
+\frac{dx}{dt} & = - 4x - 3y \\
+\frac{dy}{dt} & = 2x + 3y
+\end{split}
+\end{equation}
+We can rewrite this in matrix form:
+\begin{equation}
+\frac{d}{dt}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4 & -3 \\
+2 & 3
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+\end{equation}
+
 
 \end{document}
