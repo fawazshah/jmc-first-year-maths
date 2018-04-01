@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{Differential Equations Cheatsheet (JMC Year 1, 2017/2018)}
+\title{Differential Equations Cheatsheet (JMC Year 1, 2017/2018 syllabus)}
 \date{}
 \author{Fawaz Shah}
 
@@ -18,9 +18,10 @@
 \begin{document}
 \large
 \maketitle
+Items not covered in this summary: phase portraits, similarity transformations.
 \tableofcontents
 \newpage
-\part{Differential Equations}
+\part{Individual differential equations}
   
 \section{Definitions}
 
@@ -49,6 +50,37 @@ These can ALL be solved by the \emph{integrating factor} method:
 \end{enumerate}
   
 \section{1st order non-linear ODEs}
+
+\subsection{Exact equations}
+Let us say we have an ODE of the form:
+\begin{equation}
+P(x, y) + Q(x, y)\frac{dy}{dx} = 0
+\end{equation}
+(note the coefficients are multi-variable functions). This can be rewritten as:
+\begin{equation} \label{exactdifferential}
+P(x, y) dx + Q(x, y) dy = 0
+\end{equation}
+We can try the exact equations method. We say an equation is exact iff:
+\begin{equation}
+\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x} 
+\end{equation}
+This simple condition implies some important results. It can be shown that an exact equation implies the LHS of equation \ref{exactdifferential} is an exact (total) differential). This means it can be written as $ df $, where f is some function of $ x $ and $ y $. But the equation of this total differential is:
+\begin{equation}
+df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy
+\end{equation}
+Comparing to equation \ref{exactdifferential} we can note 3 things:
+\begin{equation}
+\begin{split}
+P(x, y) & = \frac{\partial f}{\partial x} \\
+Q(x, y) & = \frac{\partial f}{\partial y} \\
+df & = 0
+\end{split}
+\end{equation}
+We integrate $ P(x, y) $ w.r.t $ x $ and $ Q(x, y) $ w.r.t $ y $ and 'merge' the two expressions together (i.e. for any matching terms, write them down only once) to give us an expression for $ f(x, y) $. Ignore constants of integration. $ df = 0 $ tells us that $ f(x, y) = c $ by integration. Therefore the general solution is given by:
+\begin{equation}
+f(x, y) = c
+\end{equation}
+for some arbitrary constant c.
 
 \subsection{Separable ODEs}
 Separable equations can be written in the form:
@@ -88,7 +120,8 @@ If we can write the $ 2^{nd} $ derivative in the form:
 \begin{equation}
 \frac{d^{2}y}{dx^{2}} = f(x, \frac{dy}{dx})
 \end{equation}
-(i.e. no $ y $ terms present), then we can make a substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
+(i.e. no $ y $ terms present), then we can make a substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, the
+refore we have:
 \begin{equation}
 \frac{dP}{dx} = f(x, P)
 \end{equation}
@@ -99,7 +132,7 @@ If we can write the $ 2^{nd} $ derivative as:
 \begin{equation}
 \frac{d^{2}y}{dx^{2}} = f(y, \frac{dy}{dx})
 \end{equation}
-(i.e. x is missing), then we can make the same substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
+(i.e. no x terms present), then we can make the same substitution. Let $ P = \frac{dy}{dx} $. This means $ \frac{d^{2}y}{dx^{2}} = \frac{dP}{dx} $, therefore we have:
 \begin{equation}
 \frac{dP}{dx} = f(y, P)
 \end{equation}
@@ -142,7 +175,7 @@ y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}xe^{\lambda_{2}x}
 \end{equation}
 
 \subsubsection{$ \lambda_{1} $ and $ \lambda_{2} $ are complex-valued}
-If the auxiliary equation has complex roots, $ \lambda_{1} $ and $ \lambda_{2} $ will be complex conjugates. It is also important to note $ A_{1} $ and $ A_{2} $ are now complex-valued. The CF can be expressed as:
+If the auxiliary equation has complex roots, $ \lambda_{1} $ and $ \lambda_{2} $ will be complex conjugates. The CF can be expressed as:
 \begin{equation}
 \begin{split}
 y_{CF} & = A_{1}e^{(a + bi)x} + A_{2}e^{(a - bi)x} \\
@@ -150,7 +183,7 @@ y_{CF} & = A_{1}e^{(a + bi)x} + A_{2}e^{(a - bi)x} \\
        & = e^{a}(C_{1}cos(bx) + C_{2}sin(bx))
 \end{split}
 \end{equation}
-where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that $ A_{1} $ and $ A_{2} $ would have been complex, however $ C_{1} $ and $ C_{2} $ are necessarily real.
+where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that even though $ A_{1} $ and $ A_{2} $ may have been complex, $ C_{1} $ and $ C_{2} $ are necessarily real.
 
 \subsection{General case - finding the PI}
 The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{secondordergeneralform}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $.
@@ -191,26 +224,22 @@ The highest power to which a term is raised in an ODE (excluding fractional powe
 \paragraph{Linear}
 A system which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
 
-\paragraph{Homogenous}
+\paragraph{Homogeneous}
 A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
 
-\paragraph{Equilibrium point}
-A point at which all the derivatives in the sytem equate to 0.
-
 \section{Solving systems of diff. equations}
-A 1st order system of equations can be written as:
+A homogeneous 1st order system of equations can be written as:
 \begin{equation}
 \begin{split}
 \frac{dx}{dt} & = F(x, y) \\
 \frac{dy}{dt} & = G(x, y)
 \end{split}
 \end{equation}
-To solve these, we want to \emph{decouple} the equations. This means $ \frac{dx}{dt} $ should be expressed as a function of $ x $ alone, and similarly for $ \frac{dy}{dt} $
-This is best explained, with an example, so let us choose a coupled system:
+Let us choose an example coupled system:
 \begin{equation}
 \begin{split}
-\frac{dx}{dt} & = - 4x - 3y \\
-\frac{dy}{dt} & = 2x + 3y
+\frac{dx}{dt} & = ax + by \\
+\frac{dy}{dt} & = cx + dy
 \end{split}
 \end{equation}
 We can rewrite this in matrix form:
@@ -222,14 +251,81 @@ y
 \end{pmatrix}
 =
 \begin{pmatrix}
--4 & -3 \\
-2 & 3
+a & b \\
+c & d
 \end{pmatrix}
 \begin{pmatrix}
 x \\
 y
 \end{pmatrix}
 \end{equation}
+The system is now of the form
+\begin{equation}
+\frac{d}{dt}v = Mv
+\end{equation}
+If we set $ v = Ve^{\lambda  t} $, where V is a constant vector independent of $ x, y $ or $ t $, then we get
+\begin{equation}
+\begin{split}
+\lambda V & = MV \\
+(M - \lambda I_{n})V & = 0_{v} \\
+\det(M - \lambda I_{n}) & = 0
+\end{split}
+\end{equation}
+Predictably, we find two eigenvalues $ \lambda_{1} ,  \lambda_{2} $ and (any) two eigenvectors $ v_{1},  v_{2} $. The solution to the system is given by:
+\begin{equation}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+= A_{1}v_{1}e^{\lambda_{1}t} + A_{2}v_{2}e^{\lambda_{2}t}
+\end{equation}
+The dimension of the eigenvectors will always match the number of variables being dealt with, for example a possible scenario is:
+\begin{equation}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+= A_{1}
+\begin{pmatrix}
+3 \\
+-5
+\end{pmatrix}
+e^{-3t} + A_{2}
+\begin{pmatrix}
+7 \\
+-2
+\end{pmatrix}
+e^{2t}
+\end{equation}
+The values of the individual derivatives can be found by reading off the rows of the matrices.
+\begin{equation}
+\begin{split}
+x & = 3A_{1}e^{-3t} + 7A_{2}e^{2t} \\
+y & = -5A_{1}e^{-3t} + -2A_{2}e^{2t}
+\end{split}
+\end{equation}
 
+\subsubsection{Complex eigenvalues}
+If the eigenvalues turn out to be complex conjugates, the solution can be written as:
+\begin{equation}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+= A_{1}v_{1}e^{(a + bi)t} + A_{2}v_{2}e^{(a - bi)t}
+\end{equation}
+(Note that $ A_{1} $ AND $ A_{2} $ ARE COMPLEX CONSTANTS HERE). We can do some rearranging like before to tidy up the solution:
+\begin{equation}
+\begin{split}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+& = A_{1}v_{1}e^{(a + bi)t} + A_{2}v_{2}e^{(a - bi)t} \\
+& = e^{a}(A_{1}v_{1}e^{i(bt)} + A_{2}v_{2}e^{- i(bt)}) \\
+& = e^{a}(C_{1}\cos(bt) + C_{2}\sin(bt))
+\end{split}
+\end{equation}
+where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2})i $. Note that $ C_{1} $ and $ C_{2} $ are vectors.
 
 \end{document}
