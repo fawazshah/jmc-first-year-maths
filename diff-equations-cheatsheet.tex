@@ -15,10 +15,11 @@
 %package that allows aligned equations
 \usepackage{amsmath}
 
+
 \begin{document}
 \large
 \maketitle
-Topics not covered in this summary: phase portraits, similarity transformations.
+\noindent Topics not covered in this summary: phase portraits, similarity transformations.
 \tableofcontents
 \newpage
 \part{Individual differential equations}
@@ -186,6 +187,8 @@ where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that even
 
 \subsection{General case - finding the PI}
 The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{secondordergeneralform}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $.
+Sometimes we must be imaginative if $ f(x) $ is a crazy function. However we can follow some basic rules:
+
 
 \subsubsection{$ f(x) $ is a polynomial}
 Try setting $ y_{PI} $ as a general polynomial of the same degree. e.g. if $ f(x) $ is a quadratic, try setting $ y_{PI} = ax^{2} + bx + c $ and substituting into the ODE. We will solve for a, b, c, and this will give us $ y_{PI} $.
@@ -194,7 +197,7 @@ Try setting $ y_{PI} $ as a general polynomial of the same degree. e.g. if $ f(x
 Choose $ y_{PI} = Ae^{bx} $ for some real number A.
 
 \subsubsection{$ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ IS in CF}
-We now have a clash between the PI and the CF. Choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. At the end remove any clashing terms (i.e. terms with a component of $ e^{(something)x} $ which is already present in the CF.
+We now have a clash between the PI and the CF. We can try $ y_{PI} = Axe^{bx} $, i.e. sticking an x in the PI to avoid the clash. If this doesn't work, we can choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. At the end remove any clashing terms (i.e. terms with a component of $ e^{\lambda x} $ which is already present in the CF.
 
 \subsubsection{$ f(x) = A(x)e^{bx} $ where $ A(x) $ is a polynomial}
 Choose $ y_{PI} = C(x)e^{bx} $ for some polynomial $ C(x) $.
@@ -205,8 +208,7 @@ CAUTION: sinh, cosh and tanh are actually exponential functions in disguise, so 
 
 \subsubsection{Special cases}
 If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we can rewrite it as the real/imaginary part of a complex function (in this case $ e^{(1+i)x} $ would be appropriate, since it expands to $ e^{x}(\cos(x) + i\sin(x)) $.
-  
-\newpage
+
 \part{Systems of differential equations}
 
 \section{Definitions}
