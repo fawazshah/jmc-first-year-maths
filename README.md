@@ -10,4 +10,8 @@ If there are any errors, contact me at fs2217@ic.ac.uk.
 
 #### Differential Equations Cheatsheet
 
-A summary of the differential equations content covered in modules M1M1 and M1J1.
+A summary of the differential equations content covered in M1M1 and M1J1.
+
+#### M1J2 Summary Notes
+
+A summary of the definitions, propositions, lemmas, corollaries and theorems in M1J2.
