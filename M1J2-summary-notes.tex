@@ -15,14 +15,119 @@
 %package that allows aligned equations
 \usepackage{amsmath}
 
+%package that allows notation for popular sets (N, R, Q, etc.)
+\usepackage{amssymb}
+
+%renaming commands for natural and real number sets for ease of use
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
 
 \begin{document}
 \large
 \maketitle
 \begin{center}
-UNDER CONSTRUCTION
+STILL UNDER CONSTRUCTION
 \end{center}
-%\tableofcontents
-%\newpage
+\noindent Dr Lawn refers to propositions, theorems, corollaries and lemmas. In this document I will refer to them all as 'theorems'.
+\\\\
+\noindent This document only contains a list of definitions and a list of theorems.
+\tableofcontents
+\newpage
+\part{Abstract Linear Algebra}
+
+\section{Definitions}
+\paragraph{Vector space}
+
+\section{Theorems}
+
+\newpage
+\part{Group Theory}
+
+\section{Definitions}
+
+\section{Theorems}
+
+\newpage
+\part{Analysis}
+
+\section{Definitions}
+\paragraph{Sequence}
+A sequence is simply a map $ f: \N \to \R $, denoted by $ a_{n} $
+\paragraph{Convergence}
+A sequence $ a_{n} $ converges to a limit L if for all real numbers $ \epsilon > 0 $, there exists an $ N \in \N $ such that for all $ n \geq N $ we have $ |a_{n} - L| < \epsilon $.
+\begin{equation}
+\forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall n \geq N \quad |a_{n} - L| < \epsilon
+\end{equation}
+\paragraph{Shift}
+The shift of a sequence by say, k, is the sequence $ b_{n} = a_{n + k} $
+\paragraph{Tending to infinity}
+We say a sequence tends to infinity if for all $ R \in \R $, the sequence $ a_{n} $ is eventually bigger than $ R $.
+\begin{equation}
+\forall R \in \R \quad \exists N \in \N \quad s.t. \quad \forall n \geq N \quad a_{n} > R
+\end{equation}
+\paragraph{Triangle inequality}
+The general triangle inequality is:
+\begin{equation}
+|x - y| < |x - z| + |z - y|
+\end{equation}
+Setting $ z = 0 $ gives us:
+\begin{align}
+|x - y| & > |x| - |y|
+\end{align}
+Then setting $ y = - y $ gives us the familiar case:
+\begin{align}
+|x + y| & < |x| + |y|
+\end{align}
+\paragraph{Bounded above}
+A sequence $ a_{n} $ is bounded above if there's a real number $ A $ such that $ a_{n} < A $ for all $ n $.
+\paragraph{Bounded below}
+A sequence $ a_{n} $ is bounded below if there's a real number $ A $ such that $ a_{n} > A $ for all $ n $.
+\paragraph{Bounded}
+A sequence $ a_{n} $ is bounded if there's a real number $ A $ such that $ |a_{n}| < A $ for all $ n $.
+\paragraph{Increasing}
+A sequence is increasing if $ a_{n + 1} \geq a_{n} $ for all n.
+\paragraph{Strictly increasing}
+A sequence is strictly increasing if $ a_{n + 1} > a_{n} $ for all n.
+\paragraph{Decreasing}
+A sequence is decreasing if $ a_{n + 1} \leq a_{n} $ for all n.
+\paragraph{Strictly decreasing}
+A sequence is strictly decreasing if $ a_{n + 1} < a_{n} $ for all n.
+\paragraph{Monotonic}
+A sequence is monotonic if it is increasing or decreasing.
+\paragraph{Supremum}
+The supremum A of a set $ S $ is the least upper bound of that set i.e. the smallest number such that $ \forall s \in S \quad s \leq A $
+\paragraph{Infimum}
+The infimum B of a set $ S $ is the greatest lower bound of that set i.e. the largest number such that $ \forall s \in S \quad s \geq B $
+\paragraph{Subsequence}
+A subsequence of $ a_{n} $ is a sequence $ a_{f(n)} $, where $ f(n) $ is a strictly increasing function.
+\paragraph{Cauchy sequence}
+A sequence is Cauchy if the terms get arbitrarily close to one another. To put it mathematically:
+\begin{equation}
+\forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall m,n \geq N \quad |a_{n} - a_{m}| < \epsilon
+\end{equation}
+\paragraph{Partial sum}
+The $ n^{th} $ partial sum $ S_{n} $ of a sequence $ a_{n} $ is the sum of terms up to that point:
+\begin{equation}
+S_{n} = \sum_{i=1}^{n} a_{n}
+\end{equation}
+\paragraph{Summable}
+A sequence is summable if the sequence of its partial sums converges. The limit of the sequence of partial sums will be:
+\begin{equation}
+L = \sum_{i=1}^{\infty} a_{n}
+\end{equation}
+\paragraph{Absolutely summable}
+A sequence $ a_{n} $ is absolutely summable if $ |a_{n}| $ is summable.
+\paragraph{Conditionally summable}
+A sequence is conditionally summable if it is summable but not absolutely summable.
+\paragraph{Power series}
+The power series associated with a sequence $ a_{n} $ is the sequence of partial sums:
+\begin{equation}
+\sum_{i=1}^{n} a_{i}x^{i}
+\end{equation}
+\paragraph{Radius of convergence}
+The radius of convergence R of a power series $ P(x) $ is defined as the largest $ x $ for which $ P(x) $ is convergent.
+
+\section{Theorems}
 
 \end{document}
