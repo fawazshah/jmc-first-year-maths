@@ -54,18 +54,18 @@ STILL UNDER CONSTRUCTION
 \section{Definitions}
 \paragraph{Sequence}
 A sequence is simply a map $ f: \N \to \R $, denoted by $ a_{n} $
-\paragraph{Convergence}
-A sequence $ a_{n} $ converges to a limit L if for all real numbers $ \epsilon > 0 $, there exists an $ N \in \N $ such that for all $ n \geq N $ we have $ |a_{n} - L| < \epsilon $.
+\paragraph{Convergence (as $ n \to \infty $)}
+A sequence $ a_{n} $ converges to a limit L if for all real numbers $ \epsilon > 0 $, there exists an $ N \in \N $ such that for all $ n > N $ we have $ |a_{n} - L| < \epsilon $.
 \begin{equation}
-\forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall n \geq N \quad |a_{n} - L| < \epsilon
+\forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall n > N \quad |a_{n} - L| < \epsilon
+\end{equation}
+\paragraph{Tends to infinity (sequence)}
+We say a sequence tends to infinity if for all $ R \in \R $, the sequence $ a_{n} $ is eventually bigger than $ R $.
+\begin{equation}
+\forall R \in \R \quad \exists N \in \N \quad s.t. \quad \forall n > N \quad a_{n} > R
 \end{equation}
 \paragraph{Shift}
 The shift of a sequence by say, k, is the sequence $ b_{n} = a_{n + k} $
-\paragraph{Tending to infinity}
-We say a sequence tends to infinity if for all $ R \in \R $, the sequence $ a_{n} $ is eventually bigger than $ R $.
-\begin{equation}
-\forall R \in \R \quad \exists N \in \N \quad s.t. \quad \forall n \geq N \quad a_{n} > R
-\end{equation}
 \paragraph{Triangle inequality}
 The general triangle inequality is:
 \begin{equation}
@@ -127,6 +127,24 @@ The power series associated with a sequence $ a_{n} $ is the sequence of partial
 \end{equation}
 \paragraph{Radius of convergence}
 The radius of convergence R of a power series $ P(x) $ is defined as the largest $ x $ for which $ P(x) $ is convergent.
+\paragraph{Limit as $ x \to \infty $ (function)}
+A function $ f(x) $ tends to a limit $ L $ as $ x \to \infty $ if for all real numbers $ \epsilon > 0 $, there exists an $ R \in \R $ such that for all $ x \geq R $ we have $ |f(x) - L| < \epsilon $.
+\begin{equation}
+\forall \epsilon > 0 \quad \exists R \in \R \quad s.t \quad \forall x > R \quad |f(x) - L| < \epsilon
+\end{equation}
+\paragraph{Tends to infinity (function)}
+A function $ f(x) $ tends to infinity as $ x \to \infty $ if for any $ M \in \R $ there exists an $ R \in \R $ such that if $ x > M $ then $ f(x) > R $.
+\begin{equation}
+\forall M \in \R \quad \exists R \in \R \quad s.t. \quad x > M \implies f(x) > R
+\end{equation}
+\paragraph{One-sided limit (function}
+A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that if $ x \in (a, a - \delta) $ then $ |f(x) - L| < \epsilon $
+\\\\
+Same format for the other sided limit ($ x \to a^{+} $)
+\\
+(Note that $ \epsilon - \delta $ definition is only used for limits as x tends to a finite number a, not infinity)
+\paragraph{Continuous (simple def.)}
+\paragraph{Continuous (complicated def.)}
 
 \section{Theorems}
 
