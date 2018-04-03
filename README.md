@@ -14,4 +14,4 @@ A summary of the differential equations content covered in M1M1 and M1J1.
 
 #### M1J2 Summary Notes
 
-A summary of the definitions, propositions, lemmas, corollaries and theorems in M1J2.
+A summary of the definitions as well as propositions, lemmas, corollaries and theorems in M1J2.
