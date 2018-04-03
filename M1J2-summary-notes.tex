@@ -9,7 +9,7 @@
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
-    linkcolor=blue,  %choose some color if you want links to stand out
+    linkcolor=black,  %choose some color if you want links to stand out
 }
 
 %package that allows aligned equations
@@ -140,9 +140,11 @@ A function $ f(x) $ tends to infinity as $ x \to \infty $ if for any $ M \in \R 
 \forall M \in \R \quad \exists R \in \R \quad s.t. \quad x > M \implies f(x) > R
 \end{equation}
 \paragraph{One-sided limit (function)}
-A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that if $ x \in (a, a - \delta) $ then $ |f(x) - L| < \epsilon $
-\\\\
-Same format for the other sided limit ($ x \to a^{+} $)
+A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that if $ x \in (a - \delta, a) $ then $ |f(x) - L| < \epsilon $.
+\begin{equation}
+\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad x \in (a - \delta, a) \implies |f(x) - L| < \epsilon
+\end{equation}
+\noindent Same format for the other sided limit ($ x \to a^{+} $)
 \\
 (Note that $ \epsilon - \delta $ definition is only used for limits as x tends to a finite number a, not infinity)
 \paragraph{Limit as $ x \to a $ (function)}
@@ -150,8 +152,56 @@ A function $ f(x) $ tends to a limit $ L $ as $ x \to a $ if we have both:
 \begin{equation}
 \lim_{x \to a^{-}}f(x) = L \quad \textrm{and} \quad \lim_{x \to a^{+}}f(x) = L
 \end{equation}
-\paragraph{Continuous (simple def.)}
-\paragraph{Continuous (complicated def.)}
+\paragraph{Continuous (ver. 1)}
+A function $ f(x) $ is continuous at a if:
+\begin{equation}
+\lim_{x \to a}f(x) = f(a)
+\end{equation}
+\paragraph{Continuous (ver. 2)}
+A function $ f(x) $ is continuous at a if for all $ \epsilon > 0 $ there is a $ \delta > 0 $ such that if $ |x - a| < \delta $ then $ |f(x) - f(a)| < \epsilon $.
+\begin{equation}
+\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad |x - a| < \delta \implies |f(x) - f(a)| < \epsilon
+\end{equation}
+\paragraph{Continuous everywhere}
+A function $ f(x) $ is continuous everywhere if it is continuous at a for all $ a \in \textrm{dom}(f) $
+\paragraph{Open interval}
+An open inteval $ I $ is a set $ I \subseteq \R $ of the form:
+\begin{enumerate}
+\item $ I = (a, b) $ for some $ a, b \in \R $, or
+\item $ I = (-\infty, b) $, or
+\item $ I = (a, +\infty) $, or
+\item $ I = \R $
+\end{enumerate}
+\paragraph{Discontinuity}
+Discontinuity is the negation of continuity. Hence a function $ f(x) $ is discontinuous at a if there exists $ \epsilon > 0 $ such that for all $ \delta > 0 $, $ |x - a| < \delta $ AND $ |f(x) - f(a)| > \epsilon $.
+\begin{equation}
+\exists \epsilon > 0 \quad s.t. \quad \forall \delta > 0 \quad |x - a| < \delta \textrm{ AND } |f(x) - f(a)| > \epsilon
+\end{equation}
+\paragraph{Bounded (function)}
+A function $ f(x) $ is bounded if the set of all possible values of f(x) is bounded.
+\paragraph{Differentiable (ver. 1)}
+A function $ f(x) $ is differentiable at a if:
+\begin{equation}
+\lim_{x \to a}\frac{f(x) - f(a)}{x - a}
+\end{equation}
+exists.
+\paragraph{Differentiable (ver. 2)}
+A function $ f(x) $ is differentiable at a if:
+\begin{equation}
+\lim_{h \to 0}\frac{f(a + h) - f(a)}{h}
+\end{equation}
+exists.
+\paragraph{Differentiable everywhere}
+A function $ f(x) $ is differentiable everywhere if it is differentiable at a for all $ a \in \textrm{dom}(f) $
+\paragraph{Global maximum}
+A function $ f(x) $ has a global maximum at a if $ f(a) \geq f(x) $ for all other values of $ f(x) $.
+\\\\
+Similar definition for global minimum.
+\paragraph{Local maximum}
+A function $ f(x) $ has a local maximum at a if $ f(a) \geq f(x) $ for all x in the set $ (a - \epsilon, a + \epsilon) $, for some $ \epsilon $.
+\\\\
+Similar definition for local minimum.
+
 
 \section{Theorems}
 
