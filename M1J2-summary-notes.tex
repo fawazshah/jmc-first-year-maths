@@ -22,15 +22,22 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 
+%package for managing images
+\usepackage{graphicx}
+\graphicspath{ {img/} }
+
+%package for managing hyperlinks
+\usepackage{hyperref}
+
 \begin{document}
 \large
 \maketitle
 \begin{center}
-STILL UNDER CONSTRUCTION
+(STILL UNDER CONSTRUCTION)
 \end{center}
 \noindent Dr Lawn refers to propositions, theorems, corollaries and lemmas. In this document I will refer to them all as 'theorems'.
 \\\\
-\noindent This document only contains a list of definitions and a list of theorems.
+\noindent This document contains a list of definitions and a list of theorems.
 \tableofcontents
 \newpage
 \part{Abstract Linear Algebra}
@@ -95,13 +102,17 @@ A sequence is strictly decreasing if $ a_{n + 1} < a_{n} $ for all n.
 \paragraph{Monotonic}
 A sequence is monotonic if it is increasing or decreasing.
 \paragraph{Supremum}
-The supremum A of a set $ S $ is the least upper bound of that set i.e. the smallest number such that $ \forall s \in S \quad s \leq A $
+The supremum A of a set $ S $ is the least upper bound of that set i.e. the smallest number such that $ s \leq A $ for all $ s \in S $.
+\paragraph{Supremum (function)}
+The supremum of a function $ f $ is the sup of $ \{f(x) | x \in \textrm{dom}(f)\} $.
 \paragraph{Infimum}
-The infimum B of a set $ S $ is the greatest lower bound of that set i.e. the largest number such that $ \forall s \in S \quad s \geq B $
+The infimum B of a set $ S $ is the greatest lower bound of that set i.e. the largest number such that $ s \geq B $ for all $ s \in S $.
+\paragraph{Infimum (function)}
+The infimum of a function $ f $ is the inf of $ \{f(x) | x \in \textrm{dom}(f)\} $.
 \paragraph{Subsequence}
 A subsequence of $ a_{n} $ is a sequence $ a_{f(n)} $, where $ f(n) $ is a strictly increasing function.
 \paragraph{Cauchy sequence}
-A sequence is Cauchy if the terms get arbitrarily close to one another. To put it mathematically:
+A sequence is Cauchy if all the terms get arbitrarily close to one another. To put it mathematically:
 \begin{equation}
 \forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall m,n \geq N \quad |a_{n} - a_{m}| < \epsilon
 \end{equation}
@@ -137,12 +148,12 @@ A function $ f(x) $ tends to a limit $ L $ as $ x \to \infty $ if for all real n
 \paragraph{Tends to infinity (function)}
 A function $ f(x) $ tends to infinity as $ x \to \infty $ if for any $ M \in \R $ there exists an $ R \in \R $ such that if $ x > M $ then $ f(x) > R $.
 \begin{equation}
-\forall M \in \R \quad \exists R \in \R \quad s.t. \quad x > M \implies f(x) > R
+\forall M \in \R \quad \exists R \in \R \quad s.t. \quad x > M \Rightarrow f(x) > R
 \end{equation}
 \paragraph{One-sided limit (function)}
 A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that if $ x \in (a - \delta, a) $ then $ |f(x) - L| < \epsilon $.
 \begin{equation}
-\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad x \in (a - \delta, a) \implies |f(x) - L| < \epsilon
+\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad x \in (a - \delta, a) \Rightarrow |f(x) - L| < \epsilon
 \end{equation}
 \noindent Same format for the other sided limit ($ x \to a^{+} $)
 \\
@@ -160,10 +171,10 @@ A function $ f(x) $ is continuous at a if:
 \paragraph{Continuous (ver. 2)}
 A function $ f(x) $ is continuous at a if for all $ \epsilon > 0 $ there is a $ \delta > 0 $ such that if $ |x - a| < \delta $ then $ |f(x) - f(a)| < \epsilon $.
 \begin{equation}
-\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad |x - a| < \delta \implies |f(x) - f(a)| < \epsilon
+\forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
 \end{equation}
 \paragraph{Continuous everywhere}
-A function $ f(x) $ is continuous everywhere if it is continuous at a for all $ a \in \textrm{dom}(f) $
+A function $ f(x) $ is continuous everywhere if it is continuous at a for all $ a \in \textrm{dom}(f) $.
 \paragraph{Open interval}
 An open inteval $ I $ is a set $ I \subseteq \R $ of the form:
 \begin{enumerate}
@@ -192,7 +203,7 @@ A function $ f(x) $ is differentiable at a if:
 \end{equation}
 exists.
 \paragraph{Differentiable everywhere}
-A function $ f(x) $ is differentiable everywhere if it is differentiable at a for all $ a \in \textrm{dom}(f) $
+A function $ f(x) $ is differentiable everywhere if it is differentiable at a for all $ a \in \textrm{dom}(f) $.
 \paragraph{Global maximum}
 A function $ f(x) $ has a global maximum at a if $ f(a) \geq f(x) $ for all other values of $ f(x) $.
 \\\\
@@ -201,8 +212,180 @@ Similar definition for global minimum.
 A function $ f(x) $ has a local maximum at a if $ f(a) \geq f(x) $ for all x in the set $ (a - \epsilon, a + \epsilon) $, for some $ \epsilon $.
 \\\\
 Similar definition for local minimum.
-
+\paragraph{Lipschitz continuous}
+A function is Lipschitz continuous if:
+\begin{equation}
+|f'(x)| \leq L \Rightarrow |f(x_{1}) - f(x_{2})| \leq L|x_{1} - x_{2}|
+\end{equation}
 
 \section{Theorems}
+\subsection{Sequences}
+Every convergent sequence has a unique limit.
+\\\\
+Every convergent sequence is bounded.
+\\\\
+If all terms of a convergent sequence are larger than a number $ B $, then so is its limit.
+\\\\
+Some properties of limits:
+\begin{align}
+\lim_{x \to \infty}(a_{n} + b_{n}) & = \lim_{x \to \infty} a_{n} + \lim_{x \to \infty} b_{n} \\
+\lim_{x \to \infty}(\lambda a_{n}) & = \lambda\lim_{x \to \infty} a_{n} \\
+\lim_{x \to \infty}(a_{n}b_{n}) & = \lim_{x \to \infty} a_{n}\lim_{x \to \infty} b_{n} \\
+\lim_{x \to \infty}(\frac{a_{n}}{b_{n}}) & = \frac{\lim_{x \to \infty} a_{n}}{\lim_{x \to \infty} b_{n}}
+\end{align}
+where $ \lambda $ is any real number.
+\\\\
+If $ a_{n} \to \infty $ and $ b_{n} $ is bounded below, $ a_{n} + b_{n} \to \infty $.
+\\\\
+If $ a_{n} \to \infty $ and $ b_{n} $ is bounded below by a positive number, $ a_{n}b_{n} \to \infty $.
+\\\\
+If $ a_{n} $ is bounded and $ b_{n} \to \infty $, then $ \frac{a_{n}}{b_{n}} \to 0 $.
+\\\\
+If $ a_{n} \to \infty $, for any real number $ \lambda $:
+\begin{itemize}
+\item $ \lambda < 0 \Rightarrow \lambda a_{n} \to -\infty $
+\item $ \lambda = 0 \Rightarrow \lambda a_{n} \to 0 $
+\item $ \lambda > 0 \Rightarrow \lambda a_{n} \to \infty $
+\end{itemize}
+If $ a_{n} \to a $ and $ b_{n} \to b $, and for all $ n $ $ a_{n} < b_{n} $, then $ a < b $.
+\\\\
+\textit{Sandwich Theorem}
+\\
+If $ a_{n} \leq b_{n} \leq c_{n} $ for all n, and $ a_{n} $ and $ c_{n} $ tend to the same limit $ L $, then $ b_{n} \to L $.
+\\\\
+Every bounded monotonic sequence is convergent.
+\\\\
+\textit{Completeness Axiom}
+\\
+Every non-empty subset of the real numbers which is bounded above has a supremum. Similar statement for infimum.
+
+\subsection{Subsequences}
+If $ a_{n} \to L $ then any subsequence $ a_{f(n)} \to L $.
+\\\\
+If two subsequences of $ a_{n} $ converge to different limits, $ a_{n} $ doesn't converge to a limit.
+\\\\
+Every sequence has a monotonic subsequence.
+\\\\
+\textit{Bolzano-Weierstrass Theorem}
+\\
+Every bounded sequence has a convergent subsequence.
+\\\\
+Every Cauchy sequence is bounded.
+\\\\
+Cauchy sequence $ \Leftrightarrow $ convergent sequence (for real numbers).
+\\\\
+\hspace*{-1in}
+\includegraphics[scale=0.4]{sequences}
+
+\subsection{Summability}
+A sequence is summable iff the sequence of its partial sums converges.
+\\\\
+If two subsequences of a sequence $ a_{n} $ converge to two different limits, $ a_{n} $ is not summable.
+\\\\
+If $ a_{n} $ and $ b_{n} $ are summable with $ \sum_{i = 0}^{\infty} a_{i} = a $ and $ \sum_{i = 0}^{\infty} b_{i} = b $:
+\begin{itemize}
+\item $ a_{n} + b_{n} $ is summable with $ \sum_{i = 0}^{\infty} (a_{i} + b_{i}) = a + b $.
+\item $ \lambda a_{n} $ is summable with $ \sum_{i = 0}^{\infty} \lambda a_{i} = \lambda a $ (for any real number $ \lambda $)
+\end{itemize}
+If $ b_{n} = a_{n + k} $ then $ a_{n} $ summable $ \Leftrightarrow b_{n} $ summable.
+\\\\
+$ a_{n} $ is summable $ \Rightarrow a_{n} \to 0 $.
+\\\\
+Let $ S_{n} $ denote the sequence of partial sums of $ a_{n} $ ($ S_{n} = \sum_{i = 0}^{n} a_{n}) $. A sequence of non-negative numbers $ a_{n} $ is summable iff $ S_{n} $ is bounded above. Similar statement for sequences of non-positive numbers.
+\\\\
+Every absolutely summable sequence is summable.
+\\\\
+\textit{Comparison test}
+\\
+If $ b_{n} > a_{n} $ for all $ n $ then $ b_{n} $ summable $ \Rightarrow a_{n} $ summable.
+\\\\
+\textit{Alternating series test}
+\\
+If $ a_{n} $ is a decreasing sequence AND $ a_{n} \geq 0 $ for all $ n $ AND $ a_{n} \to 0 $ then $ (-1)^{n+1} a_{n} $ is a convergent sequence.
+\\\\
+\textit{Ratio test}
+\\
+Let $ r = \lim_{n \to \infty} \frac{a_{n + 1}}{a_{n}} $:
+\begin{itemize}
+\item $ r < 1 \Rightarrow a_{n} $ is absolutely summable
+\item $ r > 1 \Rightarrow a_{n} $ is not summable
+\item $ r = 1 $ is an indeterminate case
+\end{itemize}
+
+\subsection{Power series}
+The power series associated with a sequence $ a_{n} $ converges iff the sequence of partial sums  of $ a_{n}x^{n} $ converges (i.e. if $ \sum_{i = 0}^{n} a_{i}x^{i} $ converges).
+\\\\
+Let $ P(x) $ be a power series. If $ P(a) $ converges absolutely for some $ a $, then $ P(x) $ converges absolutely for all $ x $ such that $ |x| < |a| $
+\\\\
+Let $ R $ be the radius of convergence of $ P(x) $. For all real numbers $ a $:
+\begin{itemize}
+\item $ |a| < R \Rightarrow P(a) $ converges absolutely
+\item $ |a| > R \Rightarrow P(a) $ diverges
+\end{itemize}
+Let $ r = \frac{a_{n + 1}}{a_{n}} $. Let $ P(x) = \sum_{i = 0}^{n} a_{i}x^{i} $ (i.e. the power series associated with $ a_{n} $):
+\begin{itemize}
+\item $ r \to 0 \Rightarrow R = \infty $
+\item $ r \to L $ for some $ L \Rightarrow R = \frac{1}{L} $
+\item $ r \to \infty \Rightarrow R = 0 $
+\end{itemize}
+
+\subsection{Continuity}
+The limit of a function at any specific point is unique.
+\\\\
+If functions $ f $ and $ g $ are continuous at a:
+\begin{itemize}
+\item $ (f + g) $ is continuous at a
+\item $ fg $ is continuous at a
+\item $ \frac{1}{f(x)} and \frac{1}{g(x)} $ are continuous at a
+\item $ g \circ f $ is continuous at a
+\end{itemize}
+Any polynomial in $ \R $ is continuous
+\\\\
+Any rational function in $ \R $ is continuous
+\\\\
+\textit{Sequential continuity}
+\\
+A function $ f $ is continuous at $ a $ iff $ f(a_{n}) \to f(a) $ for all sequences $ a_{n} $ such that $ a_{n} \to a $.
+\\\\
+Any continuous function on a closed bounded interval is bounded.
+\\\\
+\textit{Intermediate Value Theorem}
+\\
+If $ f $ continuous and $ f(a) \leq f(b) $ for some $ a, b $, then there exists some $ c \in [a, b] $ such that $ f(a) \leq f(c) \leq f(b) $.
+\\\\
+\textit{Fixed Point Theorem}
+\\
+If $ f $ continuous and $ f: [a, b] \to [a, b] $, then there exists some $ c \in [a, b] $ such that $ f(c) = c $.
+\\\\
+Polynomials of odd degree have at least 1 root.
+\\\\
+$ f $ differentiable $ \Rightarrow f $ continuous.
+\subsection{Differentiable functions}
+If functions $ f $ and $ g $ are differentiable at a:
+\begin{itemize}
+\item $ (f + g) $ is differentiable at a
+\item $ fg $ is differentiable at a
+\item $ \frac{1}{f(x)} and \frac{1}{g(x)} $ are differentiable at a
+\item $ g \circ f $ is differentiable at a
+\item $ g^{-1} $ and $ f^{-1} $ are differentiable at a
+\end{itemize}
+Let $ f $ be continuous and differentiable. If $ f $ has a local extremum at $ a $ then $ f'(a) = 0 $ (except at endpoints of the interval).
+\\\\
+Let $ f $ be continuous and differentiable. If $ f $ has a local extremum at $ c $ (say in the interval $ [a, b] $), there are 3 possiblities:
+\begin{itemize}
+\item $ c $ is an endpoint of $ [a, b] $
+\item $ f'(c) = 0 $
+\item $ c $ is a non-differentiable point
+\end{itemize}
+\textit{Mean Value Theorem}
+\\
+Let $ f $ be continuous on $ [a, b] $ and differentiable on $ (a, b) $. There exists a point $ c \in (a, b) $ such that:
+\begin{equation}
+f'(c) = \frac{f(b) - f(a)}{b - a}
+\end{equation}
+\\\\
+\textit{Rolle's Theorem}
+\\
+Let $ f $ be continuous and differentiable on $ (a, b) $. If $ f(a) = f(b) $ then there exists some $ c \in (a, b) $ such that $ f'(c) = 0 $. This is a special case of the Mean Value Theorem.
 
 \end{document}
