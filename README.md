@@ -4,7 +4,7 @@ A few helpful documents covering the 1st year Maths content of the Joint Mathema
 
 Written in LaTeX. Both PDF file and TeX source provided.
 
-If there are any errors, contact me at fs2217@ic.ac.uk.
+If there are any errors, you can fork this repository and submit a pull request with a fix. Alternatively contact me at fs2217@ic.ac.uk.
 
 ## Contents
 
