@@ -18,10 +18,13 @@
 %package that allows notation for popular sets (N, R, Q, etc.)
 \usepackage{amssymb}
 
-%renaming commands for natural and real number sets for ease of use
+%new commands for popular sets for ease of use
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+
+% renaming command to writing vectors in bold notation
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 %package for managing images
 \usepackage{graphicx}
@@ -44,10 +47,38 @@
 \part{Abstract Linear Algebra}
 
 \section{Definitions}
+\paragraph{Vector space}
+A vector space is a set $ V $ coupled with:
+\begin{itemize}
+\item a function $ + : V \times V \to V $ (addition)
+\item a function $ \cdot : \R \times V \to V $ (scalar multiplication)
+\end{itemize}
+From now on we will denote $ V $ as an arbitrary vector space.
+\paragraph{Subspace}
+A subset $ U \subseteq V $ is a subspace if:
+\begin{itemize}
+\item $ 0_{V} \in U $
+\item If $ \vec{x}, \vec{y} \in U $ then $ \vec{x + y} \in U $ (closure under addition)
+\item If $ \vec{x} \in U $ then for all $ \lambda \in \R $, $ \lambda\vec{x} \in U $ (closure under scalar multiplication)
+\end{itemize}
 
 \section{Theorems}
 
 \subsection{Vector spaces}
+\textit{Vector space axioms}
+\begin{itemize}
+\item $ (V, +) $ is an Abelian group (the identity element being $ 0_{V} $)
+\item for any $ \vec{v} \in V $, 1$ \vec{v} = \vec{v} $
+\item for any $ \vec{v} \in V, \lambda, \mu \in \R, \lambda (\mu \vec{v}) = (\lambda \mu) \vec{v} $ (commutative w.r.t. scalar multiplication)
+\item for any $ \vec{u}, \vec{v} \in V, \lambda \in \R, \lambda (\vec{u}  + \vec{v}) = \lambda \vec{u}  + \lambda \vec{v} $ (scalar multiplication distributes over addition)
+\item for any $ \vec{v} \in V, \lambda, \mu \in \R, (\lambda + \mu) \vec{v} = \lambda /vec{v}  + \mu \vec{v} $ (scalar multiplication distributes over scalar addition)
+\end{itemize}
+For any $ \vec{v} \in V $:
+\begin{itemize}
+\item For any $ n \in \Z $, $ n\vec{v} = \vec{v} + \vec{v} + ... + \vec{v} $ (n times)
+\item $ 0 \vec{v} = 0_{V} $
+\item $ (-1) \vec{v} $ is the additive inverse of $ \vec{v} $
+\end{itemize}
 
 \subsection{Subspaces}
 
