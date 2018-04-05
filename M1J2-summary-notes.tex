@@ -97,11 +97,15 @@ A two sided inverse of an element $ g \in G $ is both a left inverse and a right
 From now on the two-sided inverse of $ g $ will be referred to as $ g^{-1} $.
 \paragraph{Group}
 A group $ (G, \star) $ is a set $ G $ equipped with a binary operation $ \star $ such that:
-\begin{enumerate}
+\begin{itemize}
 \item $ \star $ is associative
 \item $ \star $ has an identity element in $ G $
 \item Every $ g \in G $ has an inverse $ g^{-1} \in G $
-\end{enumerate}
+\end{itemize}
+There is an unofficial fourth requirement:
+\begin{itemize}
+\item $ G $ is closed under $ \star $, i.e. for all $ g, h, \in G, g \star h \in G $
+\end{itemize}
 \paragraph{Order (group)}
 The order of a group $ (G, \star) $ is the size of $ G $.
 \paragraph{Abelian group}
@@ -117,21 +121,21 @@ e & n = 0
 \end{cases}
 \end{equation}
 where in the first cases there are $ n $ copies of $ g $, and in the second case there are $ -n $ copies of $ g^{-1} $.
-\paragraph{Definition of $ [a] $ and $ \Z_{n} $}
+\paragraph{Definition of $ [a]_{n} $ and $ \Z_{n} $}
 For any $ a \in \Z $:
 \begin{equation}
-[a] = \{b \in \Z \ | \ b \equiv a \textrm{ mod } n \}
+[a]_{n} = \{b \in \Z \ | \ b \equiv a \textrm{ mod } n \}
 \end{equation}
-Note that $ [a] $ forms an equivalence class, and there are exactly $ n $ of these equivalence classes. $ \Z_{n} $ is the set of all these equivalence classes.
+Note that $ [a]_{n} $ forms an equivalence class, and there are exactly $ n $ of these equivalence classes. $ \Z_{n} $ is the set of all these equivalence classes.
 \begin{equation}
-\Z_{n} = \{[0], [1] ... [n - 1]\}
+\Z_{n} = \{[a]_{n} \ | \ a \in \Z \}
 \end{equation}
 \paragraph{Definition of $ \Z_{n}^{*} $}
-$ \Z_{n}^{*} $ is the set of all $ [a] $ such that $ [a] $ is invertible. Note in this case the identity element is $ [1] $.
+$ \Z_{n}^{*} $ is the set of all invertible $ [a]_{n} $. Note in this case the identity element is $ [1]_{n} $.
 \begin{equation}
-\Z_{n}^{*} = \{[a] \in \Z_{n} \ | \ \exists [b] \in Z_{n} \quad s.t. \quad [a] \star [b] = [1]\}
+\Z_{n}^{*} = \{[a]_{n} \ | \ \exists [b]_{n} \in Z_{n} \quad s.t. \quad [a]_{n}[b]_{n} = [1]\}
 \end{equation}
-Some common choices for $ \star $ are $ [a] + [b] = [a + b] $ and $ [a] \times [b] = [ab] $.
+Note that $ [a]_{n}[b]_{n} = 1 \equiv gcd(a, n) = 1 $.
 \paragraph{Order (element)}
 The order of any $ g \in G $ is the smallest positive integer such that:
 \begin{equation}
@@ -154,8 +158,8 @@ The symmetric group $ S_{n} $ on $ n $ symbols is the set of all permutations of
 S_{n} = \{\sigma : \{1...n\} \to \{1...n\}\}
 \end{equation}
 Note that $ S_{n} $ is a set of functions. Therefore the identity element is the identity function.
-\paragraph{Cycle}
-A permutation $ \sigma \in S_{n} $ is a cycle if there exists some $ a_{1}...a{k}  \in \{1...n\} $ such that:
+\paragraph{$ k $-cycle}
+A permutation $ \sigma \in S_{n} $ is a $ k $-cycle if there exists some $ a_{1}...a{k}  \in \{1...n\} $ such that:
 \begin{equation}
 \sigma(a_{1}) = a_{2}, \quad \sigma(a_{2}) = a_{3} \quad ... \quad \sigma(a_{k}) = a_{1}
 \end{equation}
@@ -174,6 +178,7 @@ Let $ (G, \star) $ be a group. For any $ g \in G $, the cyclic subgroup $ \langl
 \begin{equation}
 \langle g \rangle = (\{g^{i} \ | \ i \in \Z \}, \star)
 \end{equation}
+Note that order of $ g  = $  size of cyclic subgroup $ \langle g \rangle $.
 \paragraph{Left/right cosets}
 Let $ (G, \star) $ be a group and $ (H, \star) $ a subgroup. For any $ g \in G $, the left coset of $ H $ by $ g $ (denoted by $ gH $) is defined as:
 \begin{equation}
@@ -196,7 +201,7 @@ Any two-sided inverse $ g^{-1} $ of an element $ g \in G $ is unique.
 \\\\
 For any $g, h \in G $
 \begin{equation}
-(g \star h)^{-1} = g^{-1} \star h^{-1}
+(g \star h)^{-1} = h^{-1} \star g^{-1}
 \end{equation}
 The normal exponent rules apply within groups, e.g.
 \begin{align}
@@ -204,17 +209,75 @@ g^{n} \star g^{m} & = g^{n+m} \\
 (g^{n})^{-1} & = g^{-n} \\
 (g^{n})^{m} & = g^{nm}
 \end{align}
+Some examples of groups:
+($ \R, + $), ($ \Z, + $), ($ \Z^{*}, \times $)
 
 
 \subsection{Modular arithmetic and $ \Z_{n} $}
+($ \Z_{n}, + $) is an Abelian group.
+\\\\
+($ \Z_{n}^{*}, \ \cdot \ $) is an Abelian group.
 
 \subsection{Cyclic groups}
+If ($ G, \star $) is a finite group then every $ g \in G $ has finite order.
+\\\\
+Any $ g \in G $ with order n has distinct powers $ g^{0}, g^{1}, g^{2}...g^{n - 1} $.
+\\\\
+All cyclic groups are Abelian.
+\\\\
+Assume $ G $ is finite with size $ n $. \\
+$ G $ is cyclic $ \Leftrightarrow G $ contains an element of order $ n $.
+\\\\
+\includegraphics[scale=0.4]{cyclic_groups}
 
 \subsection{Symmetric groups}
+($ S_{n}, \circ $) is a group.
+\\\\
+The size of any $ S_{n} $ is $ n! $
+\\\\
+The order of a $ k $-cycle  is $ k $.
+\\\\
+For any $ \sigma \in S_{n} $:
+\begin{itemize}
+\item for any $ i \in \{0...n\} $ there exists a $ d  > 0 $ such that $ \sigma^{d}(i) = i $ (i.e. $ \sigma^{d} \equiv Id = e $)
+\item if $ d $ is the smallest integer such that $ \sigma^{d}(i) = i $ then the numbers $ i, \sigma^{1}(i), \sigma^{2}(i) ... \sigma^{d - 1}(i) $ are distinct
+\item If $ j $ is not in the set $ \{i, \sigma(i), \sigma^{2}(i)...\sigma^{d - 1}(i)\} $ then neither is $ \sigma(j) $
+\end{itemize}
+Any permutation $ \sigma $ can be expressed as the product of disjoint $ k $-cycles.
 
 \subsection{Subgroups}
+Any group ($ G, \star $) has two trivial subgroups, ($ e, \star $) and itself.
+\\\\
+\textit{Subgroup test}
+\\
+Any $ H \subseteq G $ is a subgroup if:
+\begin{itemize}
+\item $ H \neq \emptyset $
+\item for all $ x, y \in H, x \star y^{-1} \in H $
+\end{itemize}
 
 \subsection{Cosets and Lagrange's Theorem}
+For any $ g_{1}, g_{2} \in G $ and subgroup $ H $:
+\begin{equation}
+g_{1}H = g_{2}H \Leftrightarrow g_{1} \in g_{2}H
+\end{equation}
+The left cosets of $ H $ form a partition of $ G $. This means any $ g \in G $ is in exactly one left coset of $ H $. The right cosets also form a (different) partition.
+\\\\
+For any $ g \in G $:
+\begin{equation}
+\#gH = \#hG = \#H
+\end{equation}
+\\
+\textit{Lagrange's Theorem}
+\\
+For any subgroup ($ H, \star $) where $ H \subseteq G $:
+\begin{equation}
+\#G = \#H \cdot \#(G : H)
+\end{equation}
+\\
+For any $ g \in G $, the order of $ g $ divides $ \#G $.
+\\\\
+If $ \#G = p $, where $ p $ is prime, then $ G $ is cyclic.
 
 \newpage
 \part{Analysis}
