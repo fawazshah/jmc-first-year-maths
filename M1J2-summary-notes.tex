@@ -1,7 +1,7 @@
 \documentclass{article}
 \title{M1J2 Summary Notes (JMC Year 1, 2017/2018 syllabus)}
 \date{}
-\author{Fawaz Shah}
+\author{Fawaz Shah (original notes by Dr Marie-Amelie Lawn)}
 
 % Packages for adding hyperlinks to table of contents
 \usepackage{color}   %May be necessary if you want to color links
@@ -61,6 +61,74 @@ A subset $ U \subseteq V $ is a subspace if:
 \item If $ \vec{x}, \vec{y} \in U $ then $ \vec{x + y} \in U $ (closure under addition)
 \item If $ \vec{x} \in U $ then for all $ \lambda \in \R $, $ \lambda\vec{x} \in U $ (closure under scalar multiplication)
 \end{itemize}
+\paragraph{Linear combination}
+A linear combination of a set of vectors $ \{\vec{v}_{1}...\vec{v}_{n}\} $ is any vector $ \vec{x} $ of the form:
+\begin{equation}
+\vec{x} = \lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n}
+\end{equation}
+for some real numbers $ \lambda_{1}...\lambda_{n} $
+\paragraph{Span}
+The span of a set $ S \subseteq V $ is the set of all linear combinations of elements of $ S $. We define span$ (\emptyset) = \{0_{V}\} $.
+\paragraph{Spanning set}
+A subset $ S \subseteq V $ is called a spanning set of $ V $ if span$ (S) = V $.
+\paragraph{Finite dimensional}
+A vector space is finite dimensional if it contains a finite spanning set.
+\paragraph{Linear dependence}
+A subset of vectors $ \{ \vec{v}_{1}...\vec{v}_{n} \}  \subseteq V $ is linearly dependent if there exists some real numbers $ \lambda_{1}...\lambda_{n} $ (which are not just all $ 0 $s) such that:
+\begin{equation}
+\lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n} = 0
+\end{equation}
+\paragraph{Basis}
+A basis of a vector space is a linearly independent spanning set.
+\paragraph{Standard basis of $ \R^{n} $}
+We define the standard basis elements of any $ \R^{n} $ to be:
+\begin{equation}
+e_{1} = 
+\begin{pmatrix}
+1 \\ 0 \\ \vdots \\ 0 \\ 0
+\end{pmatrix} , \ 
+e_{2} = 
+\begin{pmatrix}
+0 \\ 1 \\ \vdots \\ 0 \\ 0
+\end{pmatrix} ... \
+e_{n-1} = 
+\begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 1 \\ 0
+\end{pmatrix} , \
+e_{n} = 
+\begin{pmatrix}
+0 \\ 0 \\ \vdots \\ 0 \\ 1
+\end{pmatrix}
+\end{equation}
+The standard basis of $ \R^{n} $ is therefore $ \{e_{1}, e_{2} \ ... \ e_{n} \} $.
+\paragraph{Linear map}
+Let $ U $ and $ V $ be vector spaces. A linear map is a function $ f : U \to V $ such that:
+\begin{itemize}
+\item for all $ \vec{x}, \vec{y} \in U, \ f(\vec{x} + \vec{y}) = f(\vec{x}) + f(\vec{y}) $
+\item for all $ \vec{x} \in U $ and $ \lambda \in \R, \ f(\lambda \vec{x}) = \lambda f(\vec{x}) $
+\end{itemize}
+\paragraph{Image}
+The image of a linear map $ f : U \to V $ is the set of all $ f(\vec{u}) \in V $ where $ \vec{u} \in U $.
+\begin{equation}
+\textrm{image}(f) = \{f(\vec{u}) \ | \ u \in U \}
+\end{equation}
+\paragraph{Kernel}
+The kernel of a linear map $ f : U \to V $ is the set of all $ \vec{u} \in U $ such that $ f(\vec{u}) = 0_{V} $.
+\begin{equation}
+\textrm{kernel}(f) = \{\vec{u} \ | \ u \in U, f(\vec{u}) = 0_{V} \}
+\end{equation}
+\paragraph{Isomorphism}
+A linear map $ f : U \to V $ is an isomorphism if it is bijective. We say $ U \simeq V $.
+\paragraph{Rank}
+The rank of $ f $ is defined as dim(image($ f $)).
+\paragraph{Nullity}
+The rank of $ f $ is defined as dim(kernel($ f $)).
+\paragraph{$ T_{A} $}
+We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ A $:
+\begin{equation}
+T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ A \in \textrm{Mat}_{m \times n}(\R)
+\end{equation}
+Note that if $ A $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
 
 \section{Theorems}
 
@@ -71,7 +139,7 @@ A subset $ U \subseteq V $ is a subspace if:
 \item for any $ \vec{v} \in V $, 1$ \vec{v} = \vec{v} $
 \item for any $ \vec{v} \in V, \lambda, \mu \in \R, \lambda (\mu \vec{v}) = (\lambda \mu) \vec{v} $ (commutative w.r.t. scalar multiplication)
 \item for any $ \vec{u}, \vec{v} \in V, \lambda \in \R, \lambda (\vec{u}  + \vec{v}) = \lambda \vec{u}  + \lambda \vec{v} $ (scalar multiplication distributes over addition)
-\item for any $ \vec{v} \in V, \lambda, \mu \in \R, (\lambda + \mu) \vec{v} = \lambda /vec{v}  + \mu \vec{v} $ (scalar multiplication distributes over scalar addition)
+\item for any $ \vec{v} \in V, \lambda, \mu \in \R, (\lambda + \mu) \vec{v} = \lambda \vec{v}  + \mu \vec{v} $ (scalar multiplication distributes over scalar addition)
 \end{itemize}
 For any $ \vec{v} \in V $:
 \begin{itemize}
