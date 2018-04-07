@@ -53,7 +53,7 @@ A vector space is a set $ V $ coupled with:
 \item a function $ + : V \times V \to V $ (addition)
 \item a function $ \cdot : \R \times V \to V $ (scalar multiplication)
 \end{itemize}
-From now on we will denote $ V $ as an arbitrary vector space.
+(For the rest of this part, we will assume $ V $ is a vector space)
 \paragraph{Subspace}
 A subset $ U \subseteq V $ is a subspace if:
 \begin{itemize}
@@ -129,6 +129,41 @@ We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ A $:
 T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ A \in \textrm{Mat}_{m \times n}(\R)
 \end{equation}
 Note that if $ A $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
+\paragraph{Matrix representing $ f $}
+Following from the previous definition, if we have:
+\begin{itemize}
+\item $ B $ is a basis of $ U $
+\item $ C $ is a basis of $ V $
+\item There is an isomorphism $ f_{B} : \R^{n} \to U $
+\item There is an isomorphism $ f_{C} : \R^{m} \to V $
+\end{itemize}
+We say the matrix $ A $ is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
+\begin{equation}
+A =
+\begin{bmatrix}
+f
+\end{bmatrix}_{B}^{C}
+\end{equation}
+\paragraph{Change-of-basis matrix}
+Let $ B $ and $ C $ be two bases for $ V $. The matrix:
+\begin{equation}
+A =
+\begin{bmatrix}
+\textrm{Id}_{V}
+\end{bmatrix}_{B}^{C}
+\end{equation}
+is called the change-of-basis matrix from $ B $ to $ C $. $ \textrm{Id}_{V} $ denotes the identity function in the vector space $ V $ (maps every vector to itself).
+\\\\
+In this case the linear map $ T_{A} $ will convert a vector given with respect to the basis $ B $ into a vector with respect to the basis $ C $.
+\paragraph{"Vector with respect to a basis"}
+If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{1} ... \vec{b}_{n} \} $, then we say any $ \vec{v} \in V $  is given with respect to $ B $ if:
+\begin{equation}
+\vec{v} = 
+\begin{pmatrix}
+\lambda_{1} \\ \lambda_{2} \\ \vdots \\ \lambda_{n}
+\end{pmatrix} , \ 
+\vec{v} = \lambda_{1}\vec{b}_{1} + \lambda_{2}\vec{b}_{2} + ... + \lambda_{n}\vec{b}_{n}
+\end{equation}
 
 \section{Theorems}
 
@@ -149,6 +184,13 @@ For any $ \vec{v} \in V $:
 \end{itemize}
 
 \subsection{Subspaces}
+Any vector space $ V $ has two trivial subspaces, itself and $ \{ 0_{V} \} $.
+\\\\
+For any subspaces $ U, W \subseteq V $:
+\begin{itemize}
+\item $ U \cap W $ is a subspace
+\item $ U \cup W $ is NOT a subspace
+\end{itemize}
 
 \subsection{Spanning sets and linear independence}
 
@@ -205,6 +247,7 @@ The above three suffice for the exam, however there is technically a fourth requ
 \begin{itemize}
 \item $ G $ is closed under $ \star $, i.e. for all $ g, h, \in G, g \star h \in G $
 \end{itemize}
+(For the rest of this part, we will assume $ (G, \star) $ is a group)
 \paragraph{Order (group)}
 The order of a group $ (G, \star) $ is the size of $ G $.
 \paragraph{Abelian group}
@@ -292,8 +335,6 @@ The set of all right cosets of $ H $ by $ g $ is denoted by $ H : G $.
 \section{Theorems}
 
 \subsection{Groups}
-(For the rest of this section, assume $ (G, \star) $ is a group)
-\\\\
 Any identity element $ e $ is unique for that group.
 \\\\
 Any two-sided inverse $ g^{-1} $ of an element $ g \in G $ is unique.
