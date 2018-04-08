@@ -53,7 +53,7 @@ A vector space is a set $ V $ coupled with:
 \item a function $ + : V \times V \to V $ (addition)
 \item a function $ \cdot : \R \times V \to V $ (scalar multiplication)
 \end{itemize}
-From now on we will denote $ V $ as an arbitrary vector space.
+(For the rest of this part, we will assume $ V $ is a vector space)
 \paragraph{Subspace}
 A subset $ U \subseteq V $ is a subspace if:
 \begin{itemize}
@@ -71,8 +71,6 @@ for some real numbers $ \lambda_{1}...\lambda_{n} $
 The span of a set $ S \subseteq V $ is the set of all linear combinations of elements of $ S $. We define span$ (\emptyset) = \{0_{V}\} $.
 \paragraph{Spanning set}
 A subset $ S \subseteq V $ is called a spanning set of $ V $ if span$ (S) = V $.
-\paragraph{Finite dimensional}
-A vector space is finite dimensional if it contains a finite spanning set.
 \paragraph{Linear dependence}
 A subset of vectors $ \{ \vec{v}_{1}...\vec{v}_{n} \}  \subseteq V $ is linearly dependent if there exists some real numbers $ \lambda_{1}...\lambda_{n} $ (which are not just all $ 0 $s) such that:
 \begin{equation}
@@ -80,6 +78,8 @@ A subset of vectors $ \{ \vec{v}_{1}...\vec{v}_{n} \}  \subseteq V $ is linearly
 \end{equation}
 \paragraph{Basis}
 A basis of a vector space is a linearly independent spanning set.
+\\\\
+We can also think of a basis as a spanning set of minimum size (theorems to prove this later).
 \paragraph{Standard basis of $ \R^{n} $}
 We define the standard basis elements of any $ \R^{n} $ to be:
 \begin{equation}
@@ -101,6 +101,8 @@ e_{n} =
 \end{pmatrix}
 \end{equation}
 The standard basis of $ \R^{n} $ is therefore $ \{e_{1}, e_{2} \ ... \ e_{n} \} $.
+\paragraph{Dimension}
+The dimension of a vector space is the size of any basis of that vector space.
 \paragraph{Linear map}
 Let $ U $ and $ V $ be vector spaces. A linear map is a function $ f : U \to V $ such that:
 \begin{itemize}
@@ -129,6 +131,41 @@ We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ A $:
 T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ A \in \textrm{Mat}_{m \times n}(\R)
 \end{equation}
 Note that if $ A $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
+\paragraph{Matrix representing $ f $}
+Following from the previous definition, if we have:
+\begin{itemize}
+\item $ B $ is a basis of $ U $
+\item $ C $ is a basis of $ V $
+\item There is an isomorphism $ f_{B} : \R^{n} \to U $
+\item There is an isomorphism $ f_{C} : \R^{m} \to V $
+\end{itemize}
+We say the matrix $ A $ is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
+\begin{equation}
+A =
+\begin{bmatrix}
+f
+\end{bmatrix}_{B}^{C}
+\end{equation}
+\paragraph{Change-of-basis matrix}
+Let $ B $ and $ C $ be two bases for $ V $. The matrix:
+\begin{equation}
+A =
+\begin{bmatrix}
+\textrm{Id}_{V}
+\end{bmatrix}_{B}^{C}
+\end{equation}
+is called the change-of-basis matrix from $ B $ to $ C $. $ \textrm{Id}_{V} $ denotes the identity function in the vector space $ V $ (maps every vector to itself).
+\\\\
+In this case the linear map $ T_{A} $ will convert a vector given with respect to the basis $ B $ into a vector with respect to the basis $ C $.
+\paragraph{"Vector with respect to a basis"}
+If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{1} ... \vec{b}_{n} \} $, then we say any $ \vec{v} \in V $  is given with respect to $ B $ if:
+\begin{equation}
+\vec{v} = 
+\begin{pmatrix}
+\lambda_{1} \\ \lambda_{2} \\ \vdots \\ \lambda_{n}
+\end{pmatrix} , \ 
+\vec{v} = \lambda_{1}\vec{b}_{1} + \lambda_{2}\vec{b}_{2} + ... + \lambda_{n}\vec{b}_{n}
+\end{equation}
 
 \section{Theorems}
 
@@ -149,10 +186,39 @@ For any $ \vec{v} \in V $:
 \end{itemize}
 
 \subsection{Subspaces}
+Every vector space $ V $ has two trivial subspaces, itself and $ \{ 0_{V} \} $.
+\\\\
+For any subspaces $ U, W \subseteq V $:
+\begin{itemize}
+\item $ U \cap W $ is a subspace
+\item $ U \cup W $ is NOT a subspace
+\end{itemize}
+Any $ U \subseteq V $ is a subspace iff every linear combination of vectors in $ U $ is again in $ U $ (i.e. $ \textrm{span}(U) \subseteq U $).
+\\\\
+For any $ S \subseteq V $, span$ (S) $ is a subspace.
+\\\\
+If $ U $ is a subspace and $ S \subset U $ then span$ (S) \subset U $.
 
-\subsection{Spanning sets and linear independence}
-
-\subsection{Bases and dimension}
+\subsection{Spanning sets, linear independence, bases, dimension}
+For any set $ S \subseteq V $:
+\begin{itemize}
+\item If $ \vec{v}_{1} = \lambda\vec{v}_{2} $ for any $ \vec{v}_{1}, \vec{v}_{2} \in S $ then $ S $ is linearly dependent
+\item If $ 0_{V} \in S $ then $ S $ is linearly dependent
+\end{itemize}
+A vector space is finite dimensional if it contains a finite spanning set.
+\\\\
+Every element of a vector space $ V $ can be written as a unique linear combination of basis vectors (for any basis $ B \subseteq V $).
+\\\\
+Every finite spanning set contains a basis.
+\\\\
+If a finite dimensional vector space has a basis, then there exists a finite dimensional spanning set.
+\\\\
+If $ S \subseteq V $ is a linearly DEPENDENT spanning set, there exists some $ \vec{s} \in S $ such that $ S - \{\vec{s}\} $ is still a spanning set.
+\\
+(In other words, we can keep removing elements from a spanning set until it is linearly independent. At this point the spanning set is now a basis, by definition. This gives us our alternate definition of a basis as a spanning set of minimum size.)
+\\\\
+\textit{Steinitz exchange lemma - base case}
+\\
 
 \subsection{Linear maps}
 
@@ -205,6 +271,7 @@ The above three suffice for the exam, however there is technically a fourth requ
 \begin{itemize}
 \item $ G $ is closed under $ \star $, i.e. for all $ g, h, \in G, g \star h \in G $
 \end{itemize}
+(For the rest of this part, we will assume $ (G, \star) $ is a group)
 \paragraph{Order (group)}
 The order of a group $ (G, \star) $ is the size of $ G $.
 \paragraph{Abelian group}
@@ -292,8 +359,6 @@ The set of all right cosets of $ H $ by $ g $ is denoted by $ H : G $.
 \section{Theorems}
 
 \subsection{Groups}
-(For the rest of this section, assume $ (G, \star) $ is a group)
-\\\\
 Any identity element $ e $ is unique for that group.
 \\\\
 Any two-sided inverse $ g^{-1} $ of an element $ g \in G $ is unique.
