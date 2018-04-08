@@ -57,7 +57,7 @@ A vector space is a set $ V $ coupled with:
 \paragraph{Subspace}
 A subset $ U \subseteq V $ is a subspace if:
 \begin{itemize}
-\item $ 0_{V} \in U $
+\item $ \vec{0}_{V} \in U $
 \item If $ \vec{x}, \vec{y} \in U $ then $ \vec{x + y} \in U $ (closure under addition)
 \item If $ \vec{x} \in U $ then for all $ \lambda \in \R $, $ \lambda\vec{x} \in U $ (closure under scalar multiplication)
 \end{itemize}
@@ -68,18 +68,18 @@ A linear combination of a set of vectors $ \{\vec{v}_{1}...\vec{v}_{n}\} $ is an
 \end{equation}
 for some real numbers $ \lambda_{1}...\lambda_{n} $
 \paragraph{Span}
-The span of a set $ S \subseteq V $ is the set of all linear combinations of elements of $ S $. We define span$ (\emptyset) = \{0_{V}\} $.
+The span of a set $ S \subseteq V $ is the set of all linear combinations of elements of $ S $. We define span$ (\emptyset) = \{\vec{0}_{V}\} $.
 \paragraph{Spanning set}
 A subset $ S \subseteq V $ is called a spanning set of $ V $ if span$ (S) = V $.
 \paragraph{Linear dependence}
 A subset of vectors $ \{ \vec{v}_{1}...\vec{v}_{n} \}  \subseteq V $ is linearly dependent if there exists some real numbers $ \lambda_{1}...\lambda_{n} $ (which are not just all $ 0 $s) such that:
 \begin{equation}
-\lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n} = 0
+\lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n} = \vec{0}_{V}
 \end{equation}
 \paragraph{Basis}
 A basis of a vector space is a linearly independent spanning set.
 \\\\
-We can also think of a basis as a spanning set of minimum size (theorems to prove this later).
+We can also think of a basis as a spanning set of minimum possible size, or a linearly independent set of maximum possible size (theorems to show this later).
 \paragraph{Standard basis of $ \R^{n} $}
 We define the standard basis elements of any $ \R^{n} $ to be:
 \begin{equation}
@@ -115,9 +115,9 @@ The image of a linear map $ f : U \to V $ is the set of all $ f(\vec{u}) \in V $
 \textrm{image}(f) = \{f(\vec{u}) \ | \ u \in U \}
 \end{equation}
 \paragraph{Kernel}
-The kernel of a linear map $ f : U \to V $ is the set of all $ \vec{u} \in U $ such that $ f(\vec{u}) = 0_{V} $.
+The kernel of a linear map $ f : U \to V $ is the set of all $ \vec{u} \in U $ such that $ f(\vec{u}) = \vec{0}_{V} $.
 \begin{equation}
-\textrm{kernel}(f) = \{\vec{u} \ | \ u \in U, f(\vec{u}) = 0_{V} \}
+\textrm{kernel}(f) = \{\vec{u} \ | \ u \in U, f(\vec{u}) = \vec{0}_{V} \}
 \end{equation}
 \paragraph{Isomorphism}
 A linear map $ f : U \to V $ is an isomorphism if it is bijective. We say $ U \simeq V $.
@@ -157,7 +157,7 @@ A =
 is called the change-of-basis matrix from $ B $ to $ C $. $ \textrm{Id}_{V} $ denotes the identity function in the vector space $ V $ (maps every vector to itself).
 \\\\
 In this case the linear map $ T_{A} $ will convert a vector given with respect to the basis $ B $ into a vector with respect to the basis $ C $.
-\paragraph{"Vector with respect to a basis"}
+\paragraph{'Vector with respect to a basis'}
 If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{1} ... \vec{b}_{n} \} $, then we say any $ \vec{v} \in V $  is given with respect to $ B $ if:
 \begin{equation}
 \vec{v} = 
@@ -172,7 +172,7 @@ If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{
 \subsection{Vector spaces}
 \textit{Vector space axioms}
 \begin{itemize}
-\item $ (V, +) $ is an Abelian group (the identity element being $ 0_{V} $)
+\item $ (V, +) $ is an Abelian group (the identity element being $ \vec{0}_{V} $)
 \item for any $ \vec{v} \in V $, 1$ \vec{v} = \vec{v} $
 \item for any $ \vec{v} \in V, \lambda, \mu \in \R, \lambda (\mu \vec{v}) = (\lambda \mu) \vec{v} $ (commutative w.r.t. scalar multiplication)
 \item for any $ \vec{u}, \vec{v} \in V, \lambda \in \R, \lambda (\vec{u}  + \vec{v}) = \lambda \vec{u}  + \lambda \vec{v} $ (scalar multiplication distributes over addition)
@@ -181,12 +181,12 @@ If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{
 For any $ \vec{v} \in V $:
 \begin{itemize}
 \item For any $ n \in \Z $, $ n\vec{v} = \vec{v} + \vec{v} + ... + \vec{v} $ (n times)
-\item $ 0 \vec{v} = 0_{V} $
+\item $ 0 \vec{v} = \vec{0}_{V} $
 \item $ (-1) \vec{v} $ is the additive inverse of $ \vec{v} $
 \end{itemize}
 
 \subsection{Subspaces}
-Every vector space $ V $ has two trivial subspaces, itself and $ \{ 0_{V} \} $.
+Every vector space $ V $ has two trivial subspaces, itself and $ \{ \vec{0}_{V} \} $.
 \\\\
 For any subspaces $ U, W \subseteq V $:
 \begin{itemize}
@@ -197,19 +197,23 @@ Any $ U \subseteq V $ is a subspace iff every linear combination of vectors in $
 \\\\
 For any $ S \subseteq V $, span$ (S) $ is a subspace.
 \\\\
-If $ U $ is a subspace and $ S \subset U $ then span$ (S) \subset U $.
+If $ U  \subset V $ is a subspace and $ S \subset U $ then span$ (S) \subset U $.
 
 \subsection{Spanning sets, linear independence, bases, dimension}
+Every element of a vector space $ V $ can be written as a unique linear combination of basis vectors (for any basis).
+\\\\
 For any set $ S \subseteq V $:
 \begin{itemize}
 \item If $ \vec{v}_{1} = \lambda\vec{v}_{2} $ for any $ \vec{v}_{1}, \vec{v}_{2} \in S $ then $ S $ is linearly dependent
-\item If $ 0_{V} \in S $ then $ S $ is linearly dependent
+\item If $ \vec{0}_{V} \in S $ then $ S $ is linearly dependent
 \end{itemize}
+If a set $ S $ is linearly independent/dependent then any subset of $ S $ is also linearly independent/dependent respectively.
+\\\\
 A vector space is finite dimensional if it contains a finite spanning set.
 \\\\
-Every element of a vector space $ V $ can be written as a unique linear combination of basis vectors (for any basis $ B \subseteq V $).
-\\\\
 Every finite spanning set contains a basis.
+\\\\
+Therefore, a vector space is finite dimensional if it has a finite basis.
 \\\\
 If a finite dimensional vector space has a basis, then there exists a finite dimensional spanning set.
 \\\\
@@ -219,8 +223,74 @@ If $ S \subseteq V $ is a linearly DEPENDENT spanning set, there exists some $ \
 \\\\
 \textit{Steinitz exchange lemma - base case}
 \\
+Let $ S \subset V $ be a spanning set, and let $ \vec{v} \in V $. There always exists an $ \vec{s} \in S $ such that
+\begin{equation}
+(S \setminus \{\vec{s}\}) \cup \{\vec{v}\}
+\end{equation}
+is still a spanning set.
+\\\\
+\textit{Steinitz exchange lemma - in full}
+\\
+Let $ S \subset V $ be a spanning set, and let $ \vec{v}_{1}...\vec{v}_{n} \in V $ be a linearly independent subset. There always exists some $ \vec{s}_{1}...\vec{s}_{n} \in S $ such that
+\begin{equation}
+(S \setminus \{\vec{s}_{1}...\vec{s}_{n}\}) \cup \{\vec{v}_{1}...\vec{v}_{n}\}
+\end{equation}
+is still a spanning set. In other words, we can substitute in any linearly independent set, and $ S $ will still be a spanning set.
+\\\\
+Any linearly independent set is smaller than or equal to any spanning set.
+\\\\
+If $ L \subset V $ linearly independent and $ \vec{v} \notin \textrm{span}(L) $ then $ L \cup {\vec{v}} $ is linearly independent.
+\\
+(In other words, we can keep adding elements to a linearly independent set until it is a spanning set. At this point the linearly independent set is a basis, by definition. This gives us our alternate definition of a basis as a linearly independent set of maximum size.)
+\\\\
+If $ \dim(V) = n $ then every basis of $ V $ has size $ n $.
+\\\\
+If $ V $ is infinite-dimensional, we can always find a linearly independent subset of $ V $ with size $ n $, for any $ n $.
+\\\\
+Any linearly independent set is contained in a basis.
+\\\\
+Any linearly independent set $ L $ where $ \#L = \dim(V) $ is a basis.
+\\\\
+If $ V $ is finite dimensional and $ U \in V $:
+\begin{itemize}
+\item $ U $ is finite dimensional
+\item $ \dim(U) \leq \dim(V) $
+\item if $ \dim(U) = \dim(V) $ then $ U = V $
+\end{itemize}
 
 \subsection{Linear maps}
+(For the rest of this subsection assume $ f, g $ are linear maps, and let $ f : U \to V $)
+\\\\
+$ g \circ f $ is also a linear map.
+\\\\
+$ f(\vec{0}_{U}) = f(\vec{0}_{V}) $.
+\\\\
+$ \textrm{image}(f) $ is a subspace of $ V $.
+\\
+$ \textrm{kernel}(f) $ is a subspace of $ U $.
+\\\\
+If $ f $ surjective then $ \textrm{image}(f) = V $.
+\\
+If $ f $ injective then $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $.
+\\\\
+If $ f(\vec{x}) = \vec{y} $ then $ f^{-1}(\vec{y}) = \{\vec{x} + \vec{w} \ | \ \vec{w} \in \textrm{kernel}(f) \} $.
+\\\\
+If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ A  \in \textrm{Mat}_{n \times m}(\R) $.
+\\\\
+Let $ g : U \to V $, let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $.
+\\
+If $ f(\vec{b}_{i}) = g(\vec{b}_{i}) $ for all $ \vec{b}_{i} $ then $ f \equiv g $.
+\\\\
+There is always a linear map between a basis of $ U $ and any set of vectors in $ V $.
+\\\\
+$ f $ is an isomorphism iff:
+\begin{itemize}
+\item $ \textrm{image}(f) = V $
+\item $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $
+\end{itemize}
+If $ U \simeq V $ then $ V \simeq U $.
+\\\\
+If $ \dim(V) = n $ then $ f \simeq \R^{n} $.
 
 \newpage
 \part{Group Theory}
