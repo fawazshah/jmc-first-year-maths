@@ -33,6 +33,12 @@
 %package for managing hyperlinks
 \usepackage{hyperref}
 
+%package for added blue colored boxes
+\usepackage{tcolorbox}
+
+%package that allowed removing indent from enumerate environment
+\usepackage{enumitem}
+
 \begin{document}
 \large
 \maketitle
@@ -126,11 +132,13 @@ The rank of $ f $ is defined as dim(image($ f $)).
 \paragraph{Nullity}
 The rank of $ f $ is defined as dim(kernel($ f $)).
 \paragraph{$ T_{A} $}
-We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ A $:
+We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ \vec{A} $:
 \begin{equation}
-T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ A \in \textrm{Mat}_{m \times n}(\R)
+T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ \vec{A} \in \textrm{Mat}_{m \times n}(\R)
 \end{equation}
-Note that if $ A $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
+where $  \textrm{Mat}_{m \times n}(\R)  $ denotes the set of all $ m \times n $ matrices with real entries.
+\\
+Note that if $ \vec{A} $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
 \paragraph{Matrix representing $ f $}
 Following from the previous definition, if we have:
 \begin{itemize}
@@ -139,9 +147,9 @@ Following from the previous definition, if we have:
 \item There is an isomorphism $ f_{B} : \R^{n} \to U $
 \item There is an isomorphism $ f_{C} : \R^{m} \to V $
 \end{itemize}
-We say the matrix $ A $ is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
+We say the matrix $ \vec{A} $ is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
 \begin{equation}
-A =
+\vec{A} =
 \begin{bmatrix}
 f
 \end{bmatrix}_{B}^{C}
@@ -149,7 +157,7 @@ f
 \paragraph{Change-of-basis matrix}
 Let $ B $ and $ C $ be two bases for $ V $. The matrix:
 \begin{equation}
-A =
+\vec{A} =
 \begin{bmatrix}
 \textrm{Id}_{V}
 \end{bmatrix}_{B}^{C}
@@ -275,7 +283,22 @@ If $ f $ injective then $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $.
 \\\\
 If $ f(\vec{x}) = \vec{y} $ then $ f^{-1}(\vec{y}) = \{\vec{x} + \vec{w} \ | \ \vec{w} \in \textrm{kernel}(f) \} $.
 \\\\
-If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ A  \in \textrm{Mat}_{n \times m}(\R) $.
+If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ \vec{A}  \in \textrm{Mat}_{m \times n}(\R) $.
+\\
+Specifically $ f : \lambda_{1}\vec{e}_{1} + ... + \lambda_{n}\vec{e}_{n} \mapsto \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n}) $
+\\
+Therefore we can set:
+\begin{equation}
+\vec{A} = [f(\vec{e}_{1}) \ | \ f(\vec{e}_{2}) \ | \ ... \ |\  f(\vec{e}_{n})]
+\end{equation}
+so that 
+\begin{equation}
+T_{A}(\vec{v}) = \vec{A}
+\begin{bmatrix}
+\lambda_{1} \\ \lambda_{2} \\ \vdots \\ \lambda_{n}
+\end{bmatrix}
+= \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n})
+\end{equation}
 \\\\
 Let $ g : U \to V $, let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $.
 \\
@@ -283,14 +306,49 @@ If $ f(\vec{b}_{i}) = g(\vec{b}_{i}) $ for all $ \vec{b}_{i} $ then $ f \equiv g
 \\\\
 There is always a linear map between a basis of $ U $ and any set of vectors in $ V $.
 \\\\
-$ f $ is an isomorphism iff:
-\begin{itemize}
-\item $ \textrm{image}(f) = V $
-\item $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $
-\end{itemize}
-If $ U \simeq V $ then $ V \simeq U $.
+If $ U \simeq V $ then $ \dim(U) = \dim(V) $
 \\\\
 If $ \dim(V) = n $ then $ f \simeq \R^{n} $.
+\\\\
+Let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $ and $ C = \{f(\vec{b}_{1})...f(\vec{b}_{n})\} $ a subset of $ V $:
+\begin{itemize}
+\item $ \textrm{span}(C) = \textrm{image}(f) $
+\item $ C $ is a spanning set $ \Leftrightarrow f $ is surjective
+\item $ C $ is linearly independent $ \Leftrightarrow f $ is injective
+\item $ C $ is a basis $ \Leftrightarrow f $ is bijective (aka an isomorphism)
+\end{itemize}
+If $ \dim(U) = \dim(V) $ then $ f \textrm{ bijective} \Leftrightarrow f \textrm{ surjective} \Leftrightarrow f \textrm{ injective} $
+\\\\
+\textit{Rank-Nullity Theorem}
+\\
+$ \textrm{rank}(f) + \textrm{nullity}(f) = \dim(U) $
+\\\\
+Any $ f : U \to V $ can be represented as $ T_{A} $ for some matrix $ \vec{A} $.
+\\
+\begin{tcolorbox}
+\textit{Steps for computing $ \vec{A} $:}
+\\\\
+Let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $
+\\
+Let $ C = \{\vec{c}_{1}...\vec{c}_{m}\} $ be a basis of $ V $
+\\\\
+We have isomorphisms:
+\\
+$ f_{B} : \R^{n} \to U, \ \lambda_{1}\vec{e}_{1} + ... + \lambda_{n}\vec{e}_{n} \mapsto \lambda_{1}\vec{b}_{1} + ... + \lambda_{n}\vec{b}_{n} $
+\\
+$ f_{C} : \R^{m} \to V, \ \lambda_{1}\vec{e}_{1} + ... + \lambda_{m}\vec{e}_{m} \mapsto \lambda_{1}\vec{c}_{1} + ... + \lambda_{m}\vec{c}_{m} $
+\\\\
+Note that the linear map $ (f_{C})^{-1} \circ f \circ f_{B} $ sends vectors from $ \R^{n} \to \R^{m} $, therefore we can define:
+\begin{equation}
+T_{A} \equiv (f_{C})^{-1} \circ f \circ f_{B}
+\end{equation}
+since, from earlier, $ T_{A} : \R^{n} \to \R^{m} $.
+\begin{enumerate}[leftmargin=*]
+\item Take basis vectors of $ U $ ($ \vec{b}_{j} $) in some order. Compute $ f(\vec{b}_{j}) $. We have just applied $ f_{B} $, followed by $ f $.
+\item Express each $ f(\vec{b}_{j}) $ as a linear combination of basis vectors of $ V $ ($ \vec{c}_{i} $).
+\item Applying $ (f_{C})^{-1} $ sends vectors in $ V $ to their coefficients w.r.t the basis vectors $ \vec{c}_{i} $.
+\end{enumerate}
+\end{tcolorbox}
 
 \newpage
 \part{Group Theory}
