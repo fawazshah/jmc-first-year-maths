@@ -44,7 +44,9 @@
 \maketitle
 \noindent Dr Lawn refers to propositions, theorems, corollaries and lemmas. In this document I will refer to them all as 'theorems'.
 \\\\
-\noindent This document contains a list of definitions and a list of theorems.
+This document contains a list of definitions and a list of theorems.
+\\
+Blue boxes cover content in more detail.
 \tableofcontents
 \newpage
 \part{Abstract Linear Algebra}
@@ -223,9 +225,11 @@ Therefore, a vector space is finite dimensional if it has a finite basis.
 If a finite dimensional vector space has a basis, then there exists a finite dimensional spanning set.
 \\\\
 If $ S \subseteq V $ is a linearly DEPENDENT spanning set, there exists some $ \vec{s} \in S $ such that $ S - \{\vec{s}\} $ is still a spanning set.
+\begin{tcolorbox}
+In other words, we can keep removing elements from a spanning set until it is linearly independent. At this point the spanning set is now a basis, by definition. This gives us our alternate definition of a basis as a spanning set of minimum size.
+\end{tcolorbox}
+\noindent
 \\
-(In other words, we can keep removing elements from a spanning set until it is linearly independent. At this point the spanning set is now a basis, by definition. This gives us our alternate definition of a basis as a spanning set of minimum size.)
-\\\\
 \textit{Steinitz exchange lemma - base case}
 \\
 Let $ S \subset V $ be a spanning set, and let $ \vec{v} \in V $. There always exists an $ \vec{s} \in S $ such that
@@ -245,9 +249,11 @@ is still a spanning set. In other words, we can substitute in any linearly indep
 Any linearly independent set is smaller than or equal to any spanning set.
 \\\\
 If $ L \subset V $ linearly independent and $ \vec{v} \notin \textrm{span}(L) $ then $ L \cup {\vec{v}} $ is linearly independent.
+\begin{tcolorbox}
+In other words, we can keep adding elements to a linearly independent set until it is a spanning set. At this point the linearly independent set is a basis, by definition. This gives us our alternate definition of a basis as a linearly independent set of maximum size.
+\end{tcolorbox}
+\noindent
 \\
-(In other words, we can keep adding elements to a linearly independent set until it is a spanning set. At this point the linearly independent set is a basis, by definition. This gives us our alternate definition of a basis as a linearly independent set of maximum size.)
-\\\\
 If $ \dim(V) = n $ then every basis of $ V $ has size $ n $.
 \\\\
 If $ V $ is infinite-dimensional, we can always find a linearly independent subset of $ V $ with size $ n $, for any $ n $.
@@ -281,14 +287,14 @@ If $ f $ injective then $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $.
 If $ f(\vec{x}) = \vec{y} $ then $ f^{-1}(\vec{y}) = \{\vec{x} + \vec{w} \ | \ \vec{w} \in \textrm{kernel}(f) \} $.
 \\\\
 If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ \vec{A}  \in \textrm{Mat}_{m \times n}(\R) $.
-\\
+\begin{tcolorbox}
 Specifically $ f : \lambda_{1}\vec{e}_{1} + ... + \lambda_{n}\vec{e}_{n} \mapsto \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n}) $
-\\
+\\\\
 Therefore we can set:
 \begin{equation}
 \vec{A} = [f(\vec{e}_{1}) \ | \ f(\vec{e}_{2}) \ | \ ... \ |\  f(\vec{e}_{n})]
 \end{equation}
-so that 
+so that for any $ \vec{v} \in U $:
 \begin{equation}
 T_{A}(\vec{v}) = \vec{A}
 \begin{bmatrix}
@@ -296,7 +302,9 @@ T_{A}(\vec{v}) = \vec{A}
 \end{bmatrix}
 = \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n})
 \end{equation}
-\\\\
+\end{tcolorbox}
+\noindent
+\\
 Let $ g : U \to V $, let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $.
 \\
 If $ f(\vec{b}_{i}) = g(\vec{b}_{i}) $ for all $ \vec{b}_{i} $ then $ f \equiv g $.
@@ -321,7 +329,6 @@ If $ \dim(U) = \dim(V) $ then $ f \textrm{ bijective} \Leftrightarrow f \textrm{
 $ \textrm{rank}(f) + \textrm{nullity}(f) = \dim(U) $
 \\\\
 Any $ f : U \to V $ can be represented as $ T_{A} $ for some matrix $ \vec{A} $.
-\\
 \begin{tcolorbox}
 \textit{Steps for computing $ \vec{A} $:}
 \\\\
@@ -345,6 +352,7 @@ since, from earlier, $ T_{A} : \R^{n} \to \R^{m} $.
 \item Express each $ f(\vec{b}_{j}) $ as a linear combination of basis vectors of $ V $ ($ \vec{c}_{i} $).
 \item Applying $ (f_{C})^{-1} $ sends vectors in $ V $ to their coefficients w.r.t the basis vectors $ \vec{c}_{i} $.
 \end{enumerate}
+The matrix $ A $ is such that the $ j^{th} $ column of $ A $ is the vector $ (f_{C})^{-1} \circ f \circ f_{B}(\vec{e}_{j})  = (f_{C})^{-1} \circ f(\vec{b}_{j}) $
 \end{tcolorbox}
 
 \newpage
@@ -392,10 +400,12 @@ A group $ (G, \star) $ is a set $ G $ equipped with a binary operation $ \star $
 \item $ \star $ has an identity element $ e \in G $
 \item Every $ g \in G $ has an inverse $ g^{-1} \in G $
 \end{itemize}
+\begin{tcolorbox}
 The above three suffice for the exam, however there is technically a fourth requirement:
 \begin{itemize}
 \item $ G $ is closed under $ \star $, i.e. for all $ g, h, \in G, g \star h \in G $
 \end{itemize}
+\end{tcolorbox}
 (For the rest of this part, we will assume $ (G, \star) $ is a group)
 \paragraph{Order (group)}
 The order of a group $ (G, \star) $ is the size of $ G $.
