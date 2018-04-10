@@ -242,7 +242,7 @@ is still a spanning set.
 \\\\
 \textit{Steinitz exchange lemma - in full}
 \\
-Let $ S \subset V $ be a spanning set, and let $ \vec{v}_{1}...\vec{v}_{n} \in V $ be a linearly independent subset. There always exists some $ \vec{s}_{1}...\vec{s}_{n} \in S $ such that
+Let $ S \subset V $ be a spanning set, and let $ \vec{v}_{1}...\vec{v}_{n} \in V $ be a linearly independent set. There always exists some $ \vec{s}_{1}...\vec{s}_{n} \in S $ such that
 \begin{equation}
 (S \setminus \{\vec{s}_{1}...\vec{s}_{n}\}) \cup \{\vec{v}_{1}...\vec{v}_{n}\}
 \end{equation}
@@ -252,7 +252,7 @@ In other words, we can substitute in any linearly independent set, and $ S $ wil
 \end{tcolorbox}
 \noindent
 \\
-Any linearly independent set is smaller than or equal to any spanning set.
+Any linearly independent set is smaller than or equal to any spanning set. (Consequence of Steinitz exchange lemma).
 \\\\
 If $ L \subset V $ linearly independent and $ \vec{v} \notin \textrm{span}(L) $ then $ L \cup {\vec{v}} $ is linearly independent.
 \begin{tcolorbox}
@@ -580,7 +580,9 @@ For any subgroup ($ H, \star $) where $ H \subseteq G $:
 \#G = \#H \cdot \#(G : H)
 \end{equation}
 \\
-For any $ g \in G $, the order of $ g $ divides $ \#G $.
+For any subgroup ($ H, \star $), $ \#H $ divides $ \#G $. (Consequence of Lagrange's Theorem).
+\\\\
+For any $ g \in G $, the order of $ g $ divides $ \#G $. (Since the order of $ g $ is the size of the subgroup $ \langle g \rangle $).
 \\\\
 If $ \#G = p $, where $ p $ is prime, then $ G $ is cyclic.
 
