@@ -55,6 +55,28 @@ Boxes cover content in more detail.
 \subsection{Sets}
 \subsection{Complex numbers}
 \subsection{Number theory}
+
+\textit{Bezout's Theorem}
+\begin{equation} \label{bezout}
+\gcd(a, b) = \lambda a + \mu b \quad (\textrm{for some } \lambda, \mu \in \R)
+\end{equation}
+\begin{tcolorbox}
+Let:
+\begin{itemize}
+\item $ a = \alpha \gcd(a, b) $
+\item $ b = \beta \gcd(a, b) $
+\end{itemize}
+In general the solution to equation \ref{bezout} is given by:
+\begin{equation}
+\gcd(a, b) = (\lambda + \beta n) a + (\mu - \alpha n) b
+\end{equation}
+noting that the extra terms will always cancel out. So we have a set of solutions ($ \lambda_{n}, \mu_{n} $), where:
+\begin{equation}
+\lambda_{n} = \lambda + \beta n, \quad \mu_{n} = \mu - \alpha n
+\end{equation}
+\end{tcolorbox}
+\noindent
+\\
 Every integer $ > 1 $ can be written as a product of primes.
 \\
 (use strong induction to prove)
