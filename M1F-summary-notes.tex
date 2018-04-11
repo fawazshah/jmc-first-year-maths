@@ -54,11 +54,112 @@ Boxes cover content in more detail.
 \newpage
 
 \section{Definitions}
-\section{Theorems}
-\subsection{Sets}
-\subsection{Complex numbers}
-\subsection{Number theory}
+\paragraph{Arbitrary union}
+We can define the arbitrary union
+\begin{equation}
+\bigcup_{i \in I} X_{i}
+\end{equation}
+to be the union of all sets $ X_{i} $.
+\paragraph{Arbitrary intersection}
+We can define the arbitrary intersection
+\begin{equation}
+\bigcap_{i \in I} X_{i}
+\end{equation}
+to be the intersection of all sets $ X_{i} $.
+\paragraph{Modulus (complex number)}
+\paragraph{Argument (complex number)}
 
+\section{Theorems}
+\subsection{Logic and Sets}
+\textit{Contrapositive law}
+\begin{equation}
+(P \Rightarrow Q) \Rightarrow (\neg Q \Rightarrow \neg P)
+\end{equation}
+\\
+To negate any logical statements, we can flip the $ \forall $ and $ \exists $ signs and negate the predicate (the mathematical statement at the end).
+\subsection{Complex numbers}
+Complex numbers can be added, subtracted, multiplied and divided.
+\\\\
+For any complex number $ z $,
+\begin{equation}
+z \overline{z} = |z| ^{2}
+\end{equation}
+\\
+For any complex numbers $ z_{1}, z_{2} $:
+\begin{align}
+\overline{z_{1} + z_{2}} & = \overline{z_{1}} + \overline{z_{2}} \\
+\overline{z_{1} - z_{2}} & = \overline{z_{1}} - \overline{z_{2}} \\
+\overline{z_{1} z_{2}} & = \overline{z_{1}} \cdot \overline{z_{2}} \\
+\overline{(\frac{z_{1}}{z_{2}})} & = \frac{\overline{(z_{1})}}{\overline{(z_{2})}} \\
+\overline{(z_{1})^{n}} & = (\overline{z_{1}})^{n}
+\end{align}
+The inverse of a complex number $ z $ is such that:
+\begin{equation}
+z z^{-1} = 1
+\end{equation}
+\\
+Any complex number $ z $ can be represented in exponential form:
+\begin{equation}
+z = r e^{i \theta}
+\end{equation}
+where $ r $ is the modulus of $ z $ and $ \theta $ is the argument.
+\\\\
+\textit{Euler's formula}
+\begin{equation}
+e^{i \theta} = \cos(\theta) + i \sin(\theta)
+\end{equation}
+This can be proven using power series.
+\\\\
+\textit{De Moivre's Theorem}
+\\
+For any complex number $ z $:
+\begin{equation}
+z^{n} = r^{n} (\cos(n \theta) + i \sin(n \theta))
+\end{equation}
+This can be proven by induction or using Euler's formula.
+\\\\
+\textit{Fundamental Theorem of Algebra}
+\\
+Any polynomial of degree $ n $ has $ n $ roots in the complex plane.
+\\\\
+\textit{Roots of unity}
+\\
+Any root of unity (i.e. a solution to $ z^{n} = 1 $) can be expressed in the form:
+\begin{equation}
+z = e^{\frac{2 \pi k i}{n}}, \quad k \in \Z_{\geq 0}
+\end{equation}
+
+\subsection{Number theory}
+\textit{Weak induction}
+\\
+If we take $ P $ as a predicate:
+\begin{equation}
+P(0) \land (P(k) \Rightarrow P(k+1)) \Rightarrow P(n) \quad (\forall n)
+\end{equation}
+Note that we do not have to start at 0:
+\begin{equation}
+P(m) \land (P(k) \Rightarrow P(k+1)) \Rightarrow P(n) \quad (\forall n \geq m)
+\end{equation}
+\\
+\textit{Strong induction}
+\\
+If we take $ P $ as a predicate:
+\begin{equation}
+P(0) \land ((\forall j \leq k \ P(j)) \Rightarrow P(k+1)) \Rightarrow P(n) \quad (\forall n)
+\end{equation}
+Note that we do not have to start at 0:
+\begin{equation}
+P(m) \land ((\forall j \leq k \ P(j)) \Rightarrow P(k+1)) \Rightarrow P(n) \quad (\forall n \geq m)
+\end{equation}
+\begin{tcolorbox}
+We must prove $ P(k) \Rightarrow P(k+1) $ for weak induction.
+\\
+We must prove $ (\forall j \leq k \ P(j)) \Rightarrow P(k+1) $ for strong induction.
+\\\\
+Strong induction is mathematically equivalent to weak induction.
+\end{tcolorbox}
+\noindent
+\\
 \textit{Completeness Axiom}
 \\
 A set $ S $ has a least upper bound (sup) iff:
@@ -67,18 +168,44 @@ A set $ S $ has a least upper bound (sup) iff:
 \item $ S $ is bounded above
 \end{itemize}
 Corresponding statement for greatest lower bound (inf).
-\noindent
 \\\\
+Every real number has a decimal expansion.
+\\\\
+A number is rational $ \Leftrightarrow $ it has a periodic decimal expansion.
+\\\\
+For any $ x \in \Z_{\geq 0} $, $ x \ | \ a \textrm{ and } x \ | \ b \Rightarrow x \ | \ \gcd(a, b) $.
+\\\\
+\textit{Euclid's Algorithm}
+\\
+To find the $ gcd $ of $ a $ and $ b $ where $ a > b $. Write:
+\begin{align}
+a & = q_{1} b + r_{1} \\
+b & = q_{2} r_{1} + r_{2} \\
+r_{1} & = q_{3} r_{2} + r_{3} \\
+& \vdots \\
+r_{n-1} & = q_{n} r_{n-1} + r_{n}
+\end{align}
+Continue until $ r_{n} = 0 $, return $ r_{n-1} $.
+\\
+\begin{tcolorbox}
+In Haskell notation:
+\\\\
+$ \gcd(a, 0) = 0 $
+\\
+$ \gcd(a, b) = gcd(b, a \textrm{ mod } b) $
+\end{tcolorbox}
+\noindent
+\\
 \textit{Bezout's Theorem}
 \begin{equation} \label{bezout}
 \gcd(a, b) = \lambda a + \mu b \quad (\textrm{for some } \lambda, \mu \in \R)
 \end{equation}
 \begin{tcolorbox}
-Let:
-\begin{itemize}
-\item $ a = \alpha \gcd(a, b) $
-\item $ b = \beta \gcd(a, b) $
-\end{itemize}
+We can write $ a $ and $ b $ as:
+\begin{align}
+a & = \alpha \gcd(a, b) \\
+b & = \beta \gcd(a, b)
+\end{align}
 In general the solution to equation \ref{bezout} is given by:
 \begin{equation}
 \gcd(a, b) = (\lambda + \beta n) a + (\mu - \alpha n) b
