@@ -73,7 +73,7 @@ to be the intersection of all sets $ X_{i} $.
 \subsection{Logic and Sets}
 \textit{Contrapositive law}
 \begin{equation}
-(P \Rightarrow Q) \Rightarrow (\neg Q \Rightarrow \neg P)
+(P \Rightarrow Q) \Leftrightarrow (\neg Q \Rightarrow \neg P)
 \end{equation}
 \\
 To negate any logical statements, we can flip the $ \forall $ and $ \exists $ signs and negate the predicate (the mathematical statement at the end).
@@ -192,7 +192,7 @@ In Haskell notation:
 \\\\
 $ \gcd(a, 0) = 0 $
 \\
-$ \gcd(a, b) = gcd(b, a \textrm{ mod } b) $
+$ \gcd(a, b) = \gcd(b, a \textrm{ mod } b) $
 \end{tcolorbox}
 \noindent
 \\
@@ -223,9 +223,7 @@ Every integer larger than $ 1 $ can be written as a product of primes.
 \\\\
 \textit{Fundamental Theorem of Arithmetic}
 \\
-Every integer larger than $ 1 $ can be written UNIQUELY as a product of primes.
-\\
-(proof not needed)
+Every integer larger than $ 1 $ can be written UNIQUELY as a product of primes. (proof not needed)
 \subsection{Equivalence relations and functions}
 \subsection{Combinatorics}
 
