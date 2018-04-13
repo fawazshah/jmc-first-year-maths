@@ -36,7 +36,7 @@
 \usepackage{hyperref}
 
 %package for added blue colored boxes
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 
 %package that allowed removing indent from enumerate environment
 \usepackage{enumitem}
@@ -156,7 +156,7 @@ Note that we do not have to start at 0:
 \begin{equation}
 P(m) \land ((\forall j \leq k \ P(j)) \Rightarrow P(k+1)) \Rightarrow P(n) \quad (\forall n \geq m)
 \end{equation}
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 We must prove $ P(k) \Rightarrow P(k+1) $ for weak induction.
 \\
 We must prove $ (\forall j \leq k \ P(j)) \Rightarrow P(k+1) $ for strong induction.
@@ -184,7 +184,7 @@ For any $ x \in \Z_{\geq 0} $, $ (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightar
 \\\\
 If $  (x \ | \ ab) $ but $ \gcd(a, x) = 1 $ then $ (x \ | \ b ) $.
 \\
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 N.B. In general, $ \gcd(a, b) = 1 \centernot\Rightarrow (a \ \centernot| \ b) $.
 \end{tcolorbox}
 \noindent
@@ -201,7 +201,7 @@ r_{n-1} & = q_{n} r_{n-1} + r_{n}
 \end{align}
 Continue until $ r_{n} = 0 $, return $ r_{n-1} $.
 \\
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 In Haskell notation:
 \\\\
 $ \gcd(a, 0) = 0 $
@@ -214,7 +214,7 @@ $ \gcd(a, b) = \gcd(b, a \textrm{ mod } b) $
 \begin{equation} \label{bezout}
 \gcd(a, b) = \lambda a + \mu b \quad (\textrm{for some } \lambda, \mu \in \R)
 \end{equation}
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 We can write $ a $ and $ b $ as:
 \begin{align}
 a & = \alpha \gcd(a, b) \\
@@ -304,7 +304,8 @@ n \\ \alpha,  \beta,  \gamma ...
 =
 \frac{n!}{\alpha! \ \beta! \ \gamma! \ ... }
 \end{equation}
-\begin{tcolorbox}
+\\
+\begin{tcolorbox}[breakable]
 Note if we set $ r = 2 $ in the above equation we get the familiar binomial coefficient:
 \begin{align}
 \begin{pmatrix}
