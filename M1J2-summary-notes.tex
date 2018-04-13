@@ -34,7 +34,9 @@
 \usepackage{hyperref}
 
 %package for added blue colored boxes
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
+%new command "\breakbox" that creates a breakablebox
+\newtcbox{breakbox}{breakable}
 
 %package that allowed removing indent from enumerate environment
 \usepackage{enumitem}
@@ -227,7 +229,7 @@ Therefore, a vector space is finite dimensional if it has a finite basis.
 If a finite dimensional vector space has a basis, then there exists a finite dimensional spanning set.
 \\\\
 If $ S \subseteq V $ is a linearly DEPENDENT spanning set, there exists some $ \vec{s} \in S $ such that $ S - \{\vec{s}\} $ is still a spanning set.
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 In other words, we can keep removing elements from a spanning set until it is linearly independent. At this point the spanning set is now a basis, by definition. This gives us our alternate definition of a basis as a spanning set of minimum size.
 \end{tcolorbox}
 \noindent
@@ -247,7 +249,7 @@ Let $ S \subset V $ be a spanning set, and let $ \vec{v}_{1}...\vec{v}_{n} \in V
 (S \setminus \{\vec{s}_{1}...\vec{s}_{n}\}) \cup \{\vec{v}_{1}...\vec{v}_{n}\}
 \end{equation}
 is still a spanning set.
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 In other words, we can substitute in any linearly independent set, and $ S $ will still be a spanning set.
 \end{tcolorbox}
 \noindent
@@ -255,7 +257,7 @@ In other words, we can substitute in any linearly independent set, and $ S $ wil
 Any linearly independent set is smaller than or equal to any spanning set. (Consequence of Steinitz exchange lemma).
 \\\\
 If $ L \subset V $ linearly independent and $ \vec{v} \notin \textrm{span}(L) $ then $ L \cup {\vec{v}} $ is linearly independent.
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 In other words, we can keep adding elements to a linearly independent set until it is a spanning set. At this point the linearly independent set is a basis, by definition. This gives us our alternate definition of a basis as a linearly independent set of maximum size.
 \end{tcolorbox}
 \noindent
@@ -293,7 +295,7 @@ If $ f $ injective then $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $.
 If $ f(\vec{x}) = \vec{y} $ then $ f^{-1}(\vec{y}) = \{\vec{x} + \vec{w} \ | \ \vec{w} \in \textrm{kernel}(f) \} $.
 \\\\
 If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ \vec{A}  \in \textrm{Mat}_{m \times n}(\R) $.
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 Specifically $ f : \lambda_{1}\vec{e}_{1} + ... + \lambda_{n}\vec{e}_{n} \mapsto \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n}) $
 \\\\
 Therefore we can set:
@@ -335,7 +337,13 @@ If $ \dim(U) = \dim(V) $ then $ f \textrm{ bijective} \Leftrightarrow f \textrm{
 $ \textrm{rank}(f) + \textrm{nullity}(f) = \dim(U) $
 \\\\
 Any $ f : U \to V $ can be represented as $ T_{A} $ for some matrix $ \vec{A} $.
-\begin{tcolorbox}
+\\
+We denote $ \vec{A} $ by $
+\begin{bmatrix}
+f
+\end{bmatrix}_{B}^{C} $, also known as the matrix representing $ f $ with respect to $ B $ and $ C $.
+\\
+\begin{tcolorbox}[breakable]
 \textit{Steps for computing $ \vec{A} $:}
 \\\\
 Let $ B = \{\vec{b}_{1}...\vec{b}_{n}\} $ be a basis of $ U $
@@ -360,6 +368,26 @@ since, from earlier, $ T_{A} : \R^{n} \to \R^{m} $.
 \end{enumerate}
 The matrix $ A $ is such that the $ j^{th} $ column of $ A $ is the vector $ (f_{C})^{-1} \circ f \circ f_{B}(\vec{e}_{j})  = (f_{C})^{-1} \circ f(\vec{b}_{j}) $
 \end{tcolorbox}
+\noindent
+\\
+\textit{Change-of-basis matrix}
+\\
+Let $ B $ and $ C $ both be bases of $ V $. To convert a vector $ \vec{v} \in V $ given with respect to a basis $ B $ to a different basis $ C $, we can use $ T_{A} $ with $ A = 
+\begin{bmatrix}
+Id_{V}
+\end{bmatrix}_{B}^{C} $. If we denote the two representations as $ \vec{v}_{B} $ and $ \vec{v}_{C} $:
+\begin{equation}
+\vec{v}_{C} = \begin{bmatrix} Id_{V} \end{bmatrix}_{B}^{C} \vec{v}_{B}
+\end{equation}
+\\\\
+Let $ B $ and $ B' $ be two bases of $ U $, $ C $ and $ C' $ two bases of $ V $, and $ f : U \to V $. The following equation holds:
+\begin{equation}
+\begin{bmatrix} f \end{bmatrix}_{B'}^{C'}
+=
+\begin{bmatrix} Id_{V} \end{bmatrix}_{C}^{C'}
+\begin{bmatrix} f \end{bmatrix}_{B}^{C}
+\begin{bmatrix} Id_{U} \end{bmatrix}_{B'}^{B}
+\end{equation}
 
 \newpage
 \part{Group Theory}
@@ -406,7 +434,7 @@ A group $ (G, \star) $ is a set $ G $ equipped with a binary operation $ \star $
 \item $ \star $ has an identity element $ e \in G $
 \item Every $ g \in G $ has an inverse $ g^{-1} \in G $
 \end{itemize}
-\begin{tcolorbox}
+\begin{tcolorbox}[breakable]
 The above three suffice for the exam, however there is technically a fourth requirement:
 \begin{itemize}
 \item $ G $ is closed under $ \star $, i.e. for all $ g, h, \in G, g \star h \in G $
