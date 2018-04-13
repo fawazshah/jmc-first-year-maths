@@ -280,10 +280,10 @@ Continue until $ r_{n} = 0 $, return $ r_{n-1} $.
 \\
 \begin{tcolorbox}[breakable]
 In Haskell notation, Euclid's algorithm is specified by:
-\\\\
-$ \gcd(a, 0) = 0 $
-\\
-$ \gcd(a, b) = \gcd(b, a \textrm{ mod } b) $
+\begin{verbatim}
+gcd(a, 0) = 0
+gcd(a, b) = gcd(b, a mod b)
+\end{verbatim}
 \end{tcolorbox}
 \noindent
 \\
