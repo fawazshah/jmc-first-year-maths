@@ -1,5 +1,6 @@
-\documentclass{article}
-\title{M1F Summary Notes (JMC Year 1, 2017/2018 syllabus)}
+\documentclass{scrartcl}
+\title{M1F Summary Notes}
+\subtitle{JMC Year 1, 2017/2018 syllabus}
 \date{}
 \author{Fawaz Shah}
 
@@ -47,9 +48,6 @@
 \begin{document}
 \large
 \maketitle
-\begin{center}
-UNDER CONSTRUCTION
-\end{center}
 \noindent This document contains a list of definitions and a list of theorems.
 \\\\
 Note that the exam will probably require you to PROVE some of these theorems, so you should refer back to the original notes for the proofs.
@@ -133,8 +131,8 @@ A function $ f : A \to B $ is injective if every $ b \in B $ has at MOST one $ a
 \begin{equation}
 \forall x, y \in A \quad f(x) = f(y) \Rightarrow x = y
 \end{equation}
-\paragraph{Injective}
-A function $ f : A \to B $ is injective if every $ b \in B $ has at LEAST one $ a \in A $ that maps to it. Mathematically:
+\paragraph{Surjective}
+A function $ f : A \to B $ is surjective if every $ b \in B $ has at LEAST one $ a \in A $ that maps to it. Mathematically:
 \begin{equation}
 \forall b \in B \quad \exists a \in A \quad s.t. \quad f(a) = b
 \end{equation}
@@ -280,7 +278,7 @@ r_{n-1} & = q_{n} r_{n-1} + r_{n}
 Continue until $ r_{n} = 0 $, return $ r_{n-1} $.
 \\
 \begin{tcolorbox}[breakable]
-In Haskell notation:
+In Haskell notation, Euclid's algorithm is specified by:
 \\\\
 $ \gcd(a, 0) = 0 $
 \\
@@ -374,6 +372,7 @@ In any $ n $-stage process, where the $ r^{th} $ stage can be completed in $ a_{
 \end{equation}
 i.e. just multiply the number of options together.
 \\\\
+\\
 \textit{Multinomials}
 \\
 When expanding $ (a + b + c + ...)^{n} $, with $ r $ variables in the brackets, the general term of any coefficient is $ a^{\alpha} b^{\beta} c^{\gamma}... $, where $ \alpha + \beta + \gamma + ... = n $.
