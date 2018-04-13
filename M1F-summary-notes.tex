@@ -22,6 +22,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
 
 % renaming command to writing vectors in bold notation
 \renewcommand{\vec}[1]{\mathbf{#1}}
@@ -38,6 +40,9 @@
 
 %package that allowed removing indent from enumerate environment
 \usepackage{enumitem}
+
+%package that allows for negating nearly any symbol
+\usepackage{centernot}
 
 \begin{document}
 \large
@@ -129,7 +134,7 @@ Any root of unity (i.e. a solution to $ z^{n} = 1 $) can be expressed in the for
 z = e^{\frac{2 \pi k i}{n}}, \quad k \in \Z_{\geq 0}
 \end{equation}
 
-\subsection{Number theory}
+\subsection{Induction}
 \textit{Weak induction}
 \\
 If we take $ P $ as a predicate:
@@ -158,8 +163,8 @@ We must prove $ (\forall j \leq k \ P(j)) \Rightarrow P(k+1) $ for strong induct
 \\\\
 Strong induction is mathematically equivalent to weak induction.
 \end{tcolorbox}
-\noindent
-\\
+
+\subsection{Number Theory}
 \textit{Completeness Axiom}
 \\
 A set $ S $ has a least upper bound (sup) iff:
@@ -173,8 +178,17 @@ Every real number has a decimal expansion.
 \\\\
 A number is rational $ \Leftrightarrow $ it has a periodic decimal expansion.
 \\\\
-For any $ x \in \Z_{\geq 0} $, $ x \ | \ a \textrm{ and } x \ | \ b \Rightarrow x \ | \ \gcd(a, b) $.
+For any $ x \in \Z_{\geq 0} $, $ (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightarrow (x \ | \ \gcd(a, b)) $.
+\\
+($ x \ | \ a  $ means "x divides a")
 \\\\
+If $  (x \ | \ ab) $ but $ \gcd(a, x) = 1 $ then $ (x \ | \ b ) $.
+\\
+\begin{tcolorbox}
+N.B. In general, $ \gcd(a, b) = 1 \centernot\Rightarrow (a \ \centernot| \ b) $.
+\end{tcolorbox}
+\noindent
+\\
 \textit{Euclid's Algorithm}
 \\
 To find the $ gcd $ of $ a $ and $ b $ where $ a > b $. Write:
@@ -221,10 +235,86 @@ Every integer larger than $ 1 $ can be written as a product of primes.
 \\
 (use strong induction to prove)
 \\\\
-\textit{Fundamental Theorem of Arithmetic}
+\textit{Fundamental Theorem of Arithmetic (proof not needed)}
 \\
-Every integer larger than $ 1 $ can be written UNIQUELY as a product of primes. (proof not needed)
+Every integer larger than $ 1 $ can be written UNIQUELY as a product of primes.
+
+\subsection{Modular arithmetic}
+$ (\equiv \mod m) $ is an equivalence relation (theorems on this later).
+\\\\
+If $ a \equiv b \mod m $ and $ c \equiv d \mod m $:
+\begin{align}
+a + c & \equiv b + d \mod m \\
+a - c & \equiv b - d \mod m \\
+ac & \equiv bd \mod m
+\end{align}
+If $ a \equiv b \mod m $, then for any $ n $ :
+\begin{equation}
+a^{n} \equiv b^{n} \mod m
+\end{equation}
+\\
+\textit{Fermat's Little Theorem}
+\\
+For any prime $ p $ and $ a \in \Z $:
+\begin{equation}
+a^{p} \equiv a \mod p
+\end{equation}
+
 \subsection{Equivalence relations and functions}
+The set of equivalence classes of a set $ S $ form a partition of $ S $. In other words, each equivalence class is a disjoint subset of $ S $.
+\\\\
+A function has an inverse iff it is a bijection.
+\\\\
+If $ f $ and $ g $ are injective, so is $ g \circ f $.
+\\
+If $ f $ and $ g $ are surjective, so is $ g \circ f $.
+\\
+If $ f $ and $ g $ are bijective, so is $ g \circ f $.
+\\\\
+If we define $ f \star g $ as "there exists a bijection between $ f $ and $ g $", then $ \star $ is an equivalence relation.
+\\\\
+Let $ P(A) $ denote the power set of a set $ A $.
+\\
+There exists no bijection $ A \to P(A) $.
+\\\\
+\textit{Examples of countably finite/infinite sets}
+\\
+$ \Z, \Q $ are countably infinite.
+\\
+$ \R, \C , \R \setminus \Q $ (set of all irrationals) are uncountably infinite.
+
 \subsection{Combinatorics}
+\textit{Multiplicative principle}
+\\
+In any $ n $-stage process, where the $ r^{th} $ stage can be completed in $ a_{r} $ ways, the total number of was of completing the process is:
+\begin{equation}
+\prod_{r = 0}^{n} a_{r}
+\end{equation}
+i.e. just multiply the number of options together.
+\\\\
+\textit{Multinomials}
+\\
+When expanding $ (a + b + c + ...)^{n} $, with $ r $ variables in the brackets, the general term of any coefficient is $ a^{\alpha} b^{\beta} c^{\gamma}... $, where $ \alpha + \beta + \gamma + ... = n $.
+\\
+The coeffient in the expansion for any term $ a^{\alpha} b^{\beta} c^{\gamma}... $ is given by:
+\begin{equation}
+\begin{pmatrix}
+n \\ \alpha,  \beta,  \gamma ...
+\end{pmatrix}
+=
+\frac{n!}{\alpha! \ \beta! \ \gamma! \ ... }
+\end{equation}
+\begin{tcolorbox}
+Note if we set $ r = 2 $ in the above equation we get the familiar binomial coefficient:
+\begin{align}
+\begin{pmatrix}
+n \\ \alpha,  \beta
+\end{pmatrix}
+& =
+\frac{n!}{\alpha! \ \beta!} \\
+& = \frac{n!}{\alpha! \ (n - \alpha)!}
+\end{align}
+since $ \beta = n - \alpha $.
+\end{tcolorbox}
 
 \end{document}
