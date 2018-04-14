@@ -85,13 +85,13 @@ If a polynomial is of degree $ n $ then it has $ n $ roots in the complex plane.
 \paragraph{Root of unity}
 Any $ z $ that is a solution to $ z^{n} = 1 $.
 \paragraph{Supremum}
-A real number $ b $ is the sup of a set $ S $ if:
+A real number $ b $ is the sup (least upper bound) of a set $ S $ if:
 \begin{itemize}
 \item every $ s \in S $ is less than $ b $ (i.e. $ b $ is an upper bound)
 \item $ b $ is less than every other upper bound of $ S $
 \end{itemize}
 \paragraph{Infimum}
-A real number $ b $ is the inf of a set $ S $ if:
+A real number $ b $ is the inf (greatest lower bound) of a set $ S $ if:
 \begin{itemize}
 \item every $ s \in S $ is greater than $ b $ (i.e. $ b $ is a lower bound)
 \item $ b $ is greater than every other lower bound of $ S $
@@ -99,13 +99,13 @@ A real number $ b $ is the inf of a set $ S $ if:
 \paragraph{Bounded above}
 A set is bounded above if it has an upper bound.
 \paragraph{Bounded below}
-A set is bounded above if it has a lower bound.
+A set is bounded below if it has a lower bound.
 \paragraph{Coprime}
 We say two integers $ a $ and $ b $ are coprime if $ \gcd(a, b) = 1 $.
 \paragraph{Fundamental Theorem of Arithmetic}
 Every integer greater than 1 can be expressed as a unique product of primes.
 \paragraph{$ \equiv$ (congruence operator)}
-We say $ a \equiv b \mod m $ iff $ (a - b) $ is a multiple of $ m $.
+We say $ a \equiv b \mod m $ if $ (a - b) $ is a multiple of $ m $.
 \paragraph{Binary relation}
 A binary relation $ \sim $ on a set $ S $ is a mapping satisfying $ S \times S \to \textrm{Bool} $.
 \paragraph{Reflexive}
@@ -262,7 +262,7 @@ For any $ x \in \Z_{\geq 0} $, $ (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightar
 If $  (x \ | \ ab) $ but $ \gcd(a, x) = 1 $ then $ (x \ | \ b ) $.
 \\
 \begin{tcolorbox}[breakable]
-N.B. In general, $ \gcd(a, b) = 1 $ doesn't mean that $ (a \ \centernot| \ b) $.
+Note: In general, $ \gcd(a, b) = 1 $ doesn't mean that $ (a \ \centernot| \ b) $.
 \end{tcolorbox}
 \noindent
 \\
@@ -376,7 +376,7 @@ i.e. just multiply the number of options together.
 \\
 \textit{Multinomials}
 \\
-When expanding $ (a + b + c + ...)^{n} $, with $ r $ variables in the brackets, the general term of any coefficient is $ a^{\alpha} b^{\beta} c^{\gamma}... $, where $ \alpha + \beta + \gamma + ... = n $.
+When expanding $ (a + b + c + ...)^{n} $, with $ r $ terms inside the brackets, the general term of any coefficient is $ a^{\alpha} b^{\beta} c^{\gamma}... $, where $ \alpha + \beta + \gamma + ... = n $.
 \\
 The coeffient in the expansion for any term $ a^{\alpha} b^{\beta} c^{\gamma}... $ is given by:
 \begin{equation}
