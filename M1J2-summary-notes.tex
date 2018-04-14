@@ -231,6 +231,7 @@ Therefore, a vector space is finite dimensional if it has a finite basis.
 If a finite dimensional vector space has a basis, then there exists a finite dimensional spanning set.
 \\\\
 If $ S \subseteq V $ is a linearly DEPENDENT spanning set, there exists some $ \vec{s} \in S $ such that $ S - \{\vec{s}\} $ is still a spanning set.
+\\
 \begin{tcolorbox}[breakable]
 In other words, we can keep removing elements from a spanning set until it is linearly independent. At this point the spanning set is now a basis, by definition. This gives us our alternate definition of a basis as a spanning set of minimum size.
 \end{tcolorbox}
@@ -251,6 +252,7 @@ Let $ S \subset V $ be a spanning set, and let $ \vec{v}_{1}...\vec{v}_{n} \in V
 (S \setminus \{\vec{s}_{1}...\vec{s}_{n}\}) \cup \{\vec{v}_{1}...\vec{v}_{n}\}
 \end{equation}
 is still a spanning set.
+\\
 \begin{tcolorbox}[breakable]
 In other words, we can substitute in any linearly independent set, and $ S $ will still be a spanning set.
 \end{tcolorbox}
@@ -259,6 +261,7 @@ In other words, we can substitute in any linearly independent set, and $ S $ wil
 Any linearly independent set is smaller than or equal to any spanning set. (Consequence of Steinitz exchange lemma).
 \\\\
 If $ L \subset V $ linearly independent and $ \vec{v} \notin \textrm{span}(L) $ then $ L \cup {\vec{v}} $ is linearly independent.
+\\
 \begin{tcolorbox}[breakable]
 In other words, we can keep adding elements to a linearly independent set until it is a spanning set. At this point the linearly independent set is a basis, by definition. This gives us our alternate definition of a basis as a linearly independent set of maximum size.
 \end{tcolorbox}
@@ -297,6 +300,7 @@ If $ f $ injective then $ \textrm{kernel}(f) = \{\vec{0}_{U}\} $.
 If $ f(\vec{x}) = \vec{y} $ then $ f^{-1}(\vec{y}) = \{\vec{x} + \vec{w} \ | \ \vec{w} \in \textrm{kernel}(f) \} $.
 \\\\
 If $ f : \R^{n} \to \R^{m} $ then $ f \equiv T_{A} $ for some matrix $ \vec{A}  \in \textrm{Mat}_{m \times n}(\R) $.
+\\
 \begin{tcolorbox}[breakable]
 Specifically $ f : \lambda_{1}\vec{e}_{1} + ... + \lambda_{n}\vec{e}_{n} \mapsto \lambda_{1}f(\vec{e}_{1}) + ... + \lambda_{n}f(\vec{e}_{n}) $
 \\\\
@@ -875,7 +879,12 @@ If $ a_{n} $ and $ b_{n} $ are summable with $ \sum_{i = 0}^{\infty} a_{i} = a $
 If $ b_{n} = a_{n + k} $ then $ a_{n} $ summable $ \Leftrightarrow b_{n} $ summable.
 \\\\
 $ a_{n} $ is summable $ \Rightarrow a_{n} \to 0 $.
-\\\\
+\\
+\begin{tcolorbox}[breakable]
+Note that the converse is not true, take $ a_{n} = \frac{1}{n} $ as an example.
+\end{tcolorbox}
+\noindent
+\\
 Let $ S_{n} $ denote the sequence of partial sums of $ a_{n} $ ($ S_{n} = \sum_{i = 0}^{n} a_{n}) $. A sequence of non-negative numbers $ a_{n} $ is summable iff $ S_{n} $ is bounded above. Similar statement for sequences of non-positive numbers.
 \\\\
 Every absolutely summable sequence is summable.
@@ -886,7 +895,7 @@ If $ b_{n} > a_{n} $ for all $ n $ then $ b_{n} $ summable $ \Rightarrow a_{n} $
 \\\\
 \textit{Alternating series test}
 \\
-If $ a_{n} $ is a decreasing sequence AND $ a_{n} \geq 0 $ for all $ n $ AND $ a_{n} \to 0 $ then $ (-1)^{n+1} a_{n} $ is a convergent sequence.
+If $ a_{n} $ is a decreasing sequence AND $ a_{n} \geq 0 $ for all $ n $ AND $ a_{n} \to 0 $ then $ (-1)^{n+1} a_{n} $ is summable.
 \\\\
 \textit{Ratio test for sequences}
 \\
