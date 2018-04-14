@@ -626,7 +626,7 @@ If $ \#G = p $, where $ p $ is prime, then $ G $ is cyclic.
 \section{Definitions}
 \paragraph{Sequence}
 A sequence is simply a map $ f: \N \to \R $, denoted by $ a_{n} $
-\paragraph{Convergence (as $ n \to \infty $)}
+\paragraph{Limit (sequence)}
 A sequence $ a_{n} $ converges to a limit L if for all real numbers $ \epsilon > 0 $, there exists an $ N \in \N $ such that for all $ n > N $ we have $ |a_{n} - L| < \epsilon $.
 \begin{equation}
 \forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall n > N \quad |a_{n} - L| < \epsilon
@@ -667,11 +667,11 @@ A sequence is decreasing if $ a_{n + 1} \leq a_{n} $ for all n.
 A sequence is strictly decreasing if $ a_{n + 1} < a_{n} $ for all n.
 \paragraph{Monotonic}
 A sequence is monotonic if it is increasing or decreasing.
-\paragraph{Supremum}
+\paragraph{Supremum (set)}
 The supremum A of a set $ S $ is the least upper bound of that set i.e. the smallest number such that $ s \leq A $ for all $ s \in S $.
 \paragraph{Supremum (function)}
 The supremum of a function $ f $ is the sup of $ \{f(x) \ | \ x \in \textrm{dom}(f)\} $.
-\paragraph{Infimum}
+\paragraph{Infimum (set)}
 The infimum B of a set $ S $ is the greatest lower bound of that set i.e. the largest number such that $ s \geq B $ for all $ s \in S $.
 \paragraph{Infimum (function)}
 The infimum of a function $ f $ is the inf of $ \{f(x) \ | \ x \in \textrm{dom}(f)\} $.
@@ -881,7 +881,7 @@ If $ b_{n} = a_{n + k} $ then $ a_{n} $ summable $ \Leftrightarrow b_{n} $ summa
 $ a_{n} $ is summable $ \Rightarrow a_{n} \to 0 $.
 \\
 \begin{tcolorbox}[breakable]
-Note that the converse is not true, take $ a_{n} = \frac{1}{n} $ as an example.
+Note that the converse is not necessarily true, take $ a_{n} = \frac{1}{n} $ as an example.
 \end{tcolorbox}
 \noindent
 \\
@@ -905,6 +905,14 @@ Let $ r = \lim_{n \to \infty} \frac{a_{n + 1}}{a_{n}} $:
 \item $ r > 1 \Rightarrow a_{n} $ is not summable
 \item $ r = 1 $ is an indeterminate case
 \end{itemize}
+\begin{tcolorbox}[breakable]
+Compare this to what we know from M1M1 about the ratio test:
+\begin{itemize}
+\item $ r < 1 \Rightarrow a_{n} $ is absolutely convergent
+\item $ r > 1 \Rightarrow a_{n} $ is divergent
+\item $ r = 1 $ is an indeterminate case
+\end{itemize}
+\end{tcolorbox}
 
 \subsection{Power series}
 The power series associated with a sequence $ a_{n} $ converges iff the sequence of partial sums  of $ a_{n}x^{n} $ converges (i.e. if $ \sum_{i = 0}^{n} a_{i}x^{i} $ converges).
