@@ -688,9 +688,9 @@ The $ n^{th} $ partial sum $ S_{n} $ of a sequence $ a_{n} $ is the sum of terms
 S_{n} = \sum_{i=1}^{n} a_{n}
 \end{equation}
 \paragraph{Summable}
-A sequence is summable if the sequence of its partial sums converges. The limit of the sequence of partial sums will be:
+A sequence $ a_n $ is summable if the sequence of its partial sums converges. The limit of the sequence of partial sums will be:
 \begin{equation}
-L = \sum_{i=1}^{\infty} a_{n}
+L = \lim_{n \to \infty} (\sum_{i=1}^{n} a_{n}) = \sum_{i=1}^{\infty} a_{n}
 \end{equation}
 \paragraph{Absolutely summable}
 A sequence $ a_{n} $ is absolutely summable if $ |a_{n}| $ is summable.
@@ -905,14 +905,6 @@ Let $ r = \lim_{n \to \infty} \frac{a_{n + 1}}{a_{n}} $:
 \item $ r > 1 \Rightarrow a_{n} $ is not summable
 \item $ r = 1 $ is an indeterminate case
 \end{itemize}
-\begin{tcolorbox}[breakable]
-Compare this to what we know from M1M1 about the ratio test:
-\begin{itemize}
-\item $ r < 1 \Rightarrow a_{n} $ is absolutely convergent
-\item $ r > 1 \Rightarrow a_{n} $ is divergent
-\item $ r = 1 $ is an indeterminate case
-\end{itemize}
-\end{tcolorbox}
 
 \subsection{Power series}
 The power series associated with a sequence $ a_{n} $ converges iff the sequence of partial sums  of $ a_{n}x^{n} $ converges (i.e. if $ \sum_{i = 0}^{n} a_{i}x^{i} $ converges).
