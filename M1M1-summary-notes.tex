@@ -1,0 +1,66 @@
+%using document class from KOMA-Script
+\documentclass{scrartcl}
+\title{M1M1 Summary Notes}
+\subtitle{JMC Year 1, 2017/2018 syllabus}
+\date{}
+\author{Fawaz Shah}
+
+% Packages for adding hyperlinks to table of contents
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+%package that allows aligned equations
+\usepackage{amsmath}
+
+%package that allows notation for extra mathematical symbols
+\usepackage{amssymb}
+
+%new commands for popular sets for ease of use
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% renaming command to writing vectors in bold notation
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%package for managing images
+\usepackage{graphicx}
+\graphicspath{ {img/} }
+
+%package for managing hyperlinks
+\usepackage{hyperref}
+
+%package for added blue colored boxes
+\usepackage[most]{tcolorbox}
+
+%package that allowed removing indent from enumerate environment
+\usepackage{enumitem}
+
+%package that allows for negating nearly any symbol
+\usepackage{centernot}
+
+\begin{document}
+\large
+\maketitle
+\begin{center}
+UNDER CONSTRUCTION
+\end{center}
+\noindent This document contains a list of definitions and a list of theorems.
+\\\\
+Note that the exam will probably require you to PROVE some of these theorems, so you should refer back to the original notes for the proofs.
+\\\\
+Boxes cover content in more detail. Titles of some theorems are given in italics.
+\tableofcontents
+\newpage
+\section{Definitions}
+
+\section{Theorems}
+
+\end{document}
