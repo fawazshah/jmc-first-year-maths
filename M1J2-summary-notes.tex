@@ -147,12 +147,13 @@ Note that if $ \vec{A} $ is an $ m \times n $ matrix, then $ T_{A} $ transforms 
 \paragraph{Matrix representing $ f $}
 Following from the previous definition, if we have:
 \begin{itemize}
+\item $ f : U \to V $
 \item $ B $ is a basis of $ U $
 \item $ C $ is a basis of $ V $
 \item There is an isomorphism $ f_{B} : \R^{n} \to U $
 \item There is an isomorphism $ f_{C} : \R^{m} \to V $
 \end{itemize}
-We say the matrix $ \vec{A} $ is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
+We can define a version of $ T_{A} $ that is equivalent to $ f $. The matrix $ \vec{A} $ in this case is called the matrix representing $ f $ with respect to $ B $ and $ C $. This is denoted by:
 \begin{equation}
 \vec{A} =
 \begin{bmatrix}
@@ -378,7 +379,7 @@ The matrix $ A $ is such that the $ j^{th} $ column of $ A $ is the vector $ (f_
 \\
 \textit{Change-of-basis matrix}
 \\
-Let $ B $ and $ C $ both be bases of $ V $. To convert a vector $ \vec{v} \in V $ given with respect to a basis $ B $ to a different basis $ C $, we can use $ T_{A} $ with $ A = 
+Let $ B $ and $ C $ both be bases of $ V $. To convert a vector $ \vec{v} \in V $ given with respect to a basis $ B $ to a different basis $ C $, we can premultiply by $ A = 
 \begin{bmatrix}
 Id_{V}
 \end{bmatrix}_{B}^{C} $. If we denote the two representations as $ \vec{v}_{B} $ and $ \vec{v}_{C} $:
