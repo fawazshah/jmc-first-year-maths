@@ -10,7 +10,15 @@ If there are any errors, you can fork this repository and submit a pull request 
 
 #### M1F Summary Notes
 
-A summary of the definitions and theorems (including propositions, lemmas and corollaries) in M1F.
+A summary of the definitions and theorems in M1F.
+
+#### M1M1 Summary Notes
+
+A summary of the definitions and theorems in M1M1.
+
+#### M1J1 Summary Notes
+
+A summary of the definitions and theorems (including propositions, lemmas and corollaries) in M1J1.
 
 #### M1J2 Summary Notes
 
