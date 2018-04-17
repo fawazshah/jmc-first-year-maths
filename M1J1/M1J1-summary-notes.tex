@@ -377,18 +377,123 @@ An $ m \times n $ matrix with all entries 0. Denoted by $ \vec{0}_{m \times n} $
 The transpose of a matrix $ \vec{A} $ is the result of flipping all rows with columns and vice versa. Denoted by $ \vec{A}^{T} $.
 
 \paragraph{$ (a_{ij}) $ notation}
-We can say $ \vec{A} = (a_{ij}) $ if we represent the matrix as:
+For an $ m \times n $ matrix $ \vec{A} $, we can say $ \vec{A} = (a_{ij}) $ if we represent the matrix as:
 \begin{equation}
 \begin{pmatrix}
-1 \\ 2 \\ 3
+a_{11} & a_{12} & \cdots & a_{1j} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2j} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots &        & \vdots \\
+a_{i1} & a_{i2} & \cdots & a_{ij} & \cdots & a_{in} \\
+\vdots & \vdots &        & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mj} & \cdots & a_{mn}
 \end{pmatrix}
 \end{equation}
+\\
+$ i $ denotes the row number and $ j $ denotes the column number. Hence we have $ 1 \leq i \leq m $ and $ 1 \leq j \leq n $.
 
 \paragraph{Leading diagonal}
-Let $ \vec{A} = (a_{ij}) $. The leading diagonal is made up of all 
+Let $ \vec{A} = (a_{ij}) $. The leading diagonal is made up of all entries of the form $ a_{ii} $, e.g. $ a_{11}, a_{22}, $ etc.
 
 \paragraph{Identity matrix}
-A square 
+A square $ n \times n $ matrix where the leading diagonal is all $ 1 $s and the rest of the entries are $ 0 $. Denoted by $ I_{n} $.
+
+\paragraph{Linear equation}
+A linear equation of variables $ x_{1}...x_{n} \in \R $ is given by:
+\begin{equation}
+\lambda_{1} x_{1} + \lambda_{2} x_{2} + ... + \lambda_{n} x_{n} = b
+\end{equation}
+where $ \lambda_{1} ... \lambda_{n}, b \in R $.
+
+\paragraph{System of linear equations}
+A system of linear equations is a set of simultaneous linear equations.
+
+\paragraph{Free variable}
+A variable in a system of linear equations that can be set to any value, without affecting the validity of the solution.
+
+\paragraph{Basic variable}
+Any variable that is not a free variable (i.e. a solution only exists for particular values of this variable).
+
+\paragraph{Augmented matrix}
+For a system of linear equations represented as $ \vec{A} \vec{x} = \vec{b} $, the augmented matrix is $ (\vec{A} \ | \ \vec{b}) $. This is the matrix $ \vec{A} $ but with $ \vec{b} $ added in as an extra column on the right.
+
+\paragraph{Row operation}
+There are 3 types of row operation:
+\begin{itemize}
+\item Swapping rows
+\item Multiplying a row by a scalar value
+\item Adding a multiple of one row to another
+\end{itemize}
+
+\paragraph{Leading entry}
+The leading entry of a row is the first non-zero entry in that row.
+
+\paragraph{Row echelon form}
+A matrix is in row echelon form if:
+\begin{itemize}
+\item All non-zero rows are above rows of all zeroes
+\item Each leading entry is $ 1 $, and is in a column to the right of the leading entry in the row above
+\item All entries in the column below a leading entry are $ 0 $
+\end{itemize}
+Note that any matrix in row echelon form is upper triangular.
+
+\paragraph{Reduced row echelon form (RREF)}
+A matrix is in reduced row echelon form if:
+\begin{itemize}
+\item The matrix is in reduced echelon form
+\item Each leading entry is the only non-zero entry in its column
+\end{itemize}
+Any matrix in RREF is upper AND lower triangular.
+
+\paragraph{Upper triangular}
+A matrix is upper triangular if $ a_{ij} = 0 $ for $ i > j $.
+\\
+i.e. only the top-right half contains non-zero entries.
+
+\paragraph{Strictly upper triangular}
+A matrix is strictly upper triangular if $ a_{ij} = 0 $ for $ i \geq j $.
+
+\paragraph{Lower triangular}
+A matrix is lower triangular if $ a_{ij} = 0 $ for $ i < j $.
+\\
+i.e. only the bottom-left half contains non-zero entries.
+
+\paragraph{Strictly lower triangular}
+A matrix is strictly lower triangular if $ a_{ij} = 0 $ for $ i \leq j $.
+
+\paragraph{Diagonal matrix}
+A diagonal matrix is such that $ a_{ij} = 0 $ if $ i \neq j $.
+\\
+i.e. Only the leading diagonal contains non-zero entries.
+
+\paragraph{Inverse}
+The inverse of an $ n \times n $ matrix $ \vec{A} $ is such that:
+\begin{equation}
+\vec{A}^{-1} \vec{A} = \vec{A} \vec{A}^{-1} = I_{n}
+\end{equation}
+Note that this is one of the only occasions where matrix multiplication is commutative. Not all matrices have inverses.
+
+\paragraph{Singular}
+A matrix is called singular if it is non-invertible.
+
+\paragraph{Determinant}
+A specific number calculated from the entries in a matrix. Used in computing inverses. Denoted by $ \det(A) $.
+
+\paragraph{Elementary matrix}
+A matrix that differs from the identity matrix by one row operation.
+
+\paragraph{Eigenvalue}
+An eigenvalue of a matrix $ \vec{A} $ is some $ \lambda \in R $ that satisfies:
+\begin{equation}
+\vec{A} \vec{v} = \lambda \vec{v}
+\end{equation}
+for some $ \vec{v} \in \R^{n} $, called the eigenvector.
+
+\paragraph{Eigenvalue}
+An eigenvector of a matrix $ \vec{A} $ is some $ \vec{v} \in R^{n} $ that satisfies:
+\begin{equation}
+\vec{A} \vec{v} = \lambda \vec{v}
+\end{equation}
+for some $ \lambda \in \R $, called the eigenvalue.
 
 \section{Theorems}
 
