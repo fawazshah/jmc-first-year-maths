@@ -2,7 +2,7 @@
 
 A few helpful documents covering the 1st year Maths content of the Joint Mathematics and Computing (JMC) degree at Imperial College London. 2017/2018 syllabus.
 
-Written in LaTeX. Both PDF file and TeX source provided.
+Written in LaTeX. Both PDF file and LaTeX source provided.
 
 If there are any errors, you can fork this repository and submit a pull request with a fix. Alternatively contact me at fs2217@ic.ac.uk.
 
