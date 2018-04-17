@@ -300,7 +300,7 @@ If $  (x \ | \ ab) $ but $ \gcd(a, x) = 1 $ then $ (x \ | \ b ) $.
 Note: In general, $ \gcd(a, b) = 1 $ doesn't mean that $ (a \ \centernot| \ b) $.
 \end{tcolorbox}
 \noindent
-\\
+\\\\\\\\
 \textit{Euclid's Algorithm}
 \\
 To find the $ gcd $ of $ a $ and $ b $ where $ a > b $. Write:
@@ -371,6 +371,11 @@ For any prime $ p $ and $ a \in \Z $:
 \begin{equation}
 a^{p} \equiv a \mod p
 \end{equation}
+Also, if $ a $ is not a multiple of $ p $:
+\begin{equation}
+a^{p-1} \equiv 1 \mod p
+\end{equation}
+In the case $ a $ is a multiple of $ p $, we can easily see $ a^{p-1} \equiv 0 \mod p $.
 
 \subsection{Equivalence relations and functions}
 A binary relation $ \sim $ is an equivalence relation iff it is reflexive, symmetric and transitive.
