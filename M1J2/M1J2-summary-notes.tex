@@ -58,6 +58,7 @@ Boxes cover content in more detail. Titles of some theorems are given in italics
 \part{Abstract Linear Algebra}
 
 \section{Definitions}
+
 \paragraph{Vector space}
 A vector space is a set $ V $ coupled with:
 \begin{itemize}
@@ -65,6 +66,7 @@ A vector space is a set $ V $ coupled with:
 \item a function $ \cdot : \R \times V \to V $ (scalar multiplication)
 \end{itemize}
 (For the rest of this part, we will assume $ V $ is a vector space)
+
 \paragraph{Subspace}
 A subset $ U \subseteq V $ is a subspace if:
 \begin{itemize}
@@ -72,25 +74,31 @@ A subset $ U \subseteq V $ is a subspace if:
 \item If $ \vec{x}, \vec{y} \in U $ then $ \vec{x + y} \in U $ (closure under addition)
 \item If $ \vec{x} \in U $ then for all $ \lambda \in \R $, $ \lambda\vec{x} \in U $ (closure under scalar multiplication)
 \end{itemize}
+
 \paragraph{Linear combination}
 A linear combination of a set of vectors $ \{\vec{v}_{1}...\vec{v}_{n}\} $ is any vector $ \vec{x} $ of the form:
 \begin{equation}
 \vec{x} = \lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n}
 \end{equation}
 for some real numbers $ \lambda_{1}...\lambda_{n} $
+
 \paragraph{Span}
 The span of a set $ S \subseteq V $ is the set of all linear combinations of elements of $ S $. We define span$ (\emptyset) = \{\vec{0}_{V}\} $.
+
 \paragraph{Spanning set}
 A subset $ S \subseteq V $ is called a spanning set of $ V $ if span$ (S) = V $.
+
 \paragraph{Linear dependence}
 A subset of vectors $ \{ \vec{v}_{1}...\vec{v}_{n} \}  \subseteq V $ is linearly dependent if there exists some real numbers $ \lambda_{1}...\lambda_{n} $ (which are not just all $ 0 $s) such that:
 \begin{equation}
 \lambda_{1}\vec{v}_{1} + \lambda_{2}\vec{v}_{2} + ... + \lambda_{n}\vec{v}_{n} = \vec{0}_{V}
 \end{equation}
+
 \paragraph{Basis}
 A basis of a vector space is a linearly independent spanning set.
 \\\\
 We can also think of a basis as a spanning set of minimum possible size, or a linearly independent set of maximum possible size (theorems to show this later).
+
 \paragraph{Standard basis of $ \R^{n} $}
 We define the standard basis elements of any $ \R^{n} $ to be:
 \begin{equation}
@@ -112,30 +120,38 @@ e_{n} =
 \end{pmatrix}
 \end{equation}
 The standard basis of $ \R^{n} $ is therefore $ \{e_{1}, e_{2} \ ... \ e_{n} \} $.
+
 \paragraph{Dimension}
 The dimension of a vector space is the size of any basis of that vector space.
+
 \paragraph{Linear map}
 Let $ U $ and $ V $ be vector spaces. A linear map is a function $ f : U \to V $ such that:
 \begin{itemize}
 \item for all $ \vec{x}, \vec{y} \in U, \ f(\vec{x} + \vec{y}) = f(\vec{x}) + f(\vec{y}) $
 \item for all $ \vec{x} \in U $ and $ \lambda \in \R, \ f(\lambda \vec{x}) = \lambda f(\vec{x}) $
 \end{itemize}
+
 \paragraph{Image}
 The image of a linear map $ f : U \to V $ is the set of all $ f(\vec{u}) \in V $ where $ \vec{u} \in U $.
 \begin{equation}
 \textrm{image}(f) = \{f(\vec{u}) \ | \ u \in U \}
 \end{equation}
+
 \paragraph{Kernel}
 The kernel of a linear map $ f : U \to V $ is the set of all $ \vec{u} \in U $ such that $ f(\vec{u}) = \vec{0}_{V} $.
 \begin{equation}
 \textrm{kernel}(f) = \{\vec{u} \ | \ u \in U, f(\vec{u}) = \vec{0}_{V} \}
 \end{equation}
+
 \paragraph{Isomorphism}
 A linear map $ f : U \to V $ is an isomorphism if it is bijective. We say $ U \simeq V $.
+
 \paragraph{Rank}
 The rank of $ f $ is defined as dim(image($ f $)).
+
 \paragraph{Nullity}
 The rank of $ f $ is defined as dim(kernel($ f $)).
+
 \paragraph{$ T_{A} $}
 We define a function $ T_{A} $ that pre-multiplies a vector by a matrix $ \vec{A} $:
 \begin{equation}
@@ -144,6 +160,7 @@ T_{A} : \R^{n} \to \R^{m}, \ \vec{v} \mapsto \vec{A}\vec{v}, \ \vec{A} \in \text
 where $  \textrm{Mat}_{m \times n}(\R)  $ denotes the set of all $ m \times n $ matrices with real entries.
 \\
 Note that if $ \vec{A} $ is an $ m \times n $ matrix, then $ T_{A} $ transforms a vector in $ \R^{n} $ to a vector in $ \R^{m} $.
+
 \paragraph{Matrix representing $ f $}
 Following from the previous definition, if we have:
 \begin{itemize}
@@ -160,6 +177,7 @@ We can define a version of $ T_{A} $ that is equivalent to $ f $. The matrix $ \
 f
 \end{bmatrix}_{B}^{C}
 \end{equation}
+
 \paragraph{Change-of-basis matrix}
 Let $ B $ and $ C $ be two bases for $ V $. The matrix:
 \begin{equation}
@@ -171,6 +189,7 @@ Let $ B $ and $ C $ be two bases for $ V $. The matrix:
 is called the change-of-basis matrix from $ B $ to $ C $. $ \textrm{Id}_{V} $ denotes the identity function in the vector space $ V $ (maps every vector to itself).
 \\\\
 In this case the linear map $ T_{A} $ will convert a vector given with respect to the basis $ B $ into a vector with respect to the basis $ C $.
+
 \paragraph{'Vector with respect to a basis'}
 If we have an $ n $-dimensional vector space $ V $ and a basis $ B = \{\vec{b}_{1} ... \vec{b}_{n} \} $, then we say any $ \vec{v} \in V $  is given with respect to $ B $ if:
 \begin{equation}
@@ -400,40 +419,48 @@ Let $ B $ and $ B' $ be two bases of $ U $, $ C $ and $ C' $ two bases of $ V $,
 \part{Group Theory}
 
 \section{Definitions}
+
 \paragraph{Binary operation}
 A binary operation on a set $ G $ is a any function $ f: G \times G \to G $
+
 \paragraph{Associative}
 A binary operation $ \star $ on a set $ G $ is associative if it satisfies:
 \begin{equation}
 (a \star b) \star c = a \star (b \star c)
 \end{equation}
 for all $ a, b, c \in G $.
+
 \paragraph{Commutative}
 A binary operation $ \star $ on a set $ G $ is commutative if it satisfies:
 \begin{equation}
 a \star b = b \star a
 \end{equation}
 for all $ a, b \in G $.
+
 \paragraph{Left/right identity}
 An element $ e \in G $ is called the left identity if:
 \begin{equation}
 e \star g = g
 \end{equation}
 for all $ g \in G $. Similar statement for right identity.
+
 \paragraph{(Two sided) Identity element}
 An element $ e \in G $ is a two-sided identity element if it is both a left identity and a right identity.
 \\\\
 From now on the two-sided identity element will be referred to as $ e $.
+
 \paragraph{Left/right inverse}
 An element $ h \in G $ is called the left inverse  of $ g \in G $ if:
 \begin{equation}
 h \star g = e
 \end{equation}
 Similar statement for right inverse.
+
 \paragraph{Two sided inverse}
 A two sided inverse of an element $ g \in G $ is both a left inverse and a right inverse of $ g $.
 \\\\
 From now on the two-sided inverse of $ g $ will be referred to as $ g^{-1} $.
+
 \paragraph{Group}
 A group $ (G, \star) $ is a set $ G $ equipped with a binary operation $ \star $ such that:
 \begin{itemize}
@@ -448,10 +475,13 @@ The above three suffice for the exam, however there is technically a fourth requ
 \end{itemize}
 \end{tcolorbox}
 (For the rest of this part, we will assume $ (G, \star) $ is a group)
+
 \paragraph{Order (group)}
 The order of a group $ (G, \star) $ is the size of $ G $.
+
 \paragraph{Abelian group}
 An Abelian group is a group with a commutative binary operation $ \star $.
+
 \paragraph{Powers of $ g $}
 We can define the powers of any $ g \in G $ to be:
 \begin{equation}
@@ -463,6 +493,7 @@ e & n = 0
 \end{cases}
 \end{equation}
 where in the first cases there are $ n $ copies of $ g $, and in the second case there are $ -n $ copies of $ g^{-1} $.
+
 \paragraph{Definition of $ [a]_{n} $ and $ \Z_{n} $}
 For any $ a \in \Z $:
 \begin{equation}
@@ -472,42 +503,50 @@ Note that $ [a]_{n} $ forms an equivalence class, and there are exactly $ n $ of
 \begin{equation}
 \Z_{n} = \{[a]_{n} \ | \ a \in \Z \}
 \end{equation}
+
 \paragraph{Definition of $ \Z_{n}^{*} $}
 $ \Z_{n}^{*} $ is the set of all invertible $ [a]_{n} $. Note in this case the identity element is $ [1]_{n} $.
 \begin{equation}
 \Z_{n}^{*} = \{[a]_{n} \ | \ \exists [b]_{n} \in Z_{n} \quad s.t. \quad [a]_{n}[b]_{n} = [1]\}
 \end{equation}
 Note that $ [a]_{n}[b]_{n} = 1 \Leftrightarrow gcd(a, n) = 1 $.
+
 \paragraph{Order (element)}
 The order of any $ g \in G $ is the smallest positive integer such that:
 \begin{equation}
 g^{n} = e
 \end{equation}
+
 \paragraph{Cyclic group + generator}
 A group $ (G, \star) $ is cyclic if:
 \begin{equation}
 G = \{ g^{n} \ | \ n \in \Z \} 
 \end{equation}
 $ g $ is called the generator of the group.
+
 \paragraph{Permutation}
 A permutation $ \sigma $ on $ n $ symbols is a bijection:
 \begin{equation}
 \sigma : \{1...n\} \to \{1...n\}
 \end{equation}
+
 \paragraph{Symmetric group}
 The symmetric group $ S_{n} $ on $ n $ symbols is the set of all permutations of $ n $ symbols.
 \begin{equation}
 S_{n} = \{\sigma : \{1...n\} \to \{1...n\}\}
 \end{equation}
 Note that $ S_{n} $ is a set of functions. Therefore the identity element is the identity function.
+
 \paragraph{$ k $-cycle}
 A permutation $ \sigma \in S_{n} $ is a $ k $-cycle if there exists some $ a_{1}...a{k}  \in \{1...n\} $ such that:
 \begin{equation}
 \sigma(a_{1}) = a_{2}, \quad \sigma(a_{2}) = a_{3} \quad ... \quad \sigma(a_{k}) = a_{1}
 \end{equation}
 and $ \sigma(i) = i $ for all $ i \notin \{1...n\} $. $ k $ is called the length of the cycle. The notation for a cycle is $ (a_{1}...a_{k}) $.
+
 \paragraph{Disjoint cycles}
 Two cycles $ (a_{1}...a_{m}) $ and $ (b_{1}...b_{n}) $ are disjoint if no $ a_{i} $ is equal to any $ b_{j} $.
+
 \paragraph{Subgroup}
 Let $ (G, \star) $ be a group, and $ H \subseteq G $. $ (H, \star) $ is a subgroup of $ G $ if:
 \begin{itemize}
@@ -515,12 +554,14 @@ Let $ (G, \star) $ be a group, and $ H \subseteq G $. $ (H, \star) $ is a subgro
 \item For any $ g, h \in H $,  $ g \star h \in H $
 \item For any $ g \in H $, $ g^{-1} \in H $
 \end{itemize}
+
 \paragraph{Cyclic subgroup}
 Let $ (G, \star) $ be a group. For any $ g \in G $, the cyclic subgroup $ \langle g \rangle $ generated by $ g $ is defined as:
 \begin{equation}
 \langle g \rangle = (\{g^{i} \ | \ i \in \Z \}, \star)
 \end{equation}
 Note that order of $ g  = $  size of cyclic subgroup $ \langle g \rangle $.
+
 \paragraph{Left/right cosets}
 Let $ (G, \star) $ be a group and $ (H, \star) $ a subgroup. For any $ g \in G $, the left coset of $ H $ by $ g $ (denoted by $ gH $) is defined as:
 \begin{equation}
@@ -625,20 +666,25 @@ If $ \#G = p $, where $ p $ is prime, then $ G $ is cyclic.
 \part{Analysis}
 
 \section{Definitions}
+
 \paragraph{Sequence}
-A sequence is simply a map $ f: \N \to \R $, denoted by $ a_{n} $
+A sequence is simply a map $ f: \N \to \R $, denoted by $ a_{n} $.
+
 \paragraph{Limit (sequence)}
 A sequence $ a_{n} $ converges to a limit L if for all real numbers $ \epsilon > 0 $, there exists an $ N \in \N $ such that for all $ n > N $ we have $ |a_{n} - L| < \epsilon $.
 \begin{equation}
 \forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall n > N \quad |a_{n} - L| < \epsilon
 \end{equation}
+
 \paragraph{Tends to infinity (sequence)}
 We say a sequence tends to infinity if for all $ R \in \R $, the sequence $ a_{n} $ is eventually bigger than $ R $.
 \begin{equation}
 \forall R \in \R \quad \exists N \in \N \quad s.t. \quad \forall n > N \quad a_{n} > R
 \end{equation}
+
 \paragraph{Shift}
-The shift of a sequence by say, k, is the sequence $ b_{n} = a_{n + k} $
+The shift of a sequence by say, k, is the sequence $ b_{n} = a_{n + k} $.
+
 \paragraph{Triangle inequality}
 The general triangle inequality is:
 \begin{equation}
@@ -652,71 +698,94 @@ Then setting $ y = - y $ gives us the familiar case:
 \begin{align}
 |x + y| & < |x| + |y|
 \end{align}
+
 \paragraph{Bounded above}
 A sequence $ a_{n} $ is bounded above if there's a real number $ A $ such that $ a_{n} < A $ for all $ n $.
+
 \paragraph{Bounded below}
 A sequence $ a_{n} $ is bounded below if there's a real number $ A $ such that $ a_{n} > A $ for all $ n $.
+
 \paragraph{Bounded}
 A sequence $ a_{n} $ is bounded if there's a real number $ A $ such that $ |a_{n}| < A $ for all $ n $.
+
 \paragraph{Increasing}
 A sequence is increasing if $ a_{n + 1} \geq a_{n} $ for all n.
+
 \paragraph{Strictly increasing}
 A sequence is strictly increasing if $ a_{n + 1} > a_{n} $ for all n.
+
 \paragraph{Decreasing}
 A sequence is decreasing if $ a_{n + 1} \leq a_{n} $ for all n.
+
 \paragraph{Strictly decreasing}
 A sequence is strictly decreasing if $ a_{n + 1} < a_{n} $ for all n.
+
 \paragraph{Monotonic}
 A sequence is monotonic if it is increasing or decreasing.
+
 \paragraph{Supremum (set)}
 The supremum A of a set $ S $ is the least upper bound of that set i.e. the smallest number such that $ s \leq A $ for all $ s \in S $.
+
 \paragraph{Supremum (function)}
 The supremum of a function $ f $ is the sup of $ \{f(x) \ | \ x \in \textrm{dom}(f)\} $.
+
 \paragraph{Infimum (set)}
 The infimum B of a set $ S $ is the greatest lower bound of that set i.e. the largest number such that $ s \geq B $ for all $ s \in S $.
+
 \paragraph{Infimum (function)}
 The infimum of a function $ f $ is the inf of $ \{f(x) \ | \ x \in \textrm{dom}(f)\} $.
+
 \paragraph{Subsequence}
 A subsequence of $ a_{n} $ is a sequence $ a_{f(n)} $, where $ f(n) $ is a strictly increasing function.
+
 \paragraph{Cauchy sequence}
 A sequence is Cauchy if all the terms get arbitrarily close to one another. To put it mathematically:
 \begin{equation}
 \forall \epsilon > 0 \quad \exists N \in \N \quad s.t \quad \forall m,n \geq N \quad |a_{n} - a_{m}| < \epsilon
 \end{equation}
+
 \paragraph{Partial sum}
 The $ n^{th} $ partial sum $ S_{n} $ of a sequence $ a_{n} $ is the sum of terms up to that point:
 \begin{equation}
 S_{n} = \sum_{i=1}^{n} a_{n}
 \end{equation}
+
 \paragraph{Summable}
 A sequence $ a_n $ is summable if the sequence of its partial sums converges. The limit of the sequence of partial sums will be:
 \begin{equation}
 L = \lim_{n \to \infty} (\sum_{i=1}^{n} a_{n}) = \sum_{i=1}^{\infty} a_{n}
 \end{equation}
+
 \paragraph{Absolutely summable}
 A sequence $ a_{n} $ is absolutely summable if $ |a_{n}| $ is summable.
+
 \paragraph{Conditionally summable}
 A sequence is conditionally summable if it is summable but not absolutely summable.
+
 \paragraph{Power series}
 The power series associated with a sequence $ a_{n} $ is the sequence of partial sums:
 \begin{equation}
 \sum_{i=1}^{n} a_{i}x^{i}
 \end{equation}
+
 \paragraph{Radius of convergence}
 The radius of convergence R of a power series $ P(x) $ is defined as the largest $ x $ for which $ P(x) $ is convergent.
 \begin{equation}
 R = sup\{x \in \R \ | \ P(x) \textrm{ convergent}\}
 \end{equation}
+
 \paragraph{Limit as $ x \to \infty $ (function)}
 A function $ f(x) $ tends to a limit $ L $ as $ x \to \infty $ if for all real numbers $ \epsilon > 0 $, there exists an $ R \in \R $ such that for all $ x \geq R $ we have $ |f(x) - L| < \epsilon $.
 \begin{equation}
 \forall \epsilon > 0 \quad \exists R \in \R \quad s.t \quad \forall x > R \quad |f(x) - L| < \epsilon
 \end{equation}
+
 \paragraph{Tends to infinity (function)}
 A function $ f(x) $ tends to infinity as $ x \to \infty $ if for any $ M \in \R $ there exists an $ R \in \R $ such that if $ x > M $ then $ f(x) > R $.
 \begin{equation}
 \forall M \in \R \quad \exists R \in \R \quad s.t. \quad x > M \Rightarrow f(x) > R
 \end{equation}
+
 \paragraph{One-sided limit}
 A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that if $ x \in (a - \delta, a) $ then $ |f(x) - L| < \epsilon $.
 \begin{equation}
@@ -725,28 +794,34 @@ A function $ f(x) $ tends to a limit $ L $ as $ x \to a^{-} $ if for any $ \epsi
 \noindent Same format for the other sided limit ($ x \to a^{+} $)
 \\
 (Note that $ \epsilon - \delta $ definition is only used for limits as x tends to a finite number a, not infinity)
+
 \paragraph{Limit as $ x \to a $}
 A function $ f(x) $ tends to a limit $ L $ as $ x \to a $ if we have both:
 \begin{equation}
 \lim_{x \to a^{-}}f(x) = L \quad \textrm{and} \quad \lim_{x \to a^{+}}f(x) = L
 \end{equation}
+
 \paragraph{Limit as $ x \to a $ ($ \epsilon $ - $ \delta $ def.)}
 A function $ f(x) $ tends to a limit $ L $ as $ x \to a $ if:
 \begin{equation}
 \forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad |x - a| < \delta \Rightarrow |f(x) - L| < \epsilon
 \end{equation}
+
 \paragraph{Continuous}
 A function $ f(x) $ is continuous at a if:
 \begin{equation}
 \lim_{x \to a}f(x) = f(a)
 \end{equation}
+
 \paragraph{Continuous ($ \epsilon $ - $ \delta $ def.)}
 A function $ f(x) $ is continuous at a if for all $ \epsilon > 0 $ there is a $ \delta > 0 $ such that if $ |x - a| < \delta $ then $ |f(x) - f(a)| < \epsilon $.
 \begin{equation}
 \forall \epsilon > 0 \quad \exists \delta > 0 \quad s.t. \quad |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
 \end{equation}
+
 \paragraph{Continuous everywhere}
 A function $ f(x) $ is continuous everywhere if it is continuous at a for all $ a \in \textrm{dom}(f) $.
+
 \paragraph{Open interval}
 An open inteval $ I $ is a set $ I \subseteq \R $ of the form:
 \begin{itemize}
@@ -755,35 +830,43 @@ An open inteval $ I $ is a set $ I \subseteq \R $ of the form:
 \item $ I = (a, +\infty) $, or
 \item $ I = \R $
 \end{itemize}
+
 \paragraph{Discontinuity}
 Discontinuity is the negation of continuity. Hence a function $ f(x) $ is discontinuous at a if there exists $ \epsilon > 0 $ such that for all $ \delta > 0 $, $ |x - a| < \delta $ AND $ |f(x) - f(a)| > \epsilon $.
 \begin{equation}
 \exists \epsilon > 0 \quad s.t. \quad \forall \delta > 0 \quad |x - a| < \delta \textrm{ AND } |f(x) - f(a)| > \epsilon
 \end{equation}
+
 \paragraph{Bounded (function)}
 A function $ f(x) $ is bounded if the set of all possible values of f(x) is bounded.
+
 \paragraph{Differentiable (ver. 1)}
 A function $ f(x) $ is differentiable at a if:
 \begin{equation}
 \lim_{x \to a}\frac{f(x) - f(a)}{x - a}
 \end{equation}
 exists.
+
 \paragraph{Differentiable (ver. 2)}
 A function $ f(x) $ is differentiable at a if:
 \begin{equation}
 \lim_{h \to 0}\frac{f(a + h) - f(a)}{h}
 \end{equation}
 exists.
+
 \paragraph{Differentiable everywhere}
 A function $ f(x) $ is differentiable everywhere if it is differentiable at a for all $ a \in \textrm{dom}(f) $.
+
 \paragraph{Global maximum}
 A function $ f(x) $ has a global maximum at a if $ f(a) \geq f(x) $ for all other values of $ f(x) $.
 \\\\
 Similar definition for global minimum.
+
 \paragraph{Local maximum}
 A function $ f(x) $ has a local maximum at a if $ f(a) \geq f(x) $ for all x in the set $ (a - \epsilon, a + \epsilon) $, for some $ \epsilon $.
 \\\\
 Similar definition for local minimum.
+
 \paragraph{Lipschitz continuous}
 A function is Lipschitz continuous if:
 \begin{equation}
@@ -791,6 +874,7 @@ A function is Lipschitz continuous if:
 \end{equation}
 
 \section{Theorems}
+
 \subsection{Sequences}
 Every convergent sequence has a unique limit.
 \\\\
@@ -958,6 +1042,7 @@ If $ f $ continuous and $ f: [a, b] \to [a, b] $, then there exists some $ c \in
 Polynomials of odd degree have at least 1 root.
 \\\\
 $ f $ differentiable $ \Rightarrow f $ continuous.
+
 \subsection{Differentiable functions}
 If functions $ f $ and $ g $ are differentiable at a:
 \begin{itemize}

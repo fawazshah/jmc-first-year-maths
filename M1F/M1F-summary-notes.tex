@@ -58,98 +58,124 @@ Boxes cover content in more detail. Titles of some theorems are given in italics
 \newpage
 
 \section{Definitions}
+
 \paragraph{Arbitrary union}
 We can define the arbitrary union
 \begin{equation}
 \bigcup_{i \in I} X_{i}
 \end{equation}
 to be the union of all sets $ X_{i} $.
+
 \paragraph{Arbitrary intersection}
 We can define the arbitrary intersection
 \begin{equation}
 \bigcap_{i \in I} X_{i}
 \end{equation}
 to be the intersection of all sets $ X_{i} $.
+
 \paragraph{Modulus (complex number)}
 The modulus of $ z = x + iy $ is defined as:
 \begin{equation}
 |z| = \sqrt{x^{2} + y^{2}}
 \end{equation}
+
 \paragraph{Argument (complex number)}
 The argument of $ z = x + iy $ is defined as:
 \begin{equation}
 \arg(z) = \arctan(\frac{y}{x})
 \end{equation}
+
 \paragraph{Fundamental Theorem of Algebra}
 If a polynomial is of degree $ n $ then it has $ n $ roots in the complex plane.
+
 \paragraph{Root of unity}
 Any $ z $ that is a solution to $ z^{n} = 1 $.
+
 \paragraph{Supremum}
 A real number $ b $ is the sup (least upper bound) of a set $ S $ if:
 \begin{itemize}
 \item every $ s \in S $ is less than $ b $ (i.e. $ b $ is an upper bound)
 \item $ b $ is less than every other upper bound of $ S $
 \end{itemize}
+
 \paragraph{Infimum}
 A real number $ b $ is the inf (greatest lower bound) of a set $ S $ if:
 \begin{itemize}
 \item every $ s \in S $ is greater than $ b $ (i.e. $ b $ is a lower bound)
 \item $ b $ is greater than every other lower bound of $ S $
 \end{itemize}
+
 \paragraph{Bounded above}
 A set is bounded above if it has an upper bound.
+
 \paragraph{Bounded below}
 A set is bounded below if it has a lower bound.
+
 \paragraph{Coprime}
 We say two integers $ a $ and $ b $ are coprime if $ \gcd(a, b) = 1 $.
+
 \paragraph{Fundamental Theorem of Arithmetic}
 Every integer greater than 1 can be expressed as a unique product of primes.
+
 \paragraph{$ \equiv$ (congruence operator)}
 We say $ a \equiv b \mod m $ if $ (a - b) $ is a multiple of $ m $.
+
 \paragraph{Binary relation}
 A binary relation $ \sim $ on a set $ S $ is a mapping satisfying $ S \times S \to \textrm{Bool} $.
+
 \paragraph{Reflexive}
 A binary relation $ \sim $ is reflexive if for any $ a \in S $:
 \begin{equation}
 a \sim a
 \end{equation}
+
 \paragraph{Symmetric}
 A binary relation $ \sim $ is symmetric if:
 \begin{equation}
 a \sim b \Leftrightarrow b \sim a
 \end{equation}
+
 \paragraph{Transitive}
 A binary relation $ \sim $ is transitive if:
 \begin{equation}
 a \sim b \land b \sim c \Rightarrow a \sim c
 \end{equation}
+
 \paragraph{Equivalence relation}
 A binary relation $ \sim $ is an equivalence relation iff it is reflexive, symmetric and transitive.
+
 \paragraph{Equivalence class}
 The equivalence class of $ b \in S $ is the set of all $ s \in S $ such that $ b \sim s $.
+
 \paragraph{Injective}
 A function $ f : A \to B $ is injective if every $ b \in B $ has at MOST one $ a \in A $ that maps to it. Mathematically:
 \begin{equation}
 \forall x, y \in A \quad f(x) = f(y) \Rightarrow x = y
 \end{equation}
+
 \paragraph{Surjective}
 A function $ f : A \to B $ is surjective if every $ b \in B $ has at LEAST one $ a \in A $ that maps to it. Mathematically:
 \begin{equation}
 \forall b \in B \quad \exists a \in A \quad s.t. \quad f(a) = b
 \end{equation}
+
 \paragraph{Bijective}
 A function $ f : A \to B $ is bijective iff it is both surjective and injective.
+
 \paragraph{(Two-sided) inverse function}
 The inverse of a function $ f : A \to B $ is defined as $ f^{-1} : B \to A $, and satisfies:
 \begin{align}
 f^{-1} \circ f \equiv f \circ f^{-1} \equiv Id_{A}
 \end{align}
+
 \paragraph{Power set}
 The power set of $ S $ is the set of all subsets of $ S $.
+
 \paragraph{Countably infinite}
 An infinitely-sized set $ S $ is countably infinite if there exists a bijection $ f : \Z_{> 0} \to S $.
 
 \section{Theorems}
+
 \subsection{Logic and Sets}
 \textit{Contrapositive law}
 \\
@@ -159,6 +185,7 @@ For any Boolean statements $ P, Q $:
 \end{equation}
 \\
 To negate any logical statements, we can flip the $ \forall $ and $ \exists $ signs and negate the predicate (the mathematical statement at the end).
+
 \subsection{Complex numbers}
 Complex numbers can be added, subtracted, multiplied and divided.
 \\\\

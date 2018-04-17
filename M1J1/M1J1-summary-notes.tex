@@ -89,18 +89,6 @@ A system which has no terms raised to more than the $ 1^{st} $ power, and with n
 
 \paragraph{Homogeneous (system)}
 A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
-    
-\section{1st order linear ODEs}
-Every 1st order linear ODE can be expressed as:
-\begin{equation}
-\frac{dy}{dx} + p(x)y = q(x)
-\end{equation}
-These can ALL be solved by the \emph{integrating factor} method:
-\begin{enumerate}
-\item Multiply both sides by $ exp(\int_{}^{} p(x) dx) $
-\item Use the reverse product rule to express the LHS as a single derivative (of a function of y).
-\item Integrate both sides and rearrange.
-\end{enumerate}
   
 \section{1st order non-linear ODEs}
 
@@ -134,37 +122,6 @@ We integrate $ P(x, y) $ w.r.t $ x $ and $ Q(x, y) $ w.r.t $ y $ and 'merge' the
 f(x, y) = c
 \end{equation}
 for some arbitrary constant c.
-
-\subsection{Separable ODEs}
-Separable equations can be written in the form:
-\begin{equation}
-\frac{dy}{dx} = f(x)g(y)
-\end{equation}
-These can be rearranged and integrated on both sides, with respect to the different variables.
-
-\subsection{Homogenous ODEs}
-Homogenous equations can be written in the form:
-\begin{equation}
-\frac{dy}{dx} = f(\frac{y}{x})
-\end{equation}
-To solve, set $ v = \frac{y}{x} $, so that $y = xv $. Note that v is still a single-variable function of x, since y is a function of x.
-Now we can differentiate both sides to get:
-\begin{equation}
-\frac{dy}{dx} = v + x\frac{dv}{dx}
-\end{equation}
-We now have simultaneous equations for $ \frac{dy}{dx} $. Equate and solve for $ \frac{dv}{dx} $, and then solve this 1st order linear ODE in $ \frac{dv}{dx} $ to find v (and then y).
-
-\subsection{Bernoulli type ODEs}
-A Bernoulli type ODE is of the form:
-\begin{equation}
-\frac{dy}{dx} + p(x)y = q(x)y^n
-\end{equation}
-To solve:
-\begin{enumerate}
-\item Multiply both sides by $ (1-n)y^{-n} $
-\item Let $ z = y^{1-n} $ and substitute into equation, including rewriting one of the terms as $ \frac{dz}{dx} $
-\item The resulting equation is 1st order linear in z, so solve for z (and then y).
-\end{enumerate}
 
 \section{2nd order ODEs}
 
