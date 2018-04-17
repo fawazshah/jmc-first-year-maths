@@ -24,7 +24,6 @@
 \noindent Topics not covered in this summary: phase portraits, similarity transformations.
 \tableofcontents
 \newpage
-\part{Individual differential equations}
 \section{Definitions}
 
 \paragraph{Order (of derivative)}
@@ -36,8 +35,23 @@ The order of the highest derivative present in an ODE.
 \paragraph{Degree (of ODE)}
 The highest power to which a term is raised in an ODE (excluding fractional powers).
 
-\paragraph*{Linear}
+\paragraph*{Linear (ODE)}
 An ODE which has no terms raised to more than the $ 1^{st} $ power, and with no $ y, x $ or other derivative terms multiplied by each other.
+
+\paragraph{System of diff. equations}
+A set of simultaneous equations of derivatives, where derivatives of $ y, x $ etc. are given w.r.t. a parameter $ t $
+
+\paragraph{Order (of system)}
+The order of the highest derivative present in the system.
+
+\paragraph{Degree (of system)}
+The highest power to which a term is raised in an ODE (excluding fractional powers).
+
+\paragraph{Linear (system)}
+A system which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
+
+\paragraph{Homogeneous (system)}
+A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
     
 \section{1st order linear ODEs}
 Every 1st order linear ODE can be expressed as:
@@ -215,26 +229,6 @@ CAUTION: sinh, cosh and tanh are actually exponential functions in disguise, so 
 If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we can rewrite it as the real/imaginary part of a complex function (in this case $ e^{(1+i)x} $ would be appropriate, since it expands to $ e^{x}(\cos(x) + i\sin(x)) $.
 \\\\
 If $ f(x) $ is more complicated, we may have to be imaginative with the choice of $ y_{PI} $. e.g. for $ f(x) = Ae^{ax} + Be^{bx} $ we could choose $ y_{PI} = Ce^{ax} + De^{bx} $ for some constants $ C, D $. Again be careful of terms that clash with the CF.
-
-\newpage
-\part{Systems of differential equations}
-
-\section{Definitions}
-
-\paragraph{System of diff. equations}
-A set of simultaneous equations of derivatives, where derivatives of $ y, x $ etc. are given w.r.t. a parameter $ t $
-
-\paragraph{Order (of system)}
-The order of the highest derivative present in the system.
-
-\paragraph{Degree (of system)}
-The highest power to which a term is raised in an ODE (excluding fractional powers).
-
-\paragraph{Linear}
-A system which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
-
-\paragraph{Homogeneous}
-A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
 
 \section{Solving systems of diff. equations}
 A homogeneous 1st order system of equations can be written as:
