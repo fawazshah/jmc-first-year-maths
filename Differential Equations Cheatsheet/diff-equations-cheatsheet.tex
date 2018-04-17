@@ -179,20 +179,20 @@ a\lambda^{2} + b\lambda + c = 0
 \end{equation}
 using a, b, c from above. Solving this gives us two values, $ \lambda_{1} $ and $ \lambda_{2} $.
 
-\subsubsection{Case 1: $ \lambda_{1} \neq \lambda_{2} $, both real}
+\subsubsection*{Case 1: $ \lambda_{1} \neq \lambda_{2} $, both real}
 We can express the CF as:
 \begin{equation}
 y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}e^{\lambda_{2}x}
 \end{equation}
 where $ A_{1} $ and $ A_{2} $ are arbitrary constants.
 
-\subsubsection{Case 2: $ \lambda_{1} = \lambda_{2} $, both real}
+\subsubsection*{Case 2: $ \lambda_{1} = \lambda_{2} $, both real}
 Same as above, but we stick an $ x $ in front of one of the clashing parts of the solution.
 \begin{equation}
 y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}xe^{\lambda_{2}x}
 \end{equation}
 
-\subsubsection{Case 3: $ \lambda_{1} $, $ \lambda_{2} $ are complex}
+\subsubsection*{Case 3: $ \lambda_{1} $, $ \lambda_{2} $ are complex}
 If the auxiliary equation has complex roots, $ \lambda_{1} $ and $ \lambda_{2} $ will be complex conjugates. The CF can be expressed as:
 \begin{equation}
 \begin{split}
@@ -207,25 +207,25 @@ where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that even
 The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{secondordergeneralform}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $. We can follow some basic rules:
 
 
-\subsubsection{Case 1: $ f(x) $ is a polynomial}
+\subsubsection*{Case 1: $ f(x) $ is a polynomial}
 Try setting $ y_{PI} $ as a general polynomial of the same degree. e.g. if $ f(x) $ is a quadratic, try setting $ y_{PI} = ax^{2} + bx + c $ and substituting into the ODE. We will solve for a, b, c, and this will give us $ y_{PI} $.
 
-\subsubsection{Case 2: $ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ NOT in CF}
+\subsubsection*{Case 2: $ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ NOT in CF}
 Choose $ y_{PI} = Ae^{bx} $ for some real number A.
 
-\subsubsection{Case 3: $ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ IS in CF}
+\subsubsection*{Case 3: $ f(x) $ is a multiple of $ e^{bx} $, $ e^{bx} $ IS in CF}
 We now have a clash between the PI and the CF. We can try $ y_{PI} = Axe^{bx} $, i.e. sticking an x in the PI to avoid the clash. If this doesn't work, we can choose $ y_{PI} = A(x)e^{bx} $ for some real FUNCTION A. Remember to use the CHAIN RULE to differentiate A this time.
 \\\\
 At the end remove any clashing terms, i.e. terms of the form $ Be^{\lambda x} $ where $ e^{\lambda x} $ is already present in the CF. Other terms with more $ x $'s included are allowed, e.g. $ xe^{\lambda x} $ would not count as a clashing term.
 
-\subsubsection{Case 4: $ f(x) = A(x)e^{bx} $ where $ A(x) $ is a polynomial}
+\subsubsection*{Case 4: $ f(x) = A(x)e^{bx} $ where $ A(x) $ is a polynomial}
 Choose $ y_{PI} = C(x)e^{bx} $ for some polynomial $ C(x) $.
 
-\subsubsection{Case 5: $ f(x) $ is trigonometric (e.g. sin, cos, sinh etc.)}
+\subsubsection*{Case 5: $ f(x) $ is trigonometric (e.g. sin, cos, sinh etc.)}
 Look for a pattern in $ f(x) $. A good tip for an $ f(x) $ with only sines/cosines is to use $ y_{PI} = A\cos(x) + B\sin(x) $ and solve for A and B. A similar story for sinh and cosh.
 CAUTION: sinh, cosh and tanh are actually exponential functions in disguise, so make sure they do not clash with any $ e^{\lambda x} $ terms in the CF.
 
-\subsubsection{Other cases}
+\subsubsection*{Other cases}
 If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we can rewrite it as the real/imaginary part of a complex function (in this case $ e^{(1+i)x} $ would be appropriate, since it expands to $ e^{x}(\cos(x) + i\sin(x)) $.
 \\\\
 If $ f(x) $ is more complicated, we may have to be imaginative with the choice of $ y_{PI} $. e.g. for $ f(x) = Ae^{ax} + Be^{bx} $ we could choose $ y_{PI} = Ce^{ax} + De^{bx} $ for some constants $ C, D $. Again be careful of terms that clash with the CF.
