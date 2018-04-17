@@ -88,8 +88,53 @@ The highest power to which a term is raised in an ODE (excluding fractional powe
 A system which has no terms raised to more than the $ 1^{st} $ power, and with no $ y $ or other derivative terms multiplied by each other.
 
 \paragraph{Homogeneous (system)}
-A system with no explicit functions of $ t $ (i.e. $ f(t) $) present.
-  
+A system with no explicit functions of $ t $ present.
+
+\paragraph{Order (difference equation)}
+The order of a recurrence relation for $ u_{n} $ is the number of previous $ u_{n} $ terms it relates to.
+
+\paragraph{Linear (difference equation)}
+A recurrence relation for $ u_{n} $ is linear if it only contains $ u_{n} $ terms to the $ 1^{st} $ power, and has no $ u_{n} $ terms multiplied by each other.
+
+\paragraph{Homogenous (difference equation)}
+A recurrence relation for $ u_{n} $ is homogenous if there are no explicit functions of $ n $ present.
+
+\paragraph{Forward difference operator $ \Delta $}
+The forward difference operator is defined as:
+\begin{equation}
+\Delta u_{n} = u_{n+1} - u_{n}
+\end{equation}
+
+\paragraph{Newton-Raphson method}
+The Newton-Raphson iterative formula to find $ x $ such that $ f(x) = 0 $ is:
+\begin{equation}
+x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}
+\end{equation}
+Note that this only works in specific cases.
+
+\paragraph{Exact (total) differential}
+The exact differential of a multivariable function $ f(x, y) $ is the equation:
+\begin{equation}
+df = dx \frac{\partial f}{\partial  x} + dy \frac{\partial f}{\partial  y}
+\end{equation}
+
+\paragraph{Exact equation}
+A differential equation of the form:
+\begin{equation} \label{exacteq}
+P(x, y) + Q(x, y) \frac{dy}{dx} = 0
+\end{equation}
+is called an exact equation iff:
+\begin{equation}
+\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}
+\end{equation}
+Note that in this case the LHS of equation \ref{exacteq} forms an exact differential.
+
+\paragraph{grad}
+
+\paragraph{div}
+
+\paragraph{curl}
+
 \section{1st order non-linear ODEs}
 
 \subsection{Exact equations}
@@ -302,7 +347,7 @@ y & = -5A_{1}e^{-3t} + -2A_{2}e^{2t}
 \end{split}
 \end{equation}
 
-\subsubsection{Complex eigenvalues}
+\subsubsection*{Complex eigenvalues}
 If the eigenvalues turn out to be complex conjugates, the solution can be written as:
 \begin{equation}
 \begin{pmatrix}
@@ -324,6 +369,14 @@ y
 \end{split}
 \end{equation}
 where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2})i $. Note that $ C_{1} $ and $ C_{2} $ are vectors.
+
+\subsection{Phase portraits}
+
+\section{Difference equations}
+
+\section{Fixed point iteration}
+
+\section{Partial differentation}
 
 \newpage
 \part{Linear Algebra}
