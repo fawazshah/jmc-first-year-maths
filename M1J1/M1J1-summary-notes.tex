@@ -114,6 +114,23 @@ x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}
 \end{equation}
 Note that this only works in specific cases.
 
+\paragraph{Taylor series (multivariable)}
+The Taylor series centered around $ (a, b) $ for a multivariable function $ f(x, y) $ can be written as:
+\begin{align}
+f(x, y) & = \color{cyan}{f(a, b)} + \color{blue}{f'_{x}(a, b)(x-a) + f'_{y}(a, b)(y-b)} \\
+& + \color{magenta}{\frac{1}{2!}(f''_{xx}(a, b)(x-a)^{2} + 2f''_{xy}(a, b)(x-a)(y-b)} \\
+& \ \ \ \color{magenta}{ + f''_{yy}(a, b)(y-b)^{2})} \color{black}{\textrm{ + ...}}
+\end{align}
+where:
+\begin{equation}
+f'_{x} = \frac{\partial f}{\partial x}, \quad f''_{xx} = \frac{\partial^{2} f}{\partial x^{2}}, \quad f''_{xy} = \frac{\partial^{2} f}{\partial x \partial y} = \frac{\partial^{2} f}{\partial y \partial x}\textrm{ ... etc.}
+\end{equation}
+If we let $ h = x - a $ and $ k = y - b $ then we can also write the Taylor series as:
+\begin{align}
+f(a+h, b+k) & = \color{cyan}{f(a, b)} + \color{blue}{hf'_{x}(a, b) + kf'_{y}(a, b)} \\
+& + \color{magenta}{\frac{1}{2!}(h^{2}f''_{xx}(a, b) + 2hkf''_{xy}(a, b) + k^{2}f''_{yy}(a, b))} \color{black}{\textrm{ + ...}}
+\end{align}
+
 \paragraph{Exact (total) differential}
 The exact differential of a multivariable function $ f(x, y) $ is the equation:
 \begin{equation}
@@ -171,39 +188,6 @@ u_{1} & u_{2} & u_{3}
 where $ \begin{pmatrix}
 u_{1} \\ u_{2} \\ u_{3}
 \end{pmatrix} $ is the value of $ \vec{u} $ at that point.
-
-\section{1st order non-linear ODEs}
-
-\subsection{Exact equations}
-Let us say we have an ODE of the form:
-\begin{equation}
-P(x, y) + Q(x, y)\frac{dy}{dx} = 0
-\end{equation}
-(note the coefficients are multi-variable functions). This can be rewritten as:
-\begin{equation} \label{exactdifferential}
-P(x, y) dx + Q(x, y) dy = 0
-\end{equation}
-We can try the exact equations method. We say an equation is exact iff:
-\begin{equation}
-\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x} 
-\end{equation}
-This simple condition implies some important results. It can be shown that an exact equation implies the LHS of equation \ref{exactdifferential} is an exact (total) differential). This means it can be written as $ df $, where f is some function of $ x $ and $ y $. But the equation of this total differential is:
-\begin{equation}
-df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy
-\end{equation}
-Comparing to equation \ref{exactdifferential} we can note 3 things:
-\begin{equation}
-\begin{split}
-P(x, y) & = \frac{\partial f}{\partial x} \\
-Q(x, y) & = \frac{\partial f}{\partial y} \\
-df & = 0
-\end{split}
-\end{equation}
-We integrate $ P(x, y) $ w.r.t $ x $ and $ Q(x, y) $ w.r.t $ y $ and 'merge' the two expressions together (i.e. for any matching terms, write them down only once) to give us an expression for $ f(x, y) $. Ignore constants of integration. $ df = 0 $ tells us that $ f(x, y) = c $ by integration. Therefore the general solution is given by:
-\begin{equation}
-f(x, y) = c
-\end{equation}
-for some arbitrary constant c.
 
 \section{2nd order ODEs}
 
@@ -414,6 +398,37 @@ where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2}
 \section{Fixed point iteration}
 
 \section{Partial differentation and vector calculus}
+
+\subsection{Exact equations}
+Let us say we have an ODE of the form:
+\begin{equation}
+P(x, y) + Q(x, y)\frac{dy}{dx} = 0
+\end{equation}
+(note the coefficients are multi-variable functions). This can be rewritten as:
+\begin{equation} \label{exactdifferential}
+P(x, y) dx + Q(x, y) dy = 0
+\end{equation}
+We can try the exact equations method. We say an equation is exact iff:
+\begin{equation}
+\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x} 
+\end{equation}
+This simple condition implies some important results. It can be shown that an exact equation implies the LHS of equation \ref{exactdifferential} is an exact (total) differential). This means it can be written as $ df $, where f is some function of $ x $ and $ y $. But the equation of this total differential is:
+\begin{equation}
+df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy
+\end{equation}
+Comparing to equation \ref{exactdifferential} we can note 3 things:
+\begin{equation}
+\begin{split}
+P(x, y) & = \frac{\partial f}{\partial x} \\
+Q(x, y) & = \frac{\partial f}{\partial y} \\
+df & = 0
+\end{split}
+\end{equation}
+We integrate $ P(x, y) $ w.r.t $ x $ and $ Q(x, y) $ w.r.t $ y $ and 'merge' the two expressions together (i.e. for any matching terms, write them down only once) to give us an expression for $ f(x, y) $. Ignore constants of integration. $ df = 0 $ tells us that $ f(x, y) = c $ by integration. Therefore the general solution is given by:
+\begin{equation}
+f(x, y) = c
+\end{equation}
+for some arbitrary constant c.
 
 \newpage
 \part{Linear Algebra}
