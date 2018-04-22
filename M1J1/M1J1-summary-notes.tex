@@ -477,7 +477,7 @@ Fixed-point iteration is a method of finding an approximate solution to $ f(x) =
 \begin{equation}
 x_{n+1} = F(x_{n})
 \end{equation}
-for some function $ F $. Let $ a $ denote the value that the above formula tends towards. The associated \textbf{fixed point} of this formula is the point $ (a, 0) $. The fixed point is also the point of intersection between the lines $ y = x $ and $ y = F(x) $.
+for some function $ F $. Let $ a $ denote the value that $ x_{n} $ tends towards. The associated \textbf{fixed point} of this formula is the point $ (a, 0) $. The fixed point is also the point of intersection between the lines $ y = x $ and $ y = F(x) $.
 \\\\
 We let the error term $ \epsilon_{n} $ be defined as:
 \begin{equation}
@@ -511,7 +511,7 @@ In this case we can see that for convergence, we must have $ |F''(a)| < 1 $.
 
 The Newton-Raphson method is a special case of fixed-point iteration. The Newton-Raphson iterative formula to find a solution to $ f(x) = 0 $ is given by:
 \begin{equation}
-x_{n+1} =x_{n} - \frac{f(x_{n}}{f'(x_{n})}
+x_{n+1} =x_{n} - \frac{f(x_{n})}{f'(x_{n})}
 \end{equation}
 Newton-Raphson always converges quadratically, however it will only converge in specific situations (e.g. when there are no stationary points in between $ x_{0} $ and $ a $).
 
