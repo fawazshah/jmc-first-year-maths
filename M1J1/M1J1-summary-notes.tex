@@ -495,9 +495,9 @@ Upon further expansion we get:
 \epsilon_{n+1} & \approx \epsilon_{n} F'(a) \\
 & \approx \epsilon_{n-1} F'(a)^{2} \\
 & \vdots \\
-& \approx \epsilon_{0} F'(a)^{n}
+& \approx \epsilon_{0} F'(a)^{n+1}
 \end{align}
-It is easy to see that the iterative formula will only tend to the fixed point if $ |F'(a)| < 1 $. If $ |F'(a)| > 1 $, the error terms get bigger and the formula diverges.
+It is easy to see that if $ |F'(a)| < 1 $, the error terms will get tend to $ 0 $ and the iterative formula will indeed converge to $ a $. If $ |F'(a)| > 1 $, the error terms get bigger and the formula diverges from $ a $.
 
 \subsubsection*{Case 2: $ F'(a) = 0, F''(a) \neq 0 $}
 
