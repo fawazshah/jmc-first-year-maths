@@ -104,7 +104,7 @@ A recurrence relation for $ u_{n} $ is homogenous if there are no explicit funct
 \paragraph{Forward difference operator $ \Delta $}
 The forward difference operator is defined as:
 \begin{equation}
-\Delta u_{n} = u_{n+1} - u_{n}
+\Delta U(n) = U(n+1) - U(n)
 \end{equation}
 
 \paragraph{Newton-Raphson method}
@@ -224,16 +224,16 @@ P\frac{dP}{dy} = f(y, P)
 \end{equation}
 This is 1st order w.r.t P and can be solved by appropriate 1st order methods.
 
-\subsection{General case - finding the CF}
-The general solution (GS) of a 2nd order ODE can be expressed as the sum of two other functions, called the 'complementary function' (CF) and a 'particular integral' (PI).
+\subsection{Finding the CF}
+The general solution (GS) of a 2nd order ODE can be expressed as the sum of two other functions, called the \textbf{complementary function} (CF) and the \textbf{particular integral} (PI).
 \begin{equation}
 y_{GS} = y_{CF} + y_{PI}
 \end{equation} 
 A 2nd order ODE will usually be presented to us in the form:
-\begin{equation} \label{secondordergeneralform}
+\begin{equation} \label{generalformdifferential}
 a\frac{d^{2}y}{dx^{2}} + b\frac{dy}{dx} + c = f(x)
 \end{equation}
-It can be shown that the CF can be calculated from the LHS of the above equation. We write down the \emph{auxiliary equation}, which is simply the equation:
+It can be shown that the CF can be calculated from the LHS of the above equation. We write down the \textbf{auxiliary equation}, which is simply the equation:
 \begin{equation}
 a\lambda^{2} + b\lambda + c = 0
 \end{equation}
@@ -249,7 +249,7 @@ where $ A_{1} $ and $ A_{2} $ are arbitrary constants.
 \subsubsection*{Case 2: $ \lambda_{1} = \lambda_{2} $, both real}
 Same as above, but we stick an $ x $ in front of one of the clashing parts of the solution.
 \begin{equation}
-y_{CF} = A_{1}e^{\lambda_{1}x} + A_{2}xe^{\lambda_{2}x}
+y_{CF} = A_{1}e^{\lambda x} + A_{2}xe^{\lambda x}
 \end{equation}
 
 \subsubsection*{Case 3: $ \lambda_{1} $, $ \lambda_{2} $ are complex}
@@ -263,8 +263,8 @@ y_{CF} & = A_{1}e^{(a + bi)x} + A_{2}e^{(a - bi)x} \\
 \end{equation}
 where $ C_{1} = A_{1} + A_{2} $ and $ C_{2} = (A_{1} - A_{2})i $. Note that even though $ A_{1} $ and $ A_{2} $ may have been complex, $ C_{1} $ and $ C_{2} $ are necessarily real.
 
-\subsection{General case - finding the PI}
-The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{secondordergeneralform}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $. We can follow some basic rules:
+\subsection{Finding the PI}
+The particular integral is \emph{any function $ y_{PI} $ that satisfies the ENTIRE differential equation}. The particular integral can be calculated depending on the form of the RHS of equation \ref{generalformdifferential}. We will refer to the RHS as simply $ f(x) $ and the particular integral (as before) as $ y_{PI} $. We can follow some basic rules:
 
 
 \subsubsection*{Case 1: $ f(x) $ is a polynomial}
@@ -290,7 +290,7 @@ If $ f(x) $ has a term of the form $ e^{x}\cos(x) $ or $ e^{x}\sin(x) $ then we 
 \\\\
 If $ f(x) $ is more complicated, we may have to be imaginative with the choice of $ y_{PI} $. e.g. for $ f(x) = Ae^{ax} + Be^{bx} $ we could choose $ y_{PI} = Ce^{ax} + De^{bx} $ for some constants $ C, D $. Again be careful of terms that clash with the CF.
 
-\section{Solving systems of diff. equations}
+\section{Solving systems of differential equations}
 A homogeneous 1st order system of equations can be written as:
 \begin{equation}
 \begin{split}
@@ -394,6 +394,82 @@ where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2}
 \subsection{Phase portraits}
 
 \section{Difference equations}
+
+Difference equations are very similar to differential equations, both in their construction and in their solution. Terms are given as $ U(n), U(n+1) $ etc. instead of $ \frac{dy}{dx}, \frac{d^{2} y}{dx^{2}} $. We can reapply definitions such as \textbf{auxiliary equation}, \textbf{complementary function} and \textbf{particular integral}, and once again the general solution is defined by:
+\begin{equation} \label{generalformdifference}
+U(n)_{GS} = U(n)_{CF} + U(n)_{PI}
+\end{equation}
+
+\subsection{Finding the CF}
+
+For a general recurrence relation:
+\begin{equation}
+aU(n+2) + bU(n+1) + cU(n) = f(n)
+\end{equation}
+we can set up the auxiliary equation:
+\begin{equation}
+a \lambda^{2} + b \lambda + c = 0
+\end{equation}
+where the solutions to the quadratic are given by $ \lambda_{1} $ and $ \lambda_{2} $.
+
+\subsubsection*{Case 1: $ \lambda_{1} \neq \lambda_{2} $}
+
+\begin{equation}
+U(n)_{CF} = A_{1} (\lambda_{1})^{n} + A_{2} (\lambda_{2})^{n}
+\end{equation}
+for arbitrary constants $ A_{1}, A_{2} $.
+
+\subsubsection*{Case 2: $ \lambda_{1} = \lambda_{2} $}
+
+We stick an $ n $ in front of one of the clashing terms:
+\begin{equation}
+U(n)_{CF} = A_{1} (\lambda)^{n} + A_{2} n(\lambda)^{n}
+\end{equation}
+
+\subsection{Finding the PI}
+
+We refer to the RHS of equation \ref{generalformdifference} as $ f(n) $.
+
+\subsubsection*{Case 1: $ f(n) = Cp^{n} $ where $ p \neq \lambda_{1}, \lambda_{2}, (C $ constant)}
+
+Try a solution of the form $ U(n)_{PI} = Ap^{n} $ for some constant $ A $.
+
+\subsubsection*{Case 2: $ f(n) = Cp^{n} $ where $ p = \lambda_{1} $ or $ p = \lambda_{2}, (C $ constant)}
+
+Try a solution of the form $ U(n)_{PI} = A(n)p^{n} $ where $ A(n) $ is a polynomial with the same degree as the order of the recurrence relation.
+
+\subsubsection*{Case 3: $ f(n) $ is a polynomial of degree $ n $}
+
+Choose $ U(n)_{PI} $ as a suitable polynomial of degree $ n $.
+
+\subsubsection*{Case 4: $ f(n) $ is (polynomial in $ n )p^{n}$}
+
+Choose $ U(n)_{PI} $ as (polynomial of degree $ n)p^{n} $.
+
+\subsection*{$ \Delta $ (forward difference operator)}
+
+The $ \Delta $ operator is defined as:
+\begin{align}
+\Delta U(n) & = U(n+1) - U(n) \\
+\Delta^{2} U(n) & = (U(n+2) - U(n+1)) - (U(n+1) - U(n)) \\
+& \vdots \\ 
+& \textrm{etc.}
+\end{align}
+Note that:
+\begin{align}
+\Delta n^{k} & = (n+1)^{k} - n^{k} \\
+\Delta (\textrm{polynomial of degree k}) & = \textrm{polynomial of degree } k - 1
+\end{align}
+
+\subsection{Difference tables}
+
+We can construct difference tables, where every entry in a row corresponds to the difference between two terms in the row above:
+\\\\
+\includegraphics[scale=0.5]{differencetable}
+\\\\
+We say the above sequence $ R(n) $ is quartic, since the $ \Delta^{4}R(n) $ terms are constant.
+\\
+To calculate the next number in the sequence $ R(n) $, we can add another $ 0 $ to the $ \Delta^{5} $ row and follow the pattern upwards.
 
 \section{Fixed point iteration}
 
