@@ -436,7 +436,7 @@ Try a solution of the form $ U(n)_{PI} = Ap^{n} $ for some constant $ A $.
 
 \subsubsection*{Case 2: $ f(n) = Cp^{n} $ where $ p = \lambda_{1} $ or $ p = \lambda_{2}, (C $ constant)}
 
-Try a solution of the form $ U(n)_{PI} = A(n)p^{n} $ where $ A(n) $ is a polynomial with the same degree as the order of the recurrence relation.
+Try a solution of the form $ U(n)_{PI} = A(n)p^{n} $ where $ A(n) $ is a polynomial with the same degree as the order of the recurrence relation. Remember to remove any clashing terms at the end.
 
 \subsubsection*{Case 3: $ f(n) $ is a polynomial of degree $ n $}
 
@@ -472,6 +472,48 @@ We say the above sequence $ R(n) $ is quartic, since the $ \Delta^{4}R(n) $ term
 To calculate the next number in the sequence $ R(n) $, we can add another $ 0 $ to the $ \Delta^{5} $ row and follow the pattern upwards.
 
 \section{Fixed point iteration}
+
+Fixed-point iteration is a method of finding an approximate solution to $ f(x) = 0 $ for some function $ f $. We rewrite $ f(x) = 0 $ as an iterative formula:
+\begin{equation}
+x_{n+1} = F(x_{n})
+\end{equation}
+for some function $ F $. Let $ a $ denote the value that the above formula tends towards. The associated \textbf{fixed point} of this formula is the point $ (a, 0) $. The fixed point is also the point of intersection between the lines $ y = x $ and $ y = F(x) $.
+\\\\
+We let the error term $ \epsilon_{n} $ be defined as:
+\begin{equation}
+\epsilon_{n} = a - x_{n}
+\end{equation}
+
+\subsubsection*{Case 1: $ F'(a) \neq 0 $}
+
+In this case we say the formula has linear convergence. The error in each iterate changes by a factor of $ F'(a) $:
+\begin{equation}
+\epsilon_{n+1} \approx \epsilon_{n} F'(a)
+\end{equation}
+Upon further expansion we get:
+\begin{align}
+\epsilon_{n+1} & \approx \epsilon_{n} F'(a) \\
+& \approx \epsilon_{n-1} F'(a)^{2} \\
+& \vdots \\
+& \approx \epsilon_{0} F'(a)^{n}
+\end{align}
+It is easy to see that the iterative formula will only tend to the fixed point if $ |F'(a)| < 1 $. If $ |F'(a)| > 1 $, the error terms get bigger and the formula diverges.
+
+\subsubsection*{Case 2: $ F'(a) = 0, F''(a) \neq 0 $}
+
+In this case the formula has quadratic convergence.
+\begin{equation}
+\epsilon_{n+1} \approx \frac{\epsilon_{n}^{2}}{2} F''(a)
+\end{equation}
+In this case we can see that for convergence, we must have $ |F''(a)| < 1 $.
+
+\subsection{Newton-Raphson method}
+
+The Newton-Raphson method is a special case of fixed-point iteration. The Newton-Raphson iterative formula to find a solution to $ f(x) = 0 $ is given by:
+\begin{equation}
+x_{n+1} =x_{n} - \frac{f(x_{n}}{f'(x_{n})}
+\end{equation}
+Newton-Raphson always converges quadratically, however it will only converge in specific situations (e.g. when there are no stationary points in between $ x_{0} $ and $ a $).
 
 \section{Partial differentation and vector calculus}
 
@@ -677,5 +719,7 @@ An eigenvector of a matrix $ \vec{A} $ is some $ \vec{v} \in R^{n} $ that satisf
 for some $ \lambda \in \R $, called the eigenvalue.
 
 \section{Theorems}
+
+
 
 \end{document}
