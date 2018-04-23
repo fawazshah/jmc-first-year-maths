@@ -393,6 +393,13 @@ where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2}
 
 \subsection{Phase portraits}
 
+To draw a phase portrait, we can follow some algorithmic steps:
+\begin{enumerate}
+\item Sketch the lines of the eigenvectors in the x-y plane
+\item Draw arrows on the eigenvectors which go outwards/inwards, depending on whether the corresponding eigenvalues are positive/negative respectively
+\item Sketch out other contour lines on the x-y plane with arrows following the pattern of the existing lines
+\end{enumerate}
+
 \section{Difference equations}
 
 Difference equations are very similar to differential equations, both in their construction and in their solution. Terms are given as $ U(n), U(n+1) $ etc. instead of $ \frac{dy}{dx}, \frac{d^{2} y}{dx^{2}} $. We can reapply definitions such as \textbf{auxiliary equation}, \textbf{complementary function} and \textbf{particular integral}, and once again the general solution is defined by:
@@ -440,7 +447,7 @@ Try a solution of the form $ U(n)_{PI} = A(n)p^{n} $ where $ A(n) $ is a polynom
 
 \subsubsection*{Case 3: $ f(n) $ is a polynomial of degree $ n $}
 
-Choose $ U(n)_{PI} $ as a suitable polynomial of degree $ n $.
+Choose $ U(n)_{PI} $ as a general polynomial of degree $ n $.
 
 \subsubsection*{Case 4: $ f(n) $ is (polynomial in $ n )p^{n}$}
 
@@ -516,6 +523,87 @@ x_{n+1} =x_{n} - \frac{f(x_{n}}{f'(x_{n})}
 Newton-Raphson always converges quadratically, however it will only converge in specific situations (e.g. when there are no stationary points in between $ x_{0} $ and $ a $).
 
 \section{Partial differentation and vector calculus}
+
+For a multivariable function $ z = f(x, y) $, we can define the partial derivatives (derivatives w.r.t one of the variables at a time). These are written as:
+\begin{equation}
+\frac{\partial z}{\partial x}, \ \frac{\partial z}{\partial y}
+\end{equation}
+We can define second-order derivatives and so on:
+\begin{align}
+\frac{\partial^{2} z}{\partial x^{2}} & = \frac{\partial}{\partial x} (\frac{\partial z}{\partial x}) \\\\
+\frac{\partial^{2} z}{\partial x \partial y} & = \frac{\partial}{\partial x} (\frac{\partial z}{\partial y}) \\\\
+\frac{\partial^{2} z}{\partial y^{2}} & = \frac{\partial}{\partial y} (\frac{\partial z}{\partial y})
+\end{align}
+We can write the partial derivatives at $ (a, b) $ as $ f'_{x}(a, b), \ f''_{xx}(a, b), \ f''_{xy}(a, b) $ etc. (just different notation).
+\\\\
+A useful result is that for any continuous function $ z = f(x, y) $:
+\begin{equation}
+\frac{\partial^{2} z}{\partial x \partial y} \equiv \frac{\partial^{2} z}{\partial y \partial x}
+\end{equation}
+Another useful result is that:
+\begin{equation}
+\frac{\partial x}{\partial z} \equiv \frac{1}{(\frac{dz}{dx})}
+\end{equation}
+but ONLY if the same variable is being kept constant in the expressions for $ \frac{\partial z}{\partial x} $ and $ \frac{\partial x}{\partial z} $.
+\\\\
+We can define an expression called the exact (total) differential of $ z $, which is:
+\begin{equation}
+dz = \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y}dy
+\end{equation}
+If we divide this equation by $ dt $, we get the formula for a 'full' (i.e. non-partial) derivative of $ z $. This is the multivariable equivalent of the 'chain rule':
+\begin{equation}
+\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}
+\end{equation}
+In the above situation $ x $ and $ y $ are both parametric functions of $ t $.
+\\\\
+If we are asked to differentiate an implicit function, i.e. of the form $ F(x, y, z) = 0 $ where $ z $ cannot be isolated on one side, we can perform the equivalent of implicit differentiation:
+\begin{equation}
+dF = \frac{\partial F}{\partial x}dx + \frac{\partial F}{\partial y}dy + \frac{\partial F}{\partial z}dz = 0
+\end{equation}
+To get, for example, $ \frac{\partial z}{\partial x} $, we can set $ dy = 0 $ and rearrange (since we assume $ y $ is constant when finding $ \frac{\partial z}{\partial x} $).
+
+\subsection{Change of variables}
+
+Often we want to change variables, from $ z = f(x, y) $ to $ z' = g(r, \theta) $ for some $ g $. We can write down the usual substitution equations:
+\begin{align}
+x & = r \cos(\theta) \\
+y & = r \sin(\theta) \\
+r & = (x^{2} + y^{2})^{\frac{1}{2}} \\
+\theta & = \arctan(\frac{y}{x})
+\end{align}
+Note that different variables are being kept constant in each of the equations, e.g.
+\begin{align}
+\frac{\partial x}{\partial r} & = \cos(\theta) \quad \textrm{(keeping } \theta \textrm{ constant)} \\
+\frac{\partial r}{\partial x} = \frac{1}{2} \cdot 2x \cdot (x^{2} + y^{2})^{-\frac{1}{2}} & = \cos(\theta) \quad \textrm{(keeping } y \textrm{ constant)}
+\end{align}
+Therefore:
+\begin{equation}
+\frac{\partial x}{\partial r} \neq \frac{1}{\frac{\partial r}{\partial x}}
+\end{equation}
+
+\subsection{Stationary points}
+
+We can derive rigorously how to use the Taylor series of $ z = f(x, y) $ to find and classify its stationary points (but i wont cos i dont have time lel).
+\\\\
+There are three types of stationary points: maxima, minima, and saddle points. Any stationary point lies tangent to the horizontal plane (so $ \frac{\partial z}{\partial x} = \frac{\partial z}{\partial y} = 0 $).
+\\\\
+\hspace*{1.5in}
+\includegraphics[scale=0.3]{stationarypoints}
+\\\\
+The algorithmic method for finding and classifying stationary points is as follows:
+\begin{enumerate}
+\item Find the stationary points (where $ \frac{\partial z}{\partial x} = \frac{\partial z}{\partial y} = 0 $)
+\item At each stationary point, find the following:
+\begin{equation}
+A = \frac{\partial^{2} z}{\partial x^{2}}, \ B = \frac{\partial^{2} z}{\partial x \partial y}, \ C = \frac{\partial^{2} z}{\partial y^{2}}
+\end{equation}
+\item Calculate $ B^{2} - AC $ for each stationary point:
+\begin{align}
+B^{2} - AC > 0 \quad & \Rightarrow \quad \textrm{SADDLE POINT} \\
+B^{2} - AC < 0, \ A > 0 \quad & \Rightarrow \quad \textrm{MINIMUM} \\
+B^{2} - AC < 0, \ A < 0 \quad & \Rightarrow \quad \textrm{MAXIMUM} \\
+\end{align}
+\end{enumerate}
 
 \subsection{Exact equations}
 Let us say we have an ODE of the form:
