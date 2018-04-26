@@ -46,7 +46,8 @@
 %package that allows for negating nearly any symbol
 \usepackage{centernot}
 
-\usepackage{relsize}
+%package for interrupting/resuming enumerate environments
+\usepackage{enumitem}
 
 \begin{document}
 \large
@@ -484,7 +485,10 @@ Fixed-point iteration is a method of finding an approximate solution to $ f(x) =
 \begin{equation}
 x_{n+1} = F(x_{n})
 \end{equation}
-for some function $ F $. Let $ a $ denote the value that $ x_{n} $ tends towards. The associated \textbf{fixed point} of this formula is the point $ (a, 0) $. The fixed point is also the point of intersection between the lines $ y = x $ and $ y = F(x) $.
+for some function $ F $. Let $ a $ denote the value that $ x_{n} $ tends towards. The associated \textbf{fixed point} of this formula is the point $ (a, 0) $. The fixed point is also the point of intersection between the lines $ y = x $ and $ y = F(x) $. We can find the fixed point by noting that, at the fixed point:
+\begin{equation}
+a = F(a)
+\end{equation}
 \\\\
 We let the error term $ \epsilon_{n} $ be defined as:
 \begin{equation}
@@ -702,6 +706,17 @@ a_{m1} & a_{m2} & \cdots & a_{mj} & \cdots & a_{mn}
 \\
 $ i $ denotes the row number and $ j $ denotes the column number. Hence we have $ 1 \leq i \leq m $ and $ 1 \leq j \leq n $.
 
+\paragraph{Matrix multiplication}
+Let $ \vec{A} = (a_{ij}) $ be an $ m \times n $ matrix. Let $ \vec{B} = (b_{jk}) $ be an $ n \times l $ matrix. We can define the matrix product $ \vec{C = AB} $ as an $ m \times l $ matrix:
+\begin{equation}
+(c_{ik}) = \sum_{j=1}^{n} a_{ij} b_{jk}
+\end{equation}
+Note that a condition on matrix multiplication being possible is:
+\begin{equation}
+\textrm{no. of columns in } \vec{A} = \textrm{no. of rows in } \vec{B}
+\end{equation}
+Note that in general, matrix multiplication is NOT commutative.
+
 \paragraph{Leading diagonal}
 Let $ \vec{A} = (a_{ij}) $. The leading diagonal is made up of all entries of the form $ a_{ii} $, e.g. $ a_{11}, a_{22}, $ etc.
 
@@ -738,14 +753,14 @@ There are 3 types of row operation:
 \paragraph{Leading entry}
 The leading entry of a row is the first non-zero entry in that row.
 
-\paragraph{Row echelon form}
+\paragraph{Row echelon form (REF)}
 A matrix is in row echelon form if:
 \begin{itemize}
 \item All non-zero rows are above rows of all zeroes
 \item Each leading entry is $ 1 $, and is in a column to the right of the leading entry in the row above
 \item All entries in the column below a leading entry are $ 0 $
 \end{itemize}
-Note that any matrix in row echelon form is upper triangular.
+Note that any square matrix in row echelon form is upper triangular.
 
 \paragraph{Reduced row echelon form (RREF)}
 A matrix is in reduced row echelon form if:
@@ -753,7 +768,10 @@ A matrix is in reduced row echelon form if:
 \item The matrix is in reduced echelon form
 \item Each leading entry is the only non-zero entry in its column
 \end{itemize}
-Any matrix in RREF is upper AND lower triangular.
+Any square matrix in RREF is upper AND lower triangular (and hence a diagonal matrix).
+
+\paragraph{Gaussian Elimination}
+An algorithm for putting a matrix into REF or RREF form via row operations (explained in theorems section).
 
 \paragraph{Upper triangular}
 A matrix is upper triangular if $ a_{ij} = 0 $ for $ i > j $.
@@ -779,7 +797,7 @@ i.e. Only the leading diagonal contains non-zero entries.
 \paragraph{Inverse}
 The inverse of an $ n \times n $ matrix $ \vec{A} $ is such that:
 \begin{equation}
-\vec{A}^{-1} \vec{A} = \vec{A} \vec{A}^{-1} = I_{n}
+\vec{A}^{-1} \vec{A} = \vec{A} \vec{A}^{-1} = \vec{I}_{n}
 \end{equation}
 Note that this is one of the only occasions where matrix multiplication is commutative. Not all matrices have inverses.
 
@@ -787,7 +805,7 @@ Note that this is one of the only occasions where matrix multiplication is commu
 A matrix is called singular if it is non-invertible.
 
 \paragraph{Determinant}
-A specific number calculated from the entries in a matrix. Used in computing inverses. Denoted by $ \det(A) $.
+A specific number calculated from the entries in a matrix (see theorems). Used in computing inverses. Denoted by $ \det(\vec{A}) $.
 
 \paragraph{Elementary matrix}
 A matrix that differs from the identity matrix by one row operation.
@@ -808,6 +826,36 @@ for some $ \lambda \in \R $, called the eigenvalue.
 
 \section{Theorems}
 
-
+If $ \vec{A} $ is an $ m \times n $ matrix, and $ \vec{e_{k}} $ is the $ k^{th} $ standard basis vector of $ \R^{m} $ (note $ m $ not $ n $), then $ \vec{A e_{k}} $ gives the column vector which is the $ k^{th} $ column of $ A $.
+\\\\
+Matrix multiplication is associative, distributive but not commutative.
+\\
+Multiplication of diagonal matrices however IS commutative.
+\\\\
+Let $ \vec{Ax = b} $ be a sytem of linear equations, with $ (\vec{A} \ | \ \vec{b}) $ the augmented matrix. Let $ (\vec{A'} \ | \ \vec{b'}) $ be the result of applying a single row operation to $ (\vec{A} \ | \ \vec{b}) $. $ \vec{x} $ is a solution to $ \vec{A'x = b'} $ iff it is a solution to $ \vec{Ax = b} $.
+\\
+\begin{tcolorbox}[breakable]
+In other words, we can apply row operations to a system of linear equations without affecting the solution set.
+\end{tcolorbox}
+\noindent
+\\
+Any system of linear equations either has $ 0 $, $ 1 $ or infinitely many solutions.
+\\\\
+\textit{Gaussian Elimination}
+\\
+The process of Gaussian elimination can be used to reduce a matrix to REF or RREF. It is applied to augmented matrices to solve their corresponding systems of equations. Let the augmented matrix be $ (\vec{A} \ | \ \vec{b}) = (a_{ij} \ | \ b_{i}) $:
+\begin{enumerate}
+\item Look at row $ 1 $, column $ 1 $ of $ \vec{A} $. If $ a_{11} = 0 $, find a row $ i $ such that $ a_{i1} \neq 0 $ and swap row $ i $ with row $ 1 $.
+\item Multiply row $ 1 $ by $ \frac{1}{a_{11}} $. We have produced a leading $ 1 $ in that column.
+\item Subtract multiples of row $ 1 $ from all other rows such that all other entries in column $ 1 $ are $ 0 $.
+\item Repeat the process for row $ 2 $, column $ 2 $, and continue in general for row $ i $, column $ i $ until all of matrix $ \vec{A} $ has been spanned.
+\item The matrix is now in REF form.
+\end{enumerate}
+To get the matrix into RREF form, we must apply a few more steps:
+\begin{enumerate}[resume]
+\item Starting from the right-hand side column of $ \vec{A} $, look at the row which contains the column's leading $ 1 $ (say row $ k $). For every non-zero entry above the $ 1 $, subtract multiples of row $ k $ from the rows above to make all the entries $ 0 $.
+\item Repeat for all columns of $ \vec{A} $.
+\end{enumerate}
+Each row of $ A $ should now contain a single $ 1 $ with the rest of the entries as $ 0 $. Reading off the modified values of column $ \vec{b} $ gives us the values of the solution vector $ \vec{x} $.
 
 \end{document}
