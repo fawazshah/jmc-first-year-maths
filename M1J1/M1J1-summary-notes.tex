@@ -184,7 +184,7 @@ The curl of a vector field produces a vector field. For a vector field $ \vec{u}
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 u_{1} & u_{2} & u_{3}
 \end{pmatrix} \\\\
-& = (\frac{\partial u_{3}}{\partial y} - \frac{\partial u_{2}}{\partial z})\vec{i} + (\frac{\partial u_{3}}{\partial x} - \frac{\partial u_{1}}{\partial z})\vec{j} + (\frac{\partial u_{2}}{\partial x} - \frac{\partial u_{1}}{\partial y})\vec{k}
+& = (\frac{\partial u_{3}}{\partial y} - \frac{\partial u_{2}}{\partial z})\vec{i} - (\frac{\partial u_{3}}{\partial x} - \frac{\partial u_{1}}{\partial z})\vec{j} + (\frac{\partial u_{2}}{\partial x} - \frac{\partial u_{1}}{\partial y})\vec{k}
 \end{align}
 where $ \begin{pmatrix}
 u_{1} \\ u_{2} \\ u_{3}
@@ -640,6 +640,14 @@ f(x, y) = c
 \end{equation}
 for some arbitrary constant c.
 
+\subsection{grad, div and curl}
+
+All scalar fields have an associated vector quantity called grad.
+\\
+All vector fields have an associated scalar quantity called div, and an associated vector quantity called curl.
+\\
+The definitions of these quantities are given in the definitions section.
+
 \newpage
 \part{Linear Algebra}
 
@@ -794,6 +802,9 @@ A diagonal matrix is such that $ a_{ij} = 0 $ if $ i \neq j $.
 \\
 i.e. Only the leading diagonal contains non-zero entries.
 
+\paragraph{$ (i, j) $ minor}
+The $ (i, j) $ minor of a matrix $ \vec{A} $ is a submatrix obtained by removing a row $ i $ and a column $ j $. Denoted by $ \vec{A}_{ij} $.
+
 \paragraph{Inverse}
 The inverse of an $ n \times n $ matrix $ \vec{A} $ is such that:
 \begin{equation}
@@ -828,10 +839,15 @@ for some $ \lambda \in \R $, called the eigenvalue.
 
 If $ \vec{A} $ is an $ m \times n $ matrix, and $ \vec{e_{k}} $ is the $ k^{th} $ standard basis vector of $ \R^{m} $ (note $ m $ not $ n $), then $ \vec{A e_{k}} $ gives the column vector which is the $ k^{th} $ column of $ A $.
 \\\\
-Matrix multiplication is associative, distributive but not commutative.
+Matrix multiplication is associative, distributive but NOT commutative.
 \\
-Multiplication of diagonal matrices however IS commutative.
-\\\\
+There are special cases however when matrix multiplication is commutative:
+\begin{itemize}
+\item Multiplying two diagonal matrices
+\item Multiplying any matrix by the identity ( $ \vec{A}\vec{I}_{n} = \vec{I}_{n}\vec{A} = \vec{A} $)
+\item Multiplying any matrix by its inverse ( $ \vec{A}\vec{A}^{-1} = \vec{A}^{-1}\vec{A} = \vec{I}_{n} $ )
+\end{itemize}
+\subsection{Systems of linear equations}
 Let $ \vec{Ax = b} $ be a sytem of linear equations, with $ (\vec{A} \ | \ \vec{b}) $ the augmented matrix. Let $ (\vec{A'} \ | \ \vec{b'}) $ be the result of applying a single row operation to $ (\vec{A} \ | \ \vec{b}) $. $ \vec{x} $ is a solution to $ \vec{A'x = b'} $ iff it is a solution to $ \vec{Ax = b} $.
 \\
 \begin{tcolorbox}[breakable]
@@ -857,5 +873,64 @@ To get the matrix into RREF form, we must apply a few more steps:
 \item Repeat for all columns of $ \vec{A} $.
 \end{enumerate}
 Each row of $ A $ should now contain a single $ 1 $ with the rest of the entries as $ 0 $. Reading off the modified values of column $ \vec{b} $ gives us the values of the solution vector $ \vec{x} $.
+\subsection{Determinants}
+\textit{Computing determinants}
+\\
+Calculating the determinant of a $ 2 \times 2 $ matrix is as follows:
+\begin{equation}
+\det \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix}
+= ad - bc
+\end{equation}
+Calculating the determinant of a $ 3 \times 3 $ matrix $ \vec{A} $ can be done by manipulating the minors of the first row:
+\begin{equation}
+\det \begin{pmatrix}
+a_{11} & a_{22} & a_{33} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+=
+a_{11} \det (\vec{A}_{11}) - a_{12} \det (\vec{A}_{12}) + a_{13} \det (\vec{A}_{13})
+\end{equation}
+Note the alternating signs present in the above equation. In general, for any $ n \times n $ matrix $ \vec{A} $ we have:
+\begin{equation}
+\det \vec{A} = \sum_{j=1}^{n} (-1)^{i+j} \det (\vec{A}_{ij})
+\end{equation}
+by expanding about any row $ i $.
+\\\\
+\textit{Properties of the determinant}
+\\
+If two rows are swapped, the determinant is negated.
+\\
+If a row is multiplied by a scalar, the determinant is also multiplied by the scalar.
+\\
+If a multiple of one row is added to another, the determinant is unchanged.
+\\\\
+$ \det (\vec{A}) = \det (\vec{A}^{T}) $
+\\
+$ \det (\vec{AB}) = \det (\vec{A}) \det (\vec{B}) $
+
+\subsection{Inverses}
+Any matrix $ \vec{A} $ is singular iff $ \det (\vec{A}) = 0 $.
+\\\\
+\textit{Computing inverses}
+\\
+For any invertible $ 2 \times 2 $ matrix, its inverse is calculated as:
+\begin{equation}
+\begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix}^{-	1}
+=
+\frac{1}{ad-bc} \begin{pmatrix}
+d & -b \\ -c & a
+\end{pmatrix}
+\end{equation}
+For an invertible $ n \times n $ matrix $ \vec{A} $, calculating its inverse can be done with the following algorithm:
+\begin{enumerate}
+\item Write the augmented matrix $ (\vec{A} \ | \ \vec{I}_{n}) $
+\item Perform Gaussian elimination such that the left matrix $ \vec{A} $ reduces into RREF. Since it is a square matrix, its RREF will be $ \vec{I}_{n} $.
+\item The right matrix (which started as $ \vec{I}_{n} $) is now $ \vec{A}^{-1} $
+\end{enumerate}
+
+\subsection{Eigenvalues and eigenvectors}
 
 \end{document}
