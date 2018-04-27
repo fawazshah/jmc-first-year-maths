@@ -27,6 +27,9 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 
+%new command \aug for creating the vertical line in augmented matrices
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
 % renaming command to writing vectors in bold notation
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
@@ -837,7 +840,11 @@ for some $ \lambda \in \R $, called the eigenvalue.
 
 \section{Theorems}
 
-If $ \vec{A} $ is an $ m \times n $ matrix, and $ \vec{e_{k}} $ is the $ k^{th} $ standard basis vector of $ \R^{m} $ (note $ m $ not $ n $), then $ \vec{A e_{k}} $ gives the column vector which is the $ k^{th} $ column of $ A $.
+Matrices can only be added if they have the same dimension.
+\\\\
+The matrix product $ \vec{A} \vec{B} $ is only defined if number of columns in $ \vec{A} = $ number of rows in $ \vec{B} $.
+\\\\
+If $ \vec{A} $ is an $ m \times n $ matrix, and $ \vec{e_{k}} $ is the $ k^{th} $ standard basis vector of $ \R^{n} $, then $ \vec{A e_{k}} $ gives the column vector which is the $ k^{th} $ column of $ A $.
 \\\\
 Matrix multiplication is associative, distributive but NOT commutative.
 \\
@@ -847,7 +854,9 @@ There are special cases however when matrix multiplication is commutative:
 \item Multiplying any matrix by the identity ( $ \vec{A}\vec{I}_{n} = \vec{I}_{n}\vec{A} = \vec{A} $)
 \item Multiplying any matrix by its inverse ( $ \vec{A}\vec{A}^{-1} = \vec{A}^{-1}\vec{A} = \vec{I}_{n} $ )
 \end{itemize}
+
 \subsection{Systems of linear equations}
+
 Let $ \vec{Ax = b} $ be a sytem of linear equations, with $ (\vec{A} \ | \ \vec{b}) $ the augmented matrix. Let $ (\vec{A'} \ | \ \vec{b'}) $ be the result of applying a single row operation to $ (\vec{A} \ | \ \vec{b}) $. $ \vec{x} $ is a solution to $ \vec{A'x = b'} $ iff it is a solution to $ \vec{Ax = b} $.
 \\
 \begin{tcolorbox}[breakable]
@@ -859,7 +868,7 @@ Any system of linear equations either has $ 0 $, $ 1 $ or infinitely many soluti
 \\\\
 \textit{Gaussian Elimination}
 \\
-The process of Gaussian elimination can be used to reduce a matrix to REF or RREF. It is applied to augmented matrices to solve their corresponding systems of equations. Let the augmented matrix be $ (\vec{A} \ | \ \vec{b}) = (a_{ij} \ | \ b_{i}) $:
+The process of Gaussian elimination can be used to reduce a matrix to REF or RREF. It is applied to augmented matrices to solve their corresponding systems of equations. For a system $ \vec{Ax = b} $ let the augmented matrix be $ (\vec{A} \ | \ \vec{b}) = (a_{ij} \ | \ b_{i}) $:
 \begin{enumerate}
 \item Look at row $ 1 $, column $ 1 $ of $ \vec{A} $. If $ a_{11} = 0 $, find a row $ i $ such that $ a_{i1} \neq 0 $ and swap row $ i $ with row $ 1 $.
 \item Multiply row $ 1 $ by $ \frac{1}{a_{11}} $. We have produced a leading $ 1 $ in that column.
@@ -873,7 +882,9 @@ To get the matrix into RREF form, we must apply a few more steps:
 \item Repeat for all columns of $ \vec{A} $.
 \end{enumerate}
 Each row of $ A $ should now contain a single $ 1 $ with the rest of the entries as $ 0 $. Reading off the modified values of column $ \vec{b} $ gives us the values of the solution vector $ \vec{x} $.
+
 \subsection{Determinants}
+
 \textit{Computing determinants}
 \\
 Calculating the determinant of a $ 2 \times 2 $ matrix is as follows:
@@ -891,27 +902,28 @@ a_{11} & a_{22} & a_{33} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
 =
 a_{11} \det (\vec{A}_{11}) - a_{12} \det (\vec{A}_{12}) + a_{13} \det (\vec{A}_{13})
 \end{equation}
-Note the alternating signs present in the above equation. In general, for any $ n \times n $ matrix $ \vec{A} $ we have:
+Note the alternating signs present in the above equation.
+\\
+In general, for any $ n \times n $ matrix $ \vec{A} $ we have:
 \begin{equation}
 \det \vec{A} = \sum_{j=1}^{n} (-1)^{i+j} \det (\vec{A}_{ij})
 \end{equation}
 by expanding about any row $ i $.
 \\\\
-\textit{Properties of the determinant}
-\\
 If two rows are swapped, the determinant is negated.
 \\
 If a row is multiplied by a scalar, the determinant is also multiplied by the scalar.
 \\
 If a multiple of one row is added to another, the determinant is unchanged.
 \\\\
-$ \det (\vec{A}) = \det (\vec{A}^{T}) $
-\\
-$ \det (\vec{AB}) = \det (\vec{A}) \det (\vec{B}) $
+For any matrices $ \vec{A}, \vec{B} $:
+\begin{align}
+\det (\vec{A}) & = \det (\vec{A}^{T}) \\
+\det (\vec{AB}) & = \det (\vec{A}) \det (\vec{B})
+\end{align}
 
 \subsection{Inverses}
-Any matrix $ \vec{A} $ is singular iff $ \det (\vec{A}) = 0 $.
-\\\\
+
 \textit{Computing inverses}
 \\
 For any invertible $ 2 \times 2 $ matrix, its inverse is calculated as:
@@ -924,13 +936,87 @@ a & b \\ c & d
 d & -b \\ -c & a
 \end{pmatrix}
 \end{equation}
-For an invertible $ n \times n $ matrix $ \vec{A} $, calculating its inverse can be done with the following algorithm:
+For any invertible $ n \times n $ matrix $ \vec{A} $, calculating its inverse can be done with the following algorithm:
 \begin{enumerate}
 \item Write the augmented matrix $ (\vec{A} \ | \ \vec{I}_{n}) $
 \item Perform Gaussian elimination such that the left matrix $ \vec{A} $ reduces into RREF. Since it is a square matrix, its RREF will be $ \vec{I}_{n} $.
-\item The right matrix (which started as $ \vec{I}_{n} $) is now $ \vec{A}^{-1} $
+\item The right matrix (which started as $ \vec{I}_{n} $) will transform into $ \vec{A}^{-1} $
 \end{enumerate}
+\noindent
+\\
+Any matrix $ \vec{A} $ is singular iff $ \det (\vec{A}) = 0 $.
+\\\\
+Any invertible matrix only has one inverse.
+\\\\
+If $ \vec{A} $ and $ \vec{B} $ are invertible, then $ \vec{AB} $ is invertible.
+\\
+If either of $ \vec{A} $ or $ \vec{B} $ are singular, then $ \vec{AB} $ is singular.
+\\\\
+For any $ m \times n $ matrix $ \vec{A} $:
+\begin{itemize}
+\item If there exists a non-zero vector $ \vec{v} \in \R^{n} $ such that $ \vec{Av} = \vec{0}_{m} $ then $ \vec{A} $ is singular
+\item If there exists a non-zero $ n \times k $ matrix $ \vec{B} $ such that $ \vec{AB} = \vec{0}_{m \times k} $ then $ \vec{A} $ is singular
+\item If $ \vec{A} $ contains an all-zero column or an all-zero row, it is singular
+\end{itemize}
+If $ \vec{A} $ is invertible and $ \vec{A}' $ is obtained from $ \vec{A} $ by applying a single row operation:
+\begin{equation}
+\vec{A} \textrm{ invertible} \Leftrightarrow \vec{A}' \textrm{ invertible}
+\end{equation}
+For any matrix $ \vec{A} $:
+\begin{equation}
+\vec{A} \textrm{ invertible} \Leftrightarrow \textrm{RREF of } \vec{A} \textrm{ invertible}
+\end{equation}
+For any inverible matrices $ \vec{A}, \vec{B} $:
+\begin{equation}
+(\vec{AB})^{-1} = \vec{B}^{-1} \vec{A}^{-1}
+\end{equation}
 
 \subsection{Eigenvalues and eigenvectors}
+
+\textit{Computing eigenvalues/eigenvectors}
+\\
+An $ n \times n $ matrix $ \vec{A} $ has an eigenvalue $ \lambda $ (and a corresponding eigenvector $ \vec{v} \in \R^{n} $) if:
+\begin{equation}
+\vec{Av} = \lambda \vec{v}
+\end{equation}
+where $ \vec{v} \neq \vec{0}_{n} $. By rearranging, we get:
+\begin{equation} \label{eigenvalue_eq}
+(\vec{A} - \lambda \vec{I}_{n})\vec{v} = \vec{0}_{n}
+\end{equation}
+Therefore:
+\begin{align}
+\lambda \textrm{ is an eigenvector} & \Leftrightarrow \vec{A} - \lambda \vec{I}_{n} \textrm{ is singular} \\
+& \Leftrightarrow \det (\vec{A} - \lambda \vec{I}_{n}) = 0 \label{characteristicpoly}
+\end{align}
+Equation \ref{characteristicpoly} is called the characteristic equation. Solving it gives us all the eigenvalues. (Note there will be $ n $ solutions.)
+\\
+To find eigenvectors, we plug the known eigenvalues into equation \ref{eigenvalue_eq} and use the Gaussian elimination algorithm for solving $ \vec{Ax = b} $ to find $ \vec{v} $.
+\\\\
+HOWEVER the resulting augmented matrix will always seem to give us infinite solutions. Therefore there are infinitely many eigenvectors for a single eigenvalue. We can find the general form of the eigenvector and simply state an eigenvector of that form. e.g. if our augmented matrix can be reduced to:
+\begin{equation}
+\begin{pmatrix}
+1 & 2 & \ \aug \ & 0 \\
+1 & 2 & \ \aug \ & 0 \\
+\end{pmatrix}
+\end{equation}
+then if we let our solution $ \vec{v} = \begin{pmatrix}
+v_{1} \\ v_{2}
+\end{pmatrix} $ we can see that the only constraint we have is $ v_{1} + 2v_{2} = 0 $. Therefore some example eigenvectors are:
+\begin{equation}
+\begin{pmatrix}
+2 \\ -1
+\end{pmatrix} , \ 
+\begin{pmatrix}
+4 \\ -2
+\end{pmatrix} , \
+\begin{pmatrix}
+6 \\ -3
+\end{pmatrix} \textrm{ etc...}
+\end{equation}
+since they all fit this constraint. We need only state one of these eigenvectors.
+\\\\
+Any $ n \times n $ matrix has at most $ n $ eigenvalues.
+
+\subsection{Diagonalization}
 
 \end{document}
