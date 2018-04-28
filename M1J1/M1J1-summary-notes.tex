@@ -841,6 +841,15 @@ An eigenvector of a matrix $ \vec{A} $ is some $ \vec{v} \in R^{n} $ that satisf
 \end{equation}
 for some $ \lambda \in \R $, called the eigenvalue.
 
+\paragraph{Similar matrices}
+Two matrices $ \vec{A} $ and $ \vec{B} $ are similar if there exists a matrix $ \vec{P} $ such that:
+\begin{equation}
+\vec{A} = \vec{P}^{-1} \vec{B} \vec{P}
+\end{equation}
+
+\paragraph{Diagonalizable}
+A matrix is diagonalizable if it is similar to a diagonal matrix.
+
 \section{Theorems}
 
 Matrices can only be added if they have the same dimension.
@@ -1021,5 +1030,45 @@ since they all fit this constraint. We need only state one of these eigenvectors
 Any $ n \times n $ matrix has at most $ n $ eigenvalues.
 
 \subsection{Diagonalization}
+
+We say two matrices $ \vec{A} $ and $ \vec{B} $ are similar if there exists a matrix $ \vec{P} $ such that:
+\begin{equation}
+\vec{A} = \vec{P}^{-1} \vec{B} \vec{P}
+\end{equation}
+If $ \vec{A} $ is similar to $ \vec{B} $ then $ \vec{B} $ is similar to $ \vec{A} $.
+\\\\
+Similar matrices have the same eigenvalues.
+\\\\
+A matrix is called diagonalizable if it is similar to a diagonal matrix.
+\\\\
+Let $ \vec{v}_{1}...\vec{v}_{n} $ be eigenvectors of $ \vec{A} $, with corresponding eigenvalues $ \lambda_{1} ... \lambda_{n} $.
+\\
+Let $ \vec{P} = (\vec{v}_{1} \ | \ \vec{v}_{2} \ | \ ... \ | \ \vec{v}_{n}) $.
+\\
+If $ \vec{P} $ is invertible then $ \vec{A} $ is diagonalizable, with:
+\begin{equation}
+\vec{P}^{-1} \vec{A} \vec{P} = \textrm{diag}(\lambda_{1}, \lambda_{2}...\lambda_{n})
+\end{equation}
+In other words, if we let $ \vec{D} = \textrm{diag}(\lambda_{1}, \lambda_{2}...\lambda_{n}) $:
+\begin{equation}
+\vec{A} = \vec{P} \vec{D} \vec{P}^{-1}
+\end{equation}
+A matrix is only diagonalizable if all its eigenvectors are linearly independent (since only then will $ \vec{P} $ be invertible).
+\\\\
+\begin{tcolorbox}
+Computing powers of a diagonalizable matrix $ \vec{A} $ is easy, since:
+\begin{align}
+\vec{A}^{n} & = (\vec{P} \vec{D} \vec{P}^{-1})^{n} \\
+& = (\vec{P} \vec{D} \vec{P}^{-1}) (\vec{P} \vec{D} \vec{P}^{-1}) \ ... \ (\vec{P} \vec{D} \vec{P}^{-1}) \\
+& = \vec{P} \vec{D} (\vec{P}^{-1} \vec{P}) \vec{D} (\vec{P}^{-1} \ ... \ \vec{P}) \vec{D} \vec{P}^{-1} \\
+& = \vec{P} \vec{D}^{n} \vec{P}^{-1}
+\end{align}
+since all $ \vec{P}^{-1} \vec{P} $ terms cancel out.
+\\\\
+Also note that calculating $ \vec{D}^{n} $ is easy, since it is a diagonal matrix:
+\begin{equation}
+\textrm{diag}(\lambda_{1}, \lambda_{2}...\lambda_{n})^{k} = \textrm{diag}(\lambda_{1}^{k}, \lambda_{2}^{k}...\lambda_{n}^{k})
+\end{equation}
+\end{tcolorbox}
 
 \end{document}
