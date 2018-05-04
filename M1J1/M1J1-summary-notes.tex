@@ -126,7 +126,7 @@ where:
 \begin{equation}
 f'_{x} = \frac{\partial f}{\partial x}, \quad f''_{xx} = \frac{\partial^{2} f}{\partial x^{2}}, \quad f''_{xy} = \frac{\partial^{2} f}{\partial x \partial y} = \frac{\partial^{2} f}{\partial y \partial x}\textrm{ ... etc.}
 \end{equation}
-If we let $ h = x - a $ and $ k = y - b $ then we can also write the Taylor series as:
+If we let $ h = x - a $ and $ k = y - b $ then we can also write the Taylor series in its more useful form:
 \begin{align}
 f(a+h, b+k) & = \color{cyan}{f(a, b)} + \color{blue}{hf'_{x}(a, b) + kf'_{y}(a, b)} \\
 & + \color{magenta}{\frac{1}{2!}(h^{2}f''_{xx}(a, b) + 2hkf''_{xy}(a, b) + k^{2}f''_{yy}(a, b))} \color{black}{\textrm{ + ...}}
@@ -189,6 +189,13 @@ u_{1} & u_{2} & u_{3}
 where $ \begin{pmatrix}
 u_{1} \\ u_{2} \\ u_{3}
 \end{pmatrix} $ is the value of $ \vec{u} $ at that point.
+
+\paragraph{Directional derivative}
+The directional derivative is the rate of change of a scalar field $ \phi $ in a given direction, given by a direction vector $ \vec{a} $. It is given by the expression:
+\begin{equation}
+\nabla \phi \cdot \vec{a} = \textrm{grad} (\phi) \cdot \vec{a}
+\end{equation}
+Note that because of the dot product, directional derivative is a scalar field. To find directional derivative at a certain point, plug the point's coordinates into the equation for $ \nabla \phi $ and calculate the dot product.
 
 \section{2nd order ODEs}
 
@@ -643,13 +650,13 @@ f(x, y) = c
 \end{equation}
 for some arbitrary constant c.
 
-\subsection{grad, div and curl}
+\subsection{grad, div, curl and the directional derivative}
 
-All scalar fields have an associated vector quantity called grad.
-\\
+All scalar fields have an associated vector quantity called grad, and an associated scalar quantity called the directional derivative.
+\\\\
 All vector fields have an associated scalar quantity called div, and an associated vector quantity called curl.
-\\
-The definitions of these quantities are given in the definitions section.
+\\\\
+The definitions of all these quantities are given in the definitions section. We need only apply the equations in the given scenarios.
 
 \newpage
 \part{Linear Algebra}
@@ -1028,7 +1035,7 @@ Any $ n \times n $ matrix has at most $ n $ eigenvalues.
 
 \subsection{Diagonalization}
 
-We say two matrices $ \vec{A} $ and $ \vec{B} $ are similar if there exists a matrix $ \vec{P} $ such that:
+We say two matrices $ \vec{A} $ and $ \vec{B} $ are similar if there exists an invertible matrix $ \vec{P} $ such that:
 \begin{equation}
 \vec{A} = \vec{P}^{-1} \vec{B} \vec{P}
 \end{equation}
