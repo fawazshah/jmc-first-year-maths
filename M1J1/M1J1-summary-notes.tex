@@ -401,11 +401,12 @@ where $ C_{1} = A_{1}v_{1} + A_{2}v_{2} $ and $ C_{2} = (A_{1}v_{1} - A_{2}v_{2}
 
 \subsection{Phase portraits}
 
-To draw a phase portrait, we can follow some algorithmic steps:
+To draw a phase portrait for a system of differential equations, we can follow some algorithmic steps:
 \begin{enumerate}
 \item Sketch the lines of the eigenvectors in the x-y plane
 \item Draw arrows on the eigenvectors which go outwards/inwards, depending on whether the corresponding eigenvalues are positive/negative respectively
-\item Sketch out other contour lines on the x-y plane with arrows following the pattern of the existing lines
+\item If the eigenvalues have OPPOSITE signs, sketch out other contour lines on the x-y plane with arrows following the pattern of the existing lines
+\item If the eigenvalues have the SAME sign, we can take the limit of the entire system as t $ \to \infty $ to find which eigenvector 'dominates'. All contour lines will eventually tend to this eigenvector, even if they originated from the other one.
 \end{enumerate}
 
 \section{Difference equations}
