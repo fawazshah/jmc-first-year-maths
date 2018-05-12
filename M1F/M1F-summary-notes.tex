@@ -88,8 +88,14 @@ The argument of $ z = x + iy $ is defined as:
 \paragraph{Fundamental Theorem of Algebra}
 If a polynomial is of degree $ n $ then it has $ n $ roots in the complex plane.
 
+\paragraph{Rational}
+A number is rational if it can be expressed in the form $ \frac{p}{q} $, where $ p, q \in \Z $ and $ \gcd(p, q) = 1 $.
+
 \paragraph{Root of unity}
 Any $ z $ that is a solution to $ z^{n} = 1 $.
+
+\paragraph{"Dense"}
+A set $ S $ is dense in $ T $ if for any $ t_{1}, t_{2} \in T $ there exists an $ s \in S $ such that $ t_{1} < s < t_{2} $
 
 \paragraph{Supremum}
 A real number $ b $ is the sup (least upper bound) of a set $ S $ if:
@@ -146,6 +152,9 @@ A binary relation $ \sim $ is an equivalence relation iff it is reflexive, symme
 
 \paragraph{Equivalence class}
 The equivalence class of $ b \in S $ is the set of all $ s \in S $ such that $ b \sim s $.
+
+\paragraph{Image}
+The image of a function $ f: A \to B $ is the set of all $ b \in B $ such that $ b = f(a) $ for some $ a \in A $.
 
 \paragraph{Injective}
 A function $ f : A \to B $ is injective if every $ b \in B $ has at MOST one $ a \in A $ that maps to it. Mathematically:
@@ -237,6 +246,18 @@ Any root of unity (i.e. a solution to $ z^{n} = 1 $) can be expressed in the for
 \begin{equation}
 z = e^{\frac{2 \pi k i}{n}}, \quad k \in \Z_{\geq 0}
 \end{equation}
+If we let:
+\begin{equation}
+\omega = e^{\frac{2 \pi i}{n}}
+\end{equation}
+then all the $ n^{th} $ roots of unity can be expressed in the form:
+\begin{equation}
+z = 1, \omega, \omega^{2}, \omega^{3} \textrm{ ... } \omega^{n-1}
+\end{equation}
+In general, all $ n^{th} $ roots of a complex number $ a $ can be expressed as:
+\begin{equation}
+z = a, a\omega, a\omega^{2}, a\omega^{3} \textrm{ ... } a\omega^{n-1}
+\end{equation}
 
 \subsection{Proofs and Induction}
 \textit{Counterexample}
@@ -277,6 +298,10 @@ Strong induction is mathematically equivalent to weak induction.
 \end{tcolorbox}
 
 \subsection{Number Theory}
+There is no smallest positive real number.
+\\\\
+There always exists a real $ n^{th} $ root of a real number (for $ n \in Z_{>0} $).
+\\\\
 The sum/product of any two rational numbers is rational.
 \\\\
 The sum of a rational number and an irrational number is irrational.
@@ -286,6 +311,12 @@ The sum of a rational number and an irrational number is irrational.
 There are infinitely many irrational numbers.
 \\
 (consider $ x_{n} = \sqrt{2} + n $ for $ n \in \Z $)
+\\\\
+$ \Z $ is unbounded in $ \R $ (i.e. for any real number there is always an integer larger than it).
+\\\\
+$ \Q $ is dense in $ \R $.
+\\\\
+$ \R \setminus \Q $ (i.e. the set of irrationals) is dense in $ \R $.
 \\\\
 \textit{Completeness Axiom}
 \\
@@ -297,19 +328,49 @@ A set $ S $ has a least upper bound (sup) iff:
 Corresponding statement for greatest lower bound (inf).
 \\\\
 Every real number has a decimal expansion.
-\\\\
+\\
+\begin{tcolorbox}[breakable]
+Assume for simplicity that we have a single digit real number.
+\\
+Let $ d_{n} $ be the sequence of digits and $ e_{n} $ the sequence of error terms, such that $ \forall n \ 0 \leq e_{n} \leq 1 $. We have:
+\begin{equation}
+x = d_{0}.d_{1}d_{2}d_{3}...
+\end{equation}
+Then we can produce the digits by the following steps:
+\begin{align}
+x & = d_{0} + e_{0} \\
+10e_{0} & = d_{1} + e_{1} \\
+10e_{1} & = d_{2} + e_{2} \\
+& \vdots \\
+10e_{n-1} & = d_{n} + e_{n}
+\end{align}
+\end{tcolorbox}
+\noindent
+\\
 A number is rational $ \Leftrightarrow $ it has a periodic decimal expansion.
 \\\\
-For any $ x \in \Z_{\geq 0} $, $ (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightarrow (x \ | \ \gcd(a, b)) $.
+Any integer $ a $ has a quotient and remainder when divided by an integer $ b $.
+\\
+(proof by induction on $ a $)
+\\\\
+This quotient and remainder are unique for any $ a $.
+\\
+(proof by contradiction)
+\\\\
+For any $ x \in \Z_{\geq 0} $ and $ \lambda, \mu \in \Z,  (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightarrow (x \ | \  \lambda a + \mu b) $.
 \\
 ($ x \ | \ a  $ means "x divides a")
 \\\\
+For any $ x \in \Z_{\geq 0} $, $ (x \ | \ a) \textrm{ and } (x \ | \ b) \Rightarrow (x \ | \ \gcd(a, b)) $.
+\\\\
 If $  (x \ | \ ab) $ but $ \gcd(a, x) = 1 $ then $ (x \ | \ b ) $.
 \\
+(use Bezout's Theorem on $ \gcd(a, x) = 1 $)
+\\
 \begin{tcolorbox}[breakable]
-Note: In general, $ \gcd(a, b) = 1 $ doesn't mean that $ (a \ \centernot| \ b) $.
+Note: In general, $ \gcd(a, b) = 1 $ doesn't mean that $ (a \ \centernot| \ b) $, or vice versa.
 \\\\
-The only time that $ \gcd(a, b) = 1 $ implies $ (a \ \centernot| \ b) $ is if one of $ a, b $ are prime. This is because (take $ p $ prime) the only way for $ \gcd(a, p) \neq 1 $ would be if $ a $ is a multiple of $ p $, in which case $ (p \ | \ a) $.
+The only time that $ \gcd(a, b) = 1 \Leftrightarrow (a \ \centernot| \ b) $ is if one of $ a, b $ are prime. This is because (take $ p $ prime) the only way for $ \gcd(a, p) \neq 1 $ would be if $ a $ is a multiple of $ p $, in which case $ (p \ | \ a) $.
 \end{tcolorbox}
 \noindent
 \\\\
@@ -321,7 +382,7 @@ a & = q_{1} b + r_{1} \\
 b & = q_{2} r_{1} + r_{2} \\
 r_{1} & = q_{3} r_{2} + r_{3} \\
 & \vdots \\
-r_{n-1} & = q_{n} r_{n-1} + r_{n}
+r_{n-2} & = q_{n} r_{n-1} + r_{n}
 \end{align}
 Continue until $ r_{n} = 0 $, return $ r_{n-1} $.
 \\
@@ -338,6 +399,8 @@ gcd(a, b) = gcd(b, a mod b)
 \begin{equation} \label{bezout}
 \gcd(a, b) = \lambda a + \mu b \quad (\textrm{for some } \lambda, \mu \in \R)
 \end{equation}
+(proof by induction)
+\\
 \begin{tcolorbox}[breakable]
 We can write $ a $ and $ b $ as:
 \begin{align}
@@ -355,9 +418,13 @@ noting that the extra terms will always cancel out. So we have a set of solution
 \end{tcolorbox}
 \noindent
 \\
+If a prime $ p \ | \ a_{1} a_{2} \textrm{...} a_{n} $ for $ a_{i} \in \Z $, then $ p $ divides any of the $ a_{i} $.
+\\
+(proof by induction on $ n $)
+\\\\
 Every integer larger than $ 1 $ can be written as a product of primes.
 \\
-(use strong induction to prove)
+(proof using strong induction)
 \\\\
 \textit{Fundamental Theorem of Arithmetic}
 \\
@@ -380,13 +447,16 @@ If $ a \equiv b \mod m $, then for any $ n $ :
 \begin{equation}
 a^{n} \equiv b^{n} \mod m
 \end{equation}
-\\
+(proof by induction)
+\\\\
 \textit{Fermat's Little Theorem}
 \\
 For any prime $ p $ and $ a \in \Z $:
 \begin{equation}
 a^{p} \equiv a \mod p
 \end{equation}
+(can be proven by induction)
+\\\\
 Also, if $ a $ is not a multiple of $ p $:
 \begin{equation}
 a^{p-1} \equiv 1 \mod p
