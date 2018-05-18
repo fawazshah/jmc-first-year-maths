@@ -46,6 +46,9 @@
 %package that allows for negating nearly any symbol
 \usepackage{centernot}
 
+%enlarging line spacing in tables
+\renewcommand{\arraystretch}{2}
+
 \begin{document}
 \large
 \maketitle
@@ -54,13 +57,237 @@ UNDER CONSTRUCTION
 \end{center}
 \noindent This document contains a bunch of definitions and techniques, sorted by category.
 \\\\
-M1M1 is more about applying mathematical methods rather than proving theorems, so sly manipulation of mathematical techniques is crucial.
+M1M1 is more about applying mathematical methods rather than proving theorems, so sly manipulation of mathematical techniques is crucial. Most of the content is A Level, so I have only included relatively non-A-Level content.
 \\\\
 Boxes cover content in more detail.
 \tableofcontents
 \newpage
 
-\subsection{Fundamental Theorem of Calculus}
+\section{Trigonometric identities}
+Several useful trig identities (on top of the ones from A Level):
+\begin{align}
+\sin(x + \frac{\pi}{2}) & = \cos(x) \\
+\cos(x + \frac{\pi}{2}) & = \sin(x) \\
+\\
+\sin(x + \pi) & = - \sin(x) \\
+\cos(x + \pi) & = - \cos(x) \\
+\\
+\sin(x + 2 \pi) & = \sin(x) \\
+\cos(x + 2 \pi) & = \cos(x) \\
+\end{align}
+
+\section{Even and odd functions}
+An even function is such that, for all $ x $:
+\begin{equation}
+f(x) = f(-x)
+\end{equation}
+An odd function is such that, for all $ x $:
+\begin{equation}
+f(x) = -f(-x)
+\end{equation}
+Any function can be expressed as the sum of an even and an odd function. We can write any function as follows:
+\begin{equation}
+f(x) = \frac{1}{2}(f(x) + f(-x)) + \frac{1}{2}(f(x) - f(-x))
+\end{equation}
+The left part of the function is even, the right part is odd.
+
+\section{Power series}
+The general form of a power series is:
+\begin{equation}
+\sum_{n=0}^{\infty} a_{n} x^{n}
+\end{equation}
+for some sequence $ a_{n} $.
+\\\\ 
+There are several power series which must be memorized:
+\begin{align}
+e^{x} & = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + ... \\
+\sin(x) & = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - ... \\
+\cos(x) & = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - ... \\
+\sinh(x) & = x + \frac{x^{3}}{3!} + \frac{x^{5}}{5!} + ... \\
+\cosh(x) & = 1 + \frac{x^{2}}{2!} + \frac{x^{4}}{4!} + ... \\
+\arctan(x) & = x - \frac{x^{3}}{3} + \frac{x^{5}}{5} - ... \quad |x| < 1 \\
+\ln{(1+x)} & = x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - ... \quad |x| < 1 \\
+\frac{1}{1-x} & = 1 + x + x^{2} + x^{3} + ... \quad |x| < 1 \\
+\frac{1}{1+x} & = 1 - x + x^{2} - x^{3} + ... \quad |x| < 1 \\
+(1+x)^{n} & = 1 + nx + \frac{n(n-1)}{2!}x^{2} + ... \quad |x| < 1
+\end{align}
+Every power series has a corresponding radius of convergence $ R $, where the series converges for $ |x| < R $ and diverges otherwise. This can be found using the ratio test (see section \ref{series}).
+\\\\
+If a power series converges for all $ x $, then we say $ R = \infty $.
+\\\\
+Power series can be added, subtracted, multiplied, divided, differentiated, integrated and also substituted into one another within their radius of convergence.
+
+\subsection{Maclaurin vs. Taylor series}
+The general form of a Maclaurin series is:
+\begin{equation}
+f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^{2} + ...
+\end{equation}
+The general form for a Taylor series is:
+\begin{equation}
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x - a)^{2} + ...
+\end{equation}
+So a Maclaurin series is a special case of a Taylor series, just centred about $ x = 0 $.
+\\\\
+The entire point of power series in general is that we can approximate the value of a function at any point $ x $, given we know all the derivatives at a certain point $ a $. Realistically $ x $ must be close to $ a $.
+\\\\
+The Taylor series for a polynomial is finite, therefore we can calulate the actual values of polynomial functions. The Taylor series for non-polynomials are infinite series, so we must truncate the series at some point to calculate a value. This is why this method only gives an approximation to the actual value.
+
+\subsection{Complex power series} \label{complexpowerseries}
+
+We have to know how to calculate the radius of convergence for a complex power series, i.e. a series of the form:
+\begin{equation}
+\sum_{i=0}^{n} c_{n} z^{n}
+\end{equation}
+This involves a result from $ 2^{\textrm{nd}} $ year maths. Note that the radius of convergence of a complex power series is the radius of a disk in the Argand diagram, centered about $ (0, 0) $. If a complex function has no singularities (i.e. nowhere where it 'blows up') in a disk of radius $ R $ centered about $ \omega \in \C $, then it converges absolutely for $ |z - \omega| < R $.
+\\\\
+Therefore the radius of convergence about any point $ \omega \in \C $ is the distance between $ \omega $ and the nearest singularity.
+
+\section{Limits and continuity}
+Here we provide the $ \epsilon - \delta $ definition of a limit $ L $ at $ x = a $:
+\begin{equation}
+\forall \epsilon > 0 \quad \exists \delta > 0 \ \textrm{ s.t. } \ |x - a| < \delta \Rightarrow |f(x) - L| < \epsilon
+\end{equation}
+The limit at $ a $ only exists if:
+\begin{equation}
+\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)
+\end{equation}
+\\
+\textit{Properties of limits}
+\begin{align}
+\lim_{x \to a^{}} (f(x) + g(x)) & = \lim_{x \to a^{}} f(x) + \lim_{x \to a^{}} g(x) \\
+\lim_{x \to a^{}} (f(x) \ g(x)) & = \lim_{x \to a^{}} f(x) \lim_{x \to a^{}} g(x)
+\end{align}
+\\
+\textit{L'H\^{o}pital's Rule}
+\\
+If we have an indeterminate limit (that is, a limit that evaluates to $ \frac{0}{0} $ or $ \frac{\infty}{\infty} $) then we can employ L'H\^{o}pital's Rule:
+\begin{equation}
+\lim_{x \to a^{}} \frac{f(x)}{g(x)} = \lim_{x \to a^{}} \frac{f'(x)}{g'(x)}
+\end{equation}
+\\\\
+A function is continuous at $ a $ if:
+\begin{equation}
+\lim_{x \to a} f(x) = f(a)
+\end{equation}
+If the limit of a function $ f $ does not exist at $ a $, then $ f $ is not continuous at $ a $ (note that the opposite is NOT necessarily true).
+
+\section{Differentiation}
+Derivatives of the main trigonometric and hyperbolic functions should be derivable. These are:
+\begin{center}
+\begin{tabular}{c c c}
+sin & cos & tan \\
+cosec & sec & cot \\
+arcsin & arccos & arctan \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c c c}
+sinh & cosh & tanh \\
+cosech & sech & coth \\
+arcsinh & arccosh & arctanh \\
+\end{tabular}
+\end{center}
+\textit{Leibniz' Rule}
+\\
+To take the $ n^{th} $ derivative of a product of functions $ f(x) \cdot g(x) $, we can use Leibniz' rule:
+\begin{equation}
+\frac{d^{n}}{d x^{n}} (f(x) \cdot g(x)) = \sum_{r=0}^{n} {n \choose r} f^{(r)}(x) \cdot g^{(n-r)}(x)
+\end{equation}
+
+\section{Conic sections}
+There are 3 types of conic sections:
+\begin{itemize}
+\item ellipses
+\item hyperbolas
+\item parabolas
+\end{itemize}
+Any conic section can be expressed in polar form as:
+\begin{equation}
+r = \frac{L}{1 + e \cos(\theta)}
+\end{equation}
+where $ e $ varies per type. The main differences are illustrated in the following table:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{conic section} & \textbf{cartesian form} & \textbf{value of $ e $ for polar form} \\
+\hline
+ellipse & $ \frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} = 1 $ & $ e < 1 $ \\
+\hline
+parabola & $ y = ax^{2} $ & $ e = 1 $ \\
+\hline
+hyperbola & $ \frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = 1 $ & $ e > 1 $ \\
+\hline
+\end{tabular}
+\end{center}
+Special case: if $ e = 0 $ in polar form, we get a circle.
+
+\section{Series} \label{series}
+A series is the sum of elements of a sequence $ a_{n} $. We say the series is convergent (i.e. $ a_{n} $ is 'summable') if the sum to infinity exists. The sum to infinity is:
+\begin{equation}
+\sum_{i=0}^{\infty} a_{i} = \lim_{n \to \infty} \sum_{i=0}^{n} a_{i}
+\end{equation}
+We say a series $ \sum_{i=0}^{n} a_{i} $ is absolutely convergent if $ \sum_{i=0}^{n} |a_{i}| $ is convergent.
+\\\\
+A series that is convergent but not absolutely convergent is called conditionally convergent.
+\\\\
+To evaluate whether a series is convergent or divergent, we can use some standard tests.
+\\\\
+\textit{Preliminary test}
+\\
+If $ a_{n} \centernot\to 0 $ then $ \sum_{i=0}^{n} a_{n} $ diverges.
+\\\\
+\textit{Alternating series test}
+\\
+If $ a_{n} $ is alternating, and $ |a_{n}| $ is decreasing, and $ a_{n} \to 0 $, then 
+$ \sum_{i=0}^{n} a_{n} $ converges.
+\\\\
+\textit{Comparison test}
+\\
+If $ |a_{n}| < |b_{n}| $ for all $ n $:
+\begin{itemize}
+\item If $ \sum_{i=0}^{n} b_{i} $ converges absolutely, then so does $ \sum_{i=0}^{n} a_{i} $
+\item If $ \sum_{i=0}^{n} a_{i} $ diverges, then so does $ \sum_{i=0}^{n} b_{i} $
+\end{itemize}
+\noindent
+\\
+\textit{Integral test}
+\\
+If $ a_{n} $ is $ +ve $ and decreasing, and:
+\begin{equation}
+\int_{N}^{\infty} a_{x} \ dx
+\end{equation}
+exists for some $ N \in \N $, then $ a_{n} $ converges.
+\\\\
+\textit{Ratio test}
+\\
+Consider the following limit:
+\begin{equation}
+L = \lim_{n \to \infty} |\frac{a_{n+1}}{a_{n}}|
+\end{equation}
+\begin{itemize}
+\item If $ L < 1 $, the series is absolutely convergent (in particular the sequence itself converges to $ 0 $).
+\item If $ L > 1 $ the series diverges.
+\item $ L = 1 $ is an indeterminate case.
+\end{itemize}
+\noindent
+\\
+If a series is absolutely convergent then the convergent sum does not depend on the order of summation.
+\\\\
+If a series is conditionally convergent then the summed terms can be rearranged to produce any convergent sum you want.
+
+\section{Complex numbers}
+Mostly much the same as M1F. See M1F notes.
+\\\\
+Some useful identites:
+\begin{align}
+\cos(z) & = \cosh(iz) \\
+\sin(z) & = i \sinh(iz)
+\end{align}
+\\
+For calculating the radius of convergence of a complex power series, see section \ref{complexpowerseries}.
+
+\section{Fundamental Theorem of Calculus}
 The fundamental theorem of calculus defines the antiderivative $ F(x) $ and shows the relation between differentiation and integration. It can be expressed in several different forms:
 \begin{equation} \label{ftcalculus1}
 \frac{d}{dx} \int_{a}^{x} f(t) \ dt = f(x)
@@ -69,5 +296,27 @@ The fundamental theorem of calculus defines the antiderivative $ F(x) $ and show
 \int_{a}^{b} f(x) \ dx = F(b) - F(a)
 \end{equation}
 Note that in equation \ref{ftcalculus1}, any lower bound $ a $ and dummy variable $ t $ can be picked, without affecting the validity of the theorem.
+
+\section{Lengths, areas and volumes}
+The length of a curve $ y = f(x) $ between $ x = a $ and $ x = b $ is given by:
+\begin{equation}
+L = \int_{a}^{b} \sqrt{1+(f'(x))^{2}} \ dx
+\end{equation}
+For parametric curves defined by $ x(t) $ and $ y(t) $, the length is given by:
+\begin{equation}
+L = \int_{t_{a}}^{t_{b}} \sqrt{(x'(t))^{2}+(y'(t))^{2}} \ dt
+\end{equation}
+For polar curves defined by $ r = f(\theta) $, the length is given by:
+\begin{equation}
+L = \int_{\theta_{a}}^{\theta_{b}} \sqrt{(f(\theta))^{2}+(f'(\theta))^{2}} \ d \theta
+\end{equation}
+The surface area of revolution obtained by rotating a curve $ f(x) $ about the $ x $ axis is given by:
+\begin{equation}
+A = 2 \pi \int_{a}^{b} f(x) \sqrt{1+(f'(x))^{2}} \ dx
+\end{equation}
+The volume of revolution obtained by rotating a curve $ f(x) $ about the $ x $ axis is given by:
+\begin{equation}
+V = \pi \int_{a}^{b} (f(x))^{2} \ dx
+\end{equation}
 
 \end{document}
