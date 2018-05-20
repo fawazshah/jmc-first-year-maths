@@ -233,6 +233,7 @@ A series that is convergent but not absolutely convergent is called conditionall
 \\\\
 To evaluate whether a series is convergent or divergent, we can use some standard tests.
 \\\\
+\\
 \textit{Preliminary test}
 \\
 If $ a_{n} \centernot\to 0 $ then $ \sum_{i=0}^{n} a_{n} $ diverges.
@@ -255,7 +256,7 @@ If $ |a_{n}| < |b_{n}| $ for all $ n $:
 \\
 If $ a_{n} $ is $ +ve $ and decreasing, and:
 \begin{equation}
-\int_{N}^{\infty} a_{x} \ dx
+\int_{N}^{\infty} a_{n} \ dn
 \end{equation}
 exists for some $ N \in \N $, then $ a_{n} $ converges.
 \\\\
@@ -277,7 +278,7 @@ If a series is absolutely convergent then the convergent sum does not depend on 
 If a series is conditionally convergent then the summed terms can be rearranged to produce any convergent sum you want.
 
 \section{Complex numbers}
-Mostly much the same as M1F. See M1F notes.
+Mostly the same as M1F. See M1F notes.
 \\\\
 Some useful identites:
 \begin{align}
@@ -296,6 +297,24 @@ The fundamental theorem of calculus defines the antiderivative $ F(x) $ and show
 \int_{a}^{b} f(x) \ dx = F(b) - F(a)
 \end{equation}
 Note that in equation \ref{ftcalculus1}, any lower bound $ a $ and dummy variable $ t $ can be picked, without affecting the validity of the theorem.
+
+\section{Integrating functions of two variables}
+Similar to how a single integral represents the \textbf{area} underneath a 2D curve $ y = f(x) $, a double integral represents the \textbf{volume} underneath a 3D curve $ z = f(x, y) $. The double integral over a region $ S $ is denoted as:
+\begin{equation}
+\iint_{S} f(x, y) \ dx \ dy
+\end{equation}
+If we say $ S $ ranges from say, $ x = a $ to $ x = b $ and from $ y = c $ to $ y = d $, we can write the double integral as:
+\begin{equation}
+\int_{c}^{d} \int_{a}^{b} f(x, y) \ dx \ dy
+\end{equation}
+To evaluate the double integral, simply evaluate the inner integral w.r.t $ x $ and then integrate the result w.r.t $ y $.
+\\\\
+\textit{Changing into polar form}
+\\
+Suppose in the region $ S $, $ f(x, y) = g(r, \theta) $ for some function $ g $, where $ 0 \leq \theta \leq 2 \pi $ and $ r = h(\theta) $ for some function $ h $. We can convert the double integral into polar coordinates (this might perhaps make it easier to evaluate). HOWEVER, we must put an extra $ r $ term in the part of the integral w.r.t $ r $. This is extra bit is called the \textbf{Jacobian} (not covered fully in M1M1).
+\begin{equation}
+\iint_{S} f(x, y) \ dx \ dy = \int_{0}^{2 \pi} \int_{0}^{h(\theta)} g(r, \theta) \cdot r \ dr \ d \theta
+\end{equation}
 
 \section{Lengths, areas and volumes}
 The length of a curve $ y = f(x) $ between $ x = a $ and $ x = b $ is given by:
@@ -318,5 +337,50 @@ The volume of revolution obtained by rotating a curve $ f(x) $ about the $ x $ a
 \begin{equation}
 V = \pi \int_{a}^{b} (f(x))^{2} \ dx
 \end{equation}
+
+\section{Ordinary Differential Equations (ODEs)}
+
+\subsection{1st order linear ODEs}
+Every 1st order linear ODE can be expressed as:
+\begin{equation}
+\frac{dy}{dx} + p(x)y = q(x)
+\end{equation}
+These can ALL be solved by the \emph{integrating factor} method:
+\begin{enumerate}
+\item Multiply both sides by $ exp(\int_{}^{} p(x) \ dx) $
+\item Use the reverse product rule to express the LHS as a single derivative (of a function of y).
+\item Integrate both sides and rearrange.
+\end{enumerate}
+
+\subsection{Separable ODEs}
+Separable equations can be written in the form:
+\begin{equation}
+\frac{dy}{dx} = f(x)g(y)
+\end{equation}
+These can be rearranged and integrated on both sides, with respect to the different variables.
+
+\subsection{Homogenous ODEs}
+Homogenous equations can be written in the form:
+\begin{equation}
+\frac{dy}{dx} = f(\frac{y}{x})
+\end{equation}
+To solve, set $ v = \frac{y}{x} $, so that $y = xv $. Note that v is still a single-variable function of x, since y is a function of x.
+Now we can differentiate both sides to get:
+\begin{equation}
+\frac{dy}{dx} = v + x\frac{dv}{dx}
+\end{equation}
+We now have simultaneous equations for $ \frac{dy}{dx} $. Equate and solve for $ \frac{dv}{dx} $, and then solve this 1st order linear ODE in $ \frac{dv}{dx} $ to find v (and then y).
+
+\subsection{Bernoulli type ODEs}
+A Bernoulli type ODE is of the form:
+\begin{equation}
+\frac{dy}{dx} + p(x)y = q(x)y^n
+\end{equation}
+To solve:
+\begin{enumerate}
+\item Multiply both sides by $ (1-n)y^{-n} $
+\item Let $ z = y^{1-n} $ and substitute into equation, including rewriting one of the terms as $ \frac{dz}{dx} $
+\item The resulting equation is 1st order linear in z, so solve for z (and then y).
+\end{enumerate}
 
 \end{document}
