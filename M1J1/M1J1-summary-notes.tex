@@ -155,35 +155,60 @@ A function that associates a scalar value to every point in (3D) space.
 \paragraph{Vector field}
 A function that associates a vector to every point in (3D) space.
 
-\paragraph{Partial differential operator $ \nabla $}
-Imagine we have a 3D vector field with standard basis vectors $ \vec{i}, \vec{j} $ and $ \vec{k}  $. We define the operator $ \nabla $ to be:
-\begin{equation}
-\nabla = \vec{i} \frac{\partial}{\partial x} + \vec{j} \frac{\partial}{\partial y} + \vec{k} \frac{\partial}{\partial z}
-\end{equation}
+\paragraph{Vector differential operator $ \nabla $}
+Imagine we have a 3D vector field with standard basis vectors $ \vec{i}, \vec{j} $ and $ \vec{k}  $. We define the operator $ \nabla $ to be a column vector of the partial differential operators:
+\begin{align}
+\nabla & = 
+\begin{pmatrix}
+\frac{\partial}{\partial x} \\[6pt]
+\frac{\partial}{\partial y} \\[6pt]
+\frac{\partial}{\partial z}
+\end{pmatrix} \\[6pt]
+& = \vec{i} \frac{\partial}{\partial x} + \vec{j} \frac{\partial}{\partial y} + \vec{k} \frac{\partial}{\partial z}
+\end{align}
+This idea can be extended to higher dimension vector fields.
 
 \paragraph{grad}
-The gradient (grad) of a scalar field produces a vector field. For a scalar field $ \phi(x, y, z) $ we denote the grad as $ \nabla \phi $. At any point in space, grad is defined as:
-\begin{equation}
-\nabla \phi = \frac{\partial \phi}{\partial x} \vec{i} + \frac{\partial \phi}{\partial y} \vec{j} + \frac{\partial \phi}{\partial z} \vec{k}
-\end{equation}
+For a scalar field $ \phi(x, y, z) $ we define the gradient (grad) as $ \nabla \phi $. The grad of a scalar field produces a vector field.
+\begin{align}
+\nabla \phi & = 
+\begin{pmatrix}
+\frac{\partial}{\partial x} \\[6pt]
+\frac{\partial}{\partial y} \\[6pt]
+\frac{\partial}{\partial z}
+\end{pmatrix} \phi \\[6pt]
+&= \frac{\partial \phi}{\partial x} \vec{i} + \frac{\partial \phi}{\partial y} \vec{j} + \frac{\partial \phi}{\partial z} \vec{k}
+\end{align}
 
 \paragraph{div}
-The divergence (div) of a vector field produces a scalar field. For a vector field $ \vec{u}(x, y, z) $ we denote the div as $ \nabla \cdot \vec{u} $. At any point in space, div is defined as:
-\begin{equation}
-\nabla \cdot \vec{u} = \frac{\partial u_{1}}{\partial x} + \frac{\partial u_{2}}{\partial y} + \frac{\partial u_{3}}{\partial z}
-\end{equation}
+For a vector field $ \vec{u}(x, y, z) $ we define the divergence (div) as $ \nabla \cdot \vec{u} $. The div of a vector field produces a scalar field.
+\begin{align}
+\nabla \cdot \vec{u} & = 
+\begin{pmatrix}
+\frac{\partial}{\partial x} \\[6pt]
+\frac{\partial}{\partial y} \\[6pt]
+\frac{\partial}{\partial z}
+\end{pmatrix} \cdot \phi \\[6pt]
+& = \frac{\partial u_{1}}{\partial x} + \frac{\partial u_{2}}{\partial y} + \frac{\partial u_{3}}{\partial z}
+\end{align}
 where $ \begin{pmatrix}
 u_{1} \\ u_{2} \\ u_{3}
 \end{pmatrix} $ is the value of $ \vec{u} $ at that point.
 
 \paragraph{curl}
-The curl of a vector field produces a vector field. For a vector field $ \vec{u}(x, y, z) $ we denote the curl as $ \nabla \times \vec{u} $. At any point in space, curl is defined as:
+For a vector field $ \vec{u}(x, y, z) $ we define the curl as $ \nabla \times \vec{u} $. The curl of a vector field produces a vector field.
 \begin{align}
-\nabla \times \vec{u} & = \det \begin{pmatrix}
+\nabla \times \vec{u} & = 
+\begin{pmatrix}
+\frac{\partial}{\partial x} \\[6pt]
+\frac{\partial}{\partial y} \\[6pt]
+\frac{\partial}{\partial z}
+\end{pmatrix} \times \phi \\[6pt]
+& = \det \begin{pmatrix}
 \vec{i} & \vec{j} & \vec{k} \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 u_{1} & u_{2} & u_{3}
-\end{pmatrix} \\\\
+\end{pmatrix} \\[6pt]
 & = (\frac{\partial u_{3}}{\partial y} - \frac{\partial u_{2}}{\partial z})\vec{i} - (\frac{\partial u_{3}}{\partial x} - \frac{\partial u_{1}}{\partial z})\vec{j} + (\frac{\partial u_{2}}{\partial x} - \frac{\partial u_{1}}{\partial y})\vec{k}
 \end{align}
 where $ \begin{pmatrix}
